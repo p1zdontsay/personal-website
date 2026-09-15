@@ -4,77 +4,107 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yichen Xu</title>
-<meta name="description" content="Yichen Xu — Ph.D. Candidate in Electrical Engineering, Columbia University. Power management IC design: computational digital LDOs, SIMO DC-DC converters, voltage-stacked power delivery.">
+<meta name="description" content="Yichen Xu — Ph.D. Candidate in Electrical Engineering, Columbia University. Power management IC design, chip gallery, projects, and photography.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="#top">Yichen Xu</a>
-    <nav class="nav">
-      <a href="#about">About</a>
-      <a href="#publications">Publications</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
+    <a class="brand" href="#top">Yichen<span>.</span>Xu</a>
+
+    <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle menu">&#9776;</button>
+
+    <nav class="nav nav-links" id="navLinks">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#chips" data-i18n="nav.chips">Chip Gallery</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#publications" data-i18n="nav.publications">Publications</a>
+      <a href="#photography" data-i18n="nav.photography">Photography</a>
+      <a href="#experience" data-i18n="nav.experience">Experience</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
+
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" id="langEn" class="active" data-lang="en">EN</button>
+      <button type="button" id="langZh" data-lang="zh">中文</button>
+    </div>
   </div>
 </header>
 
 <main>
 
+  <!-- ================= HERO ================= -->
   <section id="top" class="hero">
-    <div class="wrap">
-      <h1>Yichen Xu</h1>
-      <p class="tagline">Ph.D. Candidate, Electrical Engineering &mdash; Columbia University</p>
-      <p class="hero-text">
-        I design power management circuits for modern SoC platforms and emerging AI hardware
-        systems &mdash; computational digital LDOs, SIMO DC&ndash;DC converters, switched-capacitor
-        converters, and voltage-stacked power delivery for high-bandwidth memory systems.
-        Advised by Prof. <a href="https://www.ee.columbia.edu/~mgseok/" target="_blank" rel="noopener">Mingoo Seok</a> at Columbia University.
-      </p>
-      <div class="hero-links">
-        <a href="mailto:yx2613@columbia.edu">Email</a>
-        <a href="https://www.linkedin.com/in/yichen-xu-5718911b2/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/p1zdontsay" target="_blank" rel="noopener">GitHub</a>
-        <!-- Add Google Scholar once you have a profile link, e.g.: -->
-        <!-- <a href="https://scholar.google.com/citations?user=XXXXXXX" target="_blank" rel="noopener">Google Scholar</a> -->
+    <div class="wrap hero-grid">
+      <div class="hero-photo">
+        <div class="ring"></div>
+        <div class="photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"></path>
+          </svg>
+          <span class="ph-label" data-i18n="hero.photoPlaceholder">Replace with<br>your photo<br>(assets/headshot.jpg)</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="eyebrow" data-i18n="hero.eyebrow">Ph.D. Candidate · Electrical Engineering · Columbia University</div>
+        <h1>Yichen Xu</h1>
+        <p class="tagline" data-i18n="hero.tagline">Power management IC designer, chip photographer, and occasional artist.</p>
+        <p class="hero-text" data-i18n="hero.text">
+          I design power management circuits for modern SoC platforms and emerging AI hardware
+          systems &mdash; computational digital LDOs, SIMO DC&ndash;DC converters, switched-capacitor
+          converters, and voltage-stacked power delivery for high-bandwidth memory systems.
+          Advised by Prof. Mingoo Seok at Columbia University. Beyond the lab, this page also
+          collects the chips I've taped out and a few frames from my camera.
+        </p>
+        <div class="hero-links">
+          <a class="pill-link" href="mailto:yx2613@columbia.edu" data-i18n="hero.linkEmail">Email</a>
+          <a class="pill-link" href="https://www.linkedin.com/in/yichen-xu-5718911b2/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="pill-link" href="https://github.com/p1zdontsay" target="_blank" rel="noopener">GitHub</a>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ================= ABOUT ================= -->
   <section id="about" class="section">
     <div class="wrap">
-      <h2>About</h2>
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="about.eyebrow">01 &mdash; About</div>
+        <h2 data-i18n="about.title">About</h2>
+      </div>
 
       <div class="about-grid">
         <div class="about-block">
-          <h3>Education</h3>
+          <h3 data-i18n="about.education.title">Education</h3>
           <ul class="plain-list">
-            <li>
-              <strong>Columbia University</strong> &mdash; M.S. &amp; Ph.D. in Electrical Engineering
-              (Advisor: Mingoo Seok)
+            <li data-i18n="about.education.columbia">
+              <strong>Columbia University</strong> &mdash; M.S. &amp; Ph.D. in Electrical Engineering (Advisor: Mingoo Seok)
               <span class="meta">2021&ndash;2027</span>
             </li>
-            <li>
-              <strong>University of Electronic Science and Technology of China (UESTC)</strong> &mdash; B.S. in Electrical Engineering
+            <li data-i18n="about.education.uestc">
+              <strong>UESTC</strong> &mdash; B.S. in Electrical Engineering
               <span class="meta">2016&ndash;2020</span>
             </li>
           </ul>
         </div>
 
         <div class="about-block">
-          <h3>Research Interests</h3>
-          <ul class="plain-list">
+          <h3 data-i18n="about.interests.title">Research Interests</h3>
+          <ul class="plain-list" data-i18n="about.interests.body">
             <li>Computational digital LDOs (DLDOs), DC&ndash;DC SIMO converters, and switched-capacitor (SC) power converters</li>
             <li>Droop detection, DVFS, and power delivery network design</li>
           </ul>
         </div>
 
         <div class="about-block">
-          <h3>Honors</h3>
-          <ul class="plain-list">
+          <h3 data-i18n="about.honors.title">Honors</h3>
+          <ul class="plain-list" data-i18n="about.honors.body">
             <li>Master of Science Award of Excellence, Columbia University (top 5%)</li>
             <li>Outstanding Student Scholarship, UESTC</li>
             <li>Best Poster Award, IBM AI Symposium 2024</li>
@@ -84,9 +114,168 @@
     </div>
   </section>
 
-  <section id="publications" class="section alt">
+  <!-- ================= CHIP GALLERY ================= -->
+  <section id="chips" class="section">
     <div class="wrap">
-      <h2>Publications</h2>
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="chips.eyebrow">02 &mdash; Silicon</div>
+        <h2 data-i18n="chips.title">Chip Gallery</h2>
+        <p class="lede" data-i18n="chips.lede">
+          Die shots and test boards from tape-outs across three process nodes. Placeholder art
+          below &mdash; swap each <code>.tile-art</code> for a real photo in <code>assets/chips/</code>.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <article class="tile">
+          <div class="tile-art chip-art"></div>
+          <span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption">
+            <h4 data-i18n="chips.item1.title">Computational DLDO</h4>
+            <div class="tile-meta">28nm CMOS &middot; 2023&ndash;2024</div>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile-art chip-art"></div>
+          <span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption">
+            <h4 data-i18n="chips.item2.title">DLDO-Assisted Buck Converter</h4>
+            <div class="tile-meta">28nm CMOS &middot; 2024&ndash;2025</div>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile-art chip-art"></div>
+          <span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption">
+            <h4 data-i18n="chips.item3.title">Bidirectional SIMO Compensator</h4>
+            <div class="tile-meta">65nm CMOS &middot; 2025&ndash;2026</div>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile-art chip-art"></div>
+          <span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption">
+            <h4 data-i18n="chips.item4.title">CSCR Power Converter</h4>
+            <div class="tile-meta">65nm CMOS &middot; 2026&ndash;present</div>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile-art chip-art"></div>
+          <span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption">
+            <h4 data-i18n="chips.item5.title">TWS Battery Charging IC</h4>
+            <div class="tile-meta">GF 180nm &middot; 2020&ndash;2021</div>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile-art chip-art"></div>
+          <span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption">
+            <h4 data-i18n="chips.item6.title">Ultrasound Range Finder AFE</h4>
+            <div class="tile-meta">65nm CMOS &middot; 2021&ndash;2022</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="projects.eyebrow">03 &mdash; Research</div>
+        <h2 data-i18n="projects.title">Projects</h2>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-period">2026&ndash;present</div>
+          <h3 data-i18n="projects.p1.title">Continuously Scalable Conversion Ratio (CSCR) Power Converter for Stacked Systems</h3>
+          <p class="project-meta">65 nm CMOS</p>
+          <p data-i18n="projects.p1.body">
+            Designing a CSCR-based mismatch compensator for stacked voltage-domain systems, with automatic
+            source/sink mode selection to maintain high efficiency under large current mismatch.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-period">2025&ndash;2026</div>
+          <h3 data-i18n="projects.p2.title">HBM Voltage-Stacked Power Delivery &amp; Memory-System Modeling</h3>
+          <p data-i18n="projects.p2.body">
+            Built a DRAMSim3/Accel-Sim&ndash;based framework to analyze per-channel power, latency, and current
+            mismatch in HBM2/HBM3 systems under GPU workloads. Proposed a voltage-stacked HBM power delivery
+            architecture and load-mismatch metrics, identifying up to 113&nbsp;mA of inter-channel current mismatch
+            and evaluating TSV / power-efficiency trade-offs.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-period">2025&ndash;2026</div>
+          <h3 data-i18n="projects.p3.title">Bidirectional SIMO Mismatch Compensator for Stacked Voltage-Domain Systems</h3>
+          <p class="project-meta">65 nm CMOS</p>
+          <p data-i18n="projects.p3.body">
+            Invented a bidirectional zero-current detector (Bi-ZCD) for source/sink current regulation in
+            voltage-stacked systems, achieving 98.5% peak efficiency and 82% efficiency under 360&nbsp;mA load
+            mismatch.
+          </p>
+          <p class="project-pub" data-i18n="projects.p3.pub">&rarr; Published as VSIMO, IEEE VLSI Symposium 2026</p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-period">2024&ndash;2025</div>
+          <h3 data-i18n="projects.p4.title">Computational DLDO-Assisted Buck DC&ndash;DC Converter</h3>
+          <p class="project-meta">28 nm CMOS</p>
+          <p data-i18n="projects.p4.body">
+            Designed a DLDO-assisted buck converter with one-step computational droop compensation and
+            DLDO-controlled current handover, achieving 68-mV droop, 112-ns settling time, and 95.5% peak
+            efficiency for 1A/0.8ns load transients.
+          </p>
+          <p class="project-pub" data-i18n="projects.p4.pub">&rarr; Published in IEEE SSCL 2025</p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-period">2023&ndash;2024</div>
+          <h3 data-i18n="projects.p5.title">Computational DLDO with Load-Dependent Feedback and Fast DVS</h3>
+          <p class="project-meta">28 nm CMOS</p>
+          <p data-i18n="projects.p5.body">
+            Designed a rising-edge computational DLDO with load-dependent feedback and DVS computation,
+            achieving a 0.15-ps FoM, 25-mV/ns DVS rate, and low ripple across a 1-to-1050&nbsp;mA load range.
+          </p>
+          <p class="project-pub" data-i18n="projects.p5.pub">&rarr; Published at IEEE VLSI Symposium 2026; invited manuscript, IEEE JSSC 2027</p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-period">2022&ndash;2023</div>
+          <h3 data-i18n="projects.p6.title">Dynamic Load Regulation Limit Model for Digital LDOs</h3>
+          <p data-i18n="projects.p6.body">
+            Established an analytical model of dynamic load regulation for commonly used DLDO architectures,
+            analyzing the impact of design parameters and providing optimal design points for power switch sizing.
+          </p>
+          <p class="project-pub" data-i18n="projects.p6.pub">&rarr; Published in IEEE TVLSI 2024</p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-period">2021&ndash;2022</div>
+          <h3><span data-i18n="projects.p7.title">Ultrasound Range Finder Analog Front End</span> <span class="project-tag" data-i18n="projects.p7.tag">Course Project</span></h3>
+          <p class="project-meta">65 nm CMOS &middot; EE6350</p>
+          <p data-i18n="projects.p7.body">
+            Designed a 9-setting programmable-gain amplifier using replica-based common-mode feedback, and
+            developed the strong-arm comparator, track-and-hold, and capacitor-based DAC for a 125&nbsp;kHz
+            8-bit SAR ADC.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PUBLICATIONS ================= -->
+  <section id="publications" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="publications.eyebrow">04 &mdash; Writing</div>
+        <h2 data-i18n="publications.title">Publications</h2>
+      </div>
+
       <ol class="pub-list">
         <li>
           Yichen Xu, Rentao Wan, Mao Li, Zhaoqing Wang, Suhwan Kim, Ram K. Krishnamurthy, Xin Zhang, and Mingoo Seok,
@@ -130,7 +319,7 @@
         </li>
       </ol>
 
-      <h3 class="subhead">Patents</h3>
+      <h3 class="subhead" data-i18n="publications.patents">Patents</h3>
       <ol class="pub-list">
         <li>Yichen Xu, Xizhen Yin, &ldquo;A High Voltage LDO-Based Linear Charging System,&rdquo; issued Apr 28, 2023.</li>
         <li>Yichen Xu, Xizhen Yin, &ldquo;A Substrate Switching Circuit for LDO Backflow Current Protection,&rdquo; issued Nov 18, 2022.</li>
@@ -138,102 +327,50 @@
     </div>
   </section>
 
-  <section id="projects" class="section">
+  <!-- ================= PHOTOGRAPHY ================= -->
+  <section id="photography" class="section">
     <div class="wrap">
-      <h2>Projects</h2>
-      <div class="project-grid">
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="photo.eyebrow">05 &mdash; Outside the lab</div>
+        <h2 data-i18n="photo.title">Photography</h2>
+        <p class="lede" data-i18n="photo.lede">
+          A few frames outside the cleanroom. Placeholder art below &mdash; drop real photos into
+          <code>assets/photography/</code> and swap the tiles.
+        </p>
+      </div>
 
-        <article class="project-card">
-          <div class="project-period">2026&ndash;present</div>
-          <h3>Continuously Scalable Conversion Ratio (CSCR) Power Converter for Stacked Systems</h3>
-          <p class="project-meta">65 nm CMOS</p>
-          <p>
-            Designing a CSCR-based mismatch compensator for stacked voltage-domain systems, with automatic
-            source/sink mode selection to maintain high efficiency under large current mismatch.
-          </p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-period">2025&ndash;2026</div>
-          <h3>HBM Voltage-Stacked Power Delivery &amp; Memory-System Modeling</h3>
-          <p>
-            Built a DRAMSim3/Accel-Sim&ndash;based framework to analyze per-channel power, latency, and current
-            mismatch in HBM2/HBM3 systems under GPU workloads. Proposed a voltage-stacked HBM power delivery
-            architecture and load-mismatch metrics, identifying up to 113&nbsp;mA of inter-channel current mismatch
-            and evaluating TSV / power-efficiency trade-offs.
-          </p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-period">2025&ndash;2026</div>
-          <h3>Bidirectional SIMO Mismatch Compensator for Stacked Voltage-Domain Systems</h3>
-          <p class="project-meta">65 nm CMOS</p>
-          <p>
-            Invented a bidirectional zero-current detector (Bi-ZCD) for source/sink current regulation in
-            voltage-stacked systems, achieving 98.5% peak efficiency and 82% efficiency under 360&nbsp;mA load
-            mismatch.
-          </p>
-          <p class="project-pub">&rarr; Published as VSIMO, IEEE VLSI Symposium 2026</p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-period">2024&ndash;2025</div>
-          <h3>Computational DLDO-Assisted Buck DC&ndash;DC Converter</h3>
-          <p class="project-meta">28 nm CMOS</p>
-          <p>
-            Designed a DLDO-assisted buck converter with one-step computational droop compensation and
-            DLDO-controlled current handover, achieving 68-mV droop, 112-ns settling time, and 95.5% peak
-            efficiency for 1A/0.8ns load transients.
-          </p>
-          <p class="project-pub">&rarr; Published in IEEE SSCL 2025</p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-period">2023&ndash;2024</div>
-          <h3>Computational DLDO with Load-Dependent Feedback and Fast DVS</h3>
-          <p class="project-meta">28 nm CMOS</p>
-          <p>
-            Designed a rising-edge computational DLDO with load-dependent feedback and DVS computation,
-            achieving a 0.15-ps FoM, 25-mV/ns DVS rate, and low ripple across a 1-to-1050&nbsp;mA load range.
-          </p>
-          <p class="project-pub">&rarr; Published at IEEE VLSI Symposium 2026; invited manuscript, IEEE JSSC 2027</p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-period">2022&ndash;2023</div>
-          <h3>Dynamic Load Regulation Limit Model for Digital LDOs</h3>
-          <p>
-            Established an analytical model of dynamic load regulation for commonly used DLDO architectures,
-            analyzing the impact of design parameters and providing optimal design points for power switch sizing.
-          </p>
-          <p class="project-pub">&rarr; Published in IEEE TVLSI 2024</p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-period">2021&ndash;2022</div>
-          <h3>Ultrasound Range Finder Analog Front End <span class="project-tag">Course Project</span></h3>
-          <p class="project-meta">65 nm CMOS &middot; EE6350</p>
-          <p>
-            Designed a 9-setting programmable-gain amplifier using replica-based common-mode feedback, and
-            developed the strong-arm comparator, track-and-hold, and capacitor-based DAC for a 125&nbsp;kHz
-            8-bit SAR ADC.
-          </p>
-        </article>
-
+      <div class="gallery-grid">
+        <article class="tile"><div class="tile-art photo-art"></div><span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption"><h4 data-i18n="photo.item1">Travel</h4></div></article>
+        <article class="tile"><div class="tile-art photo-art"></div><span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption"><h4 data-i18n="photo.item2">Street</h4></div></article>
+        <article class="tile"><div class="tile-art photo-art"></div><span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption"><h4 data-i18n="photo.item3">Nature</h4></div></article>
+        <article class="tile"><div class="tile-art photo-art"></div><span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption"><h4 data-i18n="photo.item4">Architecture</h4></div></article>
+        <article class="tile"><div class="tile-art photo-art"></div><span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption"><h4 data-i18n="photo.item5">Long Exposure</h4></div></article>
+        <article class="tile"><div class="tile-art photo-art"></div><span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption"><h4 data-i18n="photo.item6">Film</h4></div></article>
       </div>
     </div>
   </section>
 
-  <section id="experience" class="section alt">
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience" class="section">
     <div class="wrap">
-      <h2>Experience</h2>
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="experience.eyebrow">06 &mdash; Industry</div>
+        <h2 data-i18n="experience.title">Experience</h2>
+      </div>
+
       <ul class="timeline">
         <li>
           <div class="timeline-period">Summer 2026</div>
           <div class="timeline-body">
-            <h3>Circuit Design Intern &mdash; DRAM Design Lab, Samsung</h3>
+            <h3 data-i18n="experience.e1.title">Circuit Design Intern &mdash; DRAM Design Lab, Samsung</h3>
             <p class="project-meta">San Jose, CA</p>
-            <p>
+            <p data-i18n="experience.e1.body">
               Designed a fully integrated voltage regulator for the LPDDR6 Built-of-Test (LP6BOT) chip, and a
               three-path regulation architecture (feedback, PSR feedforward, transient feedforward) achieving
               &gt;20&nbsp;dB PSRR at 100&nbsp;MHz. Coordinated the chip power delivery network layout in Samsung 14nm CMOS.
@@ -243,9 +380,9 @@
         <li>
           <div class="timeline-period">Summer 2025</div>
           <div class="timeline-body">
-            <h3>Graduate Technical Intern &mdash; Intel</h3>
+            <h3 data-i18n="experience.e2.title">Graduate Technical Intern &mdash; Intel</h3>
             <p class="project-meta">Hillsboro, OR</p>
-            <p>
+            <p data-i18n="experience.e2.body">
               Developed SPICE/Verilog-A models for adaptive clocking, clock throttling, and switched-capacitor
               load balancing; created a critical-path replica circuit with background calibration for setup
               violation detection in Intel 16nm CMOS.
@@ -255,9 +392,9 @@
         <li>
           <div class="timeline-period">Summer 2022</div>
           <div class="timeline-body">
-            <h3>Mixed-Signal Design Engineer Intern &mdash; Ambarella</h3>
+            <h3 data-i18n="experience.e3.title">Mixed-Signal Design Engineer Intern &mdash; Ambarella</h3>
             <p class="project-meta">Santa Clara, CA</p>
-            <p>
+            <p data-i18n="experience.e3.body">
               Performed low-power standard-cell schematic and layout design in Samsung 4nm FinFET, and developed
               an automated Python-based .lib generation flow for digital place-and-route.
             </p>
@@ -266,9 +403,9 @@
         <li>
           <div class="timeline-period">2020&ndash;2021</div>
           <div class="timeline-body">
-            <h3>Analog and System IC Engineer &mdash; Chip Dance Technology</h3>
+            <h3 data-i18n="experience.e4.title">Analog and System IC Engineer &mdash; Chip Dance Technology</h3>
             <p class="project-meta">Shanghai, China</p>
-            <p>
+            <p data-i18n="experience.e4.body">
               Led a True Wireless Stereo lithium battery charging chip architecture, taped out in GF 180nm.
               Designed a sub-threshold BGR with digital trimming DAC and a PVT-tolerant hysteresis comparator,
               and an LDO-based linear battery charger for 5V-to-4.2V regulation (first inventor on related patent).
@@ -277,17 +414,21 @@
         </li>
       </ul>
 
-      <h3 class="subhead">Teaching</h3>
+      <h3 class="subhead" data-i18n="experience.teaching">Teaching</h3>
       <ul class="plain-list">
-        <li>Teaching Assistant, Modern Power Management IC Design (ELEN 6920) &mdash; Fall 2022 / 2023 / 2024</li>
-        <li>Teaching Assistant, VLSI Design Lab (ELEN 6350) &mdash; Spring 2025</li>
+        <li data-i18n="experience.t1">Teaching Assistant, Modern Power Management IC Design (ELEN 6920) &mdash; Fall 2022 / 2023 / 2024</li>
+        <li data-i18n="experience.t2">Teaching Assistant, VLSI Design Lab (ELEN 6350) &mdash; Spring 2025</li>
       </ul>
     </div>
   </section>
 
+  <!-- ================= CONTACT ================= -->
   <section id="contact" class="section">
     <div class="wrap">
-      <h2>Contact</h2>
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="contact.eyebrow">07 &mdash; Say hello</div>
+        <h2 data-i18n="contact.title">Contact</h2>
+      </div>
       <p>
         Email: <a href="mailto:yx2613@columbia.edu">yx2613@columbia.edu</a><br>
         LinkedIn: <a href="https://www.linkedin.com/in/yichen-xu-5718911b2/" target="_blank" rel="noopener">yichen-xu-5718911b2</a><br>
@@ -300,9 +441,10 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>&copy; 2026 Yichen Xu. Built with plain HTML/CSS, hosted on GitHub Pages.</p>
+    <p data-i18n="footer.text">&copy; 2026 Yichen Xu. Built with plain HTML/CSS/JS, hosted on GitHub Pages.</p>
   </div>
 </footer>
 
+<script src="js/i18n.js"></script>
 </body>
 </html>
