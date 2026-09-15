@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yichen Xu &mdash; Journey</title>
+<meta name="description" content="From Zigong to Chengdu to New York and San Jose — Yichen Xu's path.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">Yichen<span>.</span>Xu</a>
+
+    <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle menu">&#9776;</button>
+
+    <nav class="nav nav-links" id="navLinks">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="journey.html" class="active" data-i18n="nav.journey">Journey</a>
+      <a href="chips.html" data-i18n="nav.chips">Chip Gallery</a>
+      <a href="projects.html" data-i18n="nav.projects">Projects</a>
+      <a href="publications.html" data-i18n="nav.publications">Publications</a>
+      <a href="photography.html" data-i18n="nav.photography">Photography</a>
+      <a href="experience.html" data-i18n="nav.experience">Experience</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" id="langEn" class="active" data-lang="en">EN</button>
+      <button type="button" id="langZh" data-lang="zh">中文</button>
+    </div>
+  </div>
+</header>
+<main>
+
+  <section class="section section-first">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="journey.eyebrow">01b &mdash; Journey</div>
+        <h2 data-i18n="journey.title">Zigong &rarr; Chengdu &rarr; New York &rarr; San Jose</h2>
+        <p class="lede" data-i18n="journey.lede">
+          A quick map of how a kid from a small city in Sichuan ended up designing power
+          management chips on two continents.
+        </p>
+      </div>
+
+      <ul class="journey-line">
+        <li class="journey-stop">
+          <div class="journey-marker"><span class="journey-dot"></span></div>
+          <div class="journey-content">
+            <div class="journey-coord">29.35&deg;N, 104.78&deg;E</div>
+            <h3><span data-i18n="journey.s1.city">Zigong</span></h3>
+            <p class="project-meta"><span data-i18n="journey.s1.region">Sichuan, China</span> &middot; <span data-i18n="journey.s1.period">Where it started</span></p>
+            <p data-i18n="journey.s1.body">Born and raised in Zigong &mdash; a small industrial city in Sichuan known for salt mining, dinosaur fossils, and lantern festivals. First taste of taking things apart to see how they work.</p>
+          </div>
+        </li>
+        <li class="journey-stop">
+          <div class="journey-marker"><span class="journey-dot"></span></div>
+          <div class="journey-content">
+            <div class="journey-coord">30.66&deg;N, 104.07&deg;E</div>
+            <h3><span data-i18n="journey.s2.city">Chengdu</span></h3>
+            <p class="project-meta"><span data-i18n="journey.s2.region">Sichuan, China</span> &middot; <span data-i18n="journey.s2.period">2016 &ndash; 2020</span></p>
+            <p data-i18n="journey.s2.body">Moved to the provincial capital for a B.S. in Electrical Engineering at UESTC &mdash; roughly 180&nbsp;km from home, but a first real step away. This is where circuits stopped being a subject and became the thing I wanted to do.</p>
+          </div>
+        </li>
+        <li class="journey-stop">
+          <div class="journey-marker"><span class="journey-dot"></span></div>
+          <div class="journey-content">
+            <div class="journey-coord">40.71&deg;N, 74.01&deg;W</div>
+            <h3><span data-i18n="journey.s3.city">New York</span></h3>
+            <p class="project-meta"><span data-i18n="journey.s3.region">United States</span> &middot; <span data-i18n="journey.s3.period">2021 &ndash; present</span></p>
+            <p data-i18n="journey.s3.body">~11,700&nbsp;km from Chengdu for an M.S. &amp; Ph.D. at Columbia University. New country, new language of instruments, same question: how do you keep power clean and efficient when everything around it is switching?</p>
+          </div>
+        </li>
+        <li class="journey-stop">
+          <div class="journey-marker"><span class="journey-dot"></span></div>
+          <div class="journey-content">
+            <div class="journey-coord">37.34&deg;N, 121.89&deg;W</div>
+            <h3><span data-i18n="journey.s4.city">San Jose</span></h3>
+            <p class="project-meta"><span data-i18n="journey.s4.region">California, United States</span> &middot; <span data-i18n="journey.s4.period">Summer 2026</span></p>
+            <p data-i18n="journey.s4.body">~4,100&nbsp;km west to Samsung's DRAM Design Lab for a circuit design internship &mdash; from lecture halls in Manhattan to the middle of Silicon Valley's memory industry.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p data-i18n="footer.text">&copy; 2026 Yichen Xu. Built with plain HTML/CSS/JS, hosted on GitHub Pages.</p>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+</body>
+</html>
