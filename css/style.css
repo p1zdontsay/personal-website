@@ -1,0 +1,284 @@
+/* ---------------------------------------------------------
+   Yichen Xu — personal website
+   Minimal academic style. Edit the variables below to re-theme.
+   --------------------------------------------------------- */
+
+:root {
+  --color-bg: #ffffff;
+  --color-bg-alt: #f6f5f2;
+  --color-text: #1c1c1c;
+  --color-text-muted: #5a5a5a;
+  --color-accent: #7a2e2e;      /* Columbia-ish deep red; change to taste */
+  --color-border: #e4e2dd;
+
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+
+  --content-width: 760px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #14130f;
+    --color-bg-alt: #1b1a16;
+    --color-text: #ececec;
+    --color-text-muted: #a9a9a9;
+    --color-accent: #d98b8b;
+    --color-border: #2c2b26;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+  margin: 0 0 0.5em;
+}
+
+h2 { font-size: 1.6rem; margin-bottom: 1.2rem; }
+h3 { font-size: 1.15rem; }
+
+a { color: var(--color-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+p { margin: 0 0 1em; }
+
+/* ---------- header ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  background: var(--color-bg);
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 14px 24px;
+  gap: 10px;
+}
+
+.brand {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+}
+
+.nav a { color: var(--color-text-muted); }
+.nav a:hover { color: var(--color-accent); }
+
+/* ---------- hero ---------- */
+
+.hero {
+  padding: 56px 0 40px;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.15em;
+}
+
+.tagline {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 1.2em;
+}
+
+.hero-text {
+  max-width: 62ch;
+}
+
+.hero-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 1.2em;
+  font-weight: 600;
+}
+
+/* ---------- sections ---------- */
+
+.section {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section.alt {
+  background: var(--color-bg-alt);
+}
+
+.section:last-of-type { border-bottom: none; }
+
+.subhead {
+  margin-top: 2.2em;
+}
+
+.plain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plain-list li {
+  margin-bottom: 0.9em;
+}
+
+.meta {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- about grid ---------- */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 680px) {
+  .about-grid { grid-template-columns: 1fr; gap: 28px; }
+}
+
+.about-block h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.8em;
+}
+
+/* ---------- publications ---------- */
+
+.pub-list {
+  padding-left: 1.4em;
+}
+
+.pub-list li {
+  margin-bottom: 1.1em;
+}
+
+/* ---------- projects ---------- */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+.project-card {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 20px 22px;
+  background: var(--color-bg);
+}
+
+.project-period {
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 0.4em;
+}
+
+.project-meta {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-top: -0.4em;
+  margin-bottom: 0.8em;
+}
+
+.project-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.project-pub {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0;
+}
+
+/* ---------- experience timeline ---------- */
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline > li {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 20px;
+  padding: 18px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.timeline > li:first-child { border-top: none; }
+
+@media (max-width: 680px) {
+  .timeline > li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+.timeline-period {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding-top: 0.2em;
+}
+
+.timeline-body h3 { margin-bottom: 0.2em; }
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  padding: 28px 0 48px;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
