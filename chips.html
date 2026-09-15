@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yichen Xu &mdash; Chip Gallery</title>
+<meta name="description" content="Die shots and test boards from Yichen Xu's tape-outs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">Yichen<span>.</span>Xu</a>
+
+    <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle menu">&#9776;</button>
+
+    <nav class="nav nav-links" id="navLinks">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="chips.html" class="active" data-i18n="nav.chips">Chip Gallery</a>
+      <a href="projects.html" data-i18n="nav.projects">Projects</a>
+      <a href="publications.html" data-i18n="nav.publications">Publications</a>
+      <a href="photography.html" data-i18n="nav.photography">Photography</a>
+      <a href="experience.html" data-i18n="nav.experience">Experience</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" id="langEn" class="active" data-lang="en">EN</button>
+      <button type="button" id="langZh" data-lang="zh">中文</button>
+    </div>
+  </div>
+</header>
+<main>
+
+  <section class="section section-first">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="chips.eyebrow">02 &mdash; Silicon</div>
+        <h2 data-i18n="chips.title">Chip Gallery</h2>
+        <p class="lede" data-i18n="chips.lede">
+          Die shots and test boards from tape-outs across three process nodes. Placeholder art
+          below &mdash; swap each <code>.tile-art</code> for a real photo in <code>assets/chips/</code>.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <article class="tile">
+          <div class="tile-art chip-art"></div>
+          <span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption">
+            <h4 data-i18n="chips.item1.title">Computational DLDO</h4>
+            <div class="tile-meta">28nm CMOS &middot; 2023&ndash;2024</div>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile-art chip-art"></div>
+          <span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption">
+            <h4 data-i18n="chips.item2.title">DLDO-Assisted Buck Converter</h4>
+            <div class="tile-meta">28nm CMOS &middot; 2024&ndash;2025</div>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile-art chip-art"></div>
+          <span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption">
+            <h4 data-i18n="chips.item3.title">Bidirectional SIMO Compensator</h4>
+            <div class="tile-meta">65nm CMOS &middot; 2025&ndash;2026</div>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile-art chip-art"></div>
+          <span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption">
+            <h4 data-i18n="chips.item4.title">CSCR Power Converter</h4>
+            <div class="tile-meta">65nm CMOS &middot; 2026&ndash;present</div>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile-art chip-art"></div>
+          <span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption">
+            <h4 data-i18n="chips.item5.title">TWS Battery Charging IC</h4>
+            <div class="tile-meta">GF 180nm &middot; 2020&ndash;2021</div>
+          </div>
+        </article>
+        <article class="tile">
+          <div class="tile-art chip-art"></div>
+          <span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <div class="tile-caption">
+            <h4 data-i18n="chips.item6.title">Ultrasound Range Finder AFE</h4>
+            <div class="tile-meta">65nm CMOS &middot; 2021&ndash;2022</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p data-i18n="footer.text">&copy; 2026 Yichen Xu. Built with plain HTML/CSS/JS, hosted on GitHub Pages.</p>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+</body>
+</html>

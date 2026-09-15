@@ -8,6 +8,7 @@
 
 const I18N = {
   en: {
+    "nav.home": "Home",
     "nav.about": "About",
     "nav.chips": "Chip Gallery",
     "nav.projects": "Projects",
@@ -21,6 +22,15 @@ const I18N = {
     "hero.tagline": "Power management IC designer, chip photographer, and occasional artist.",
     "hero.text": "I design power management circuits for modern SoC platforms and emerging AI hardware systems &mdash; computational digital LDOs, SIMO DC&ndash;DC converters, switched-capacitor converters, and voltage-stacked power delivery for high-bandwidth memory systems. Advised by Prof. Mingoo Seok at Columbia University. Beyond the lab, this page also collects the chips I've taped out and a few frames from my camera.",
     "hero.linkEmail": "Email",
+
+    "home.eyebrow": "Explore",
+    "home.title": "Around the site",
+    "home.about.desc": "Education, research interests, and honors.",
+    "home.chips.desc": "Die shots and test boards from every tape-out.",
+    "home.projects.desc": "Research projects, from course work to current tape-outs.",
+    "home.publications.desc": "Papers and patents.",
+    "home.photography.desc": "A few frames outside the cleanroom.",
+    "home.experience.desc": "Internships, industry work, and teaching.",
 
     "about.eyebrow": "01 &mdash; About",
     "about.title": "About",
@@ -100,6 +110,7 @@ const I18N = {
   },
 
   zh: {
+    "nav.home": "首页",
     "nav.about": "关于我",
     "nav.chips": "芯片墙",
     "nav.projects": "项目",
@@ -113,6 +124,15 @@ const I18N = {
     "hero.tagline": "电源管理芯片设计师，业余芯片摄影师与摄影爱好者。",
     "hero.text": "我从事面向现代 SoC 平台与新兴 AI 硬件系统的电源管理电路设计 &mdash; 包括计算式数字 LDO（DLDO）、SIMO 多路输出 DC&ndash;DC 转换器、开关电容转换器，以及面向高带宽内存系统的电压堆叠式电源传输。导师是哥伦比亚大学的 Mingoo Seok 教授。实验室之外，这个页面也收录了我流过片的芯片，以及一些随手拍的照片。",
     "hero.linkEmail": "邮箱",
+
+    "home.eyebrow": "浏览",
+    "home.title": "站点导览",
+    "home.about.desc": "教育背景、研究方向与荣誉奖项。",
+    "home.chips.desc": "每次流片的芯片照片与测试板。",
+    "home.projects.desc": "从课程项目到最新流片的研究项目。",
+    "home.publications.desc": "论文与专利。",
+    "home.photography.desc": "实验室之外拍的一些照片。",
+    "home.experience.desc": "实习、工业界经历与助教经历。",
 
     "about.eyebrow": "01 &mdash; 关于",
     "about.title": "关于我",
@@ -214,6 +234,12 @@ const I18N = {
 
     document.getElementById("langEn").addEventListener("click", function () { applyLanguage("en"); });
     document.getElementById("langZh").addEventListener("click", function () { applyLanguage("zh"); });
+
+    var here = location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".nav-links a").forEach(function (a) {
+      var href = a.getAttribute("href");
+      a.classList.toggle("active", href === here || (here === "" && href === "index.html"));
+    });
 
     var navToggleBtn = document.getElementById("navToggleBtn");
     var navLinks = document.getElementById("navLinks");

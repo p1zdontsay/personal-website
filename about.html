@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yichen Xu &mdash; About</title>
+<meta name="description" content="About Yichen Xu — education, research interests, honors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">Yichen<span>.</span>Xu</a>
+
+    <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle menu">&#9776;</button>
+
+    <nav class="nav nav-links" id="navLinks">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="about.html" class="active" data-i18n="nav.about">About</a>
+      <a href="chips.html" data-i18n="nav.chips">Chip Gallery</a>
+      <a href="projects.html" data-i18n="nav.projects">Projects</a>
+      <a href="publications.html" data-i18n="nav.publications">Publications</a>
+      <a href="photography.html" data-i18n="nav.photography">Photography</a>
+      <a href="experience.html" data-i18n="nav.experience">Experience</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" id="langEn" class="active" data-lang="en">EN</button>
+      <button type="button" id="langZh" data-lang="zh">中文</button>
+    </div>
+  </div>
+</header>
+<main>
+
+  <section class="section section-first">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="about.eyebrow">01 &mdash; About</div>
+        <h2 data-i18n="about.title">About</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-block">
+          <h3 data-i18n="about.education.title">Education</h3>
+          <ul class="plain-list">
+            <li data-i18n="about.education.columbia">
+              <strong>Columbia University</strong> &mdash; M.S. &amp; Ph.D. in Electrical Engineering (Advisor: Mingoo Seok)
+              <span class="meta">2021&ndash;2027</span>
+            </li>
+            <li data-i18n="about.education.uestc">
+              <strong>UESTC</strong> &mdash; B.S. in Electrical Engineering
+              <span class="meta">2016&ndash;2020</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3 data-i18n="about.interests.title">Research Interests</h3>
+          <ul class="plain-list" data-i18n="about.interests.body">
+            <li>Computational digital LDOs (DLDOs), DC&ndash;DC SIMO converters, and switched-capacitor (SC) power converters</li>
+            <li>Droop detection, DVFS, and power delivery network design</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3 data-i18n="about.honors.title">Honors</h3>
+          <ul class="plain-list" data-i18n="about.honors.body">
+            <li>Master of Science Award of Excellence, Columbia University (top 5%)</li>
+            <li>Outstanding Student Scholarship, UESTC</li>
+            <li>Best Poster Award, IBM AI Symposium 2024</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p data-i18n="footer.text">&copy; 2026 Yichen Xu. Built with plain HTML/CSS/JS, hosted on GitHub Pages.</p>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+</body>
+</html>

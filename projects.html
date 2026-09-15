@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yichen Xu &mdash; Projects</title>
+<meta name="description" content="Research projects by Yichen Xu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">Yichen<span>.</span>Xu</a>
+
+    <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle menu">&#9776;</button>
+
+    <nav class="nav nav-links" id="navLinks">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="chips.html" data-i18n="nav.chips">Chip Gallery</a>
+      <a href="projects.html" class="active" data-i18n="nav.projects">Projects</a>
+      <a href="publications.html" data-i18n="nav.publications">Publications</a>
+      <a href="photography.html" data-i18n="nav.photography">Photography</a>
+      <a href="experience.html" data-i18n="nav.experience">Experience</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" id="langEn" class="active" data-lang="en">EN</button>
+      <button type="button" id="langZh" data-lang="zh">中文</button>
+    </div>
+  </div>
+</header>
+<main>
+
+  <section class="section section-first">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="projects.eyebrow">03 &mdash; Research</div>
+        <h2 data-i18n="projects.title">Projects</h2>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-period">2026&ndash;present</div>
+          <h3 data-i18n="projects.p1.title">Continuously Scalable Conversion Ratio (CSCR) Power Converter for Stacked Systems</h3>
+          <p class="project-meta">65 nm CMOS</p>
+          <p data-i18n="projects.p1.body">
+            Designing a CSCR-based mismatch compensator for stacked voltage-domain systems, with automatic
+            source/sink mode selection to maintain high efficiency under large current mismatch.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-period">2025&ndash;2026</div>
+          <h3 data-i18n="projects.p2.title">HBM Voltage-Stacked Power Delivery &amp; Memory-System Modeling</h3>
+          <p data-i18n="projects.p2.body">
+            Built a DRAMSim3/Accel-Sim&ndash;based framework to analyze per-channel power, latency, and current
+            mismatch in HBM2/HBM3 systems under GPU workloads. Proposed a voltage-stacked HBM power delivery
+            architecture and load-mismatch metrics, identifying up to 113&nbsp;mA of inter-channel current mismatch
+            and evaluating TSV / power-efficiency trade-offs.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-period">2025&ndash;2026</div>
+          <h3 data-i18n="projects.p3.title">Bidirectional SIMO Mismatch Compensator for Stacked Voltage-Domain Systems</h3>
+          <p class="project-meta">65 nm CMOS</p>
+          <p data-i18n="projects.p3.body">
+            Invented a bidirectional zero-current detector (Bi-ZCD) for source/sink current regulation in
+            voltage-stacked systems, achieving 98.5% peak efficiency and 82% efficiency under 360&nbsp;mA load
+            mismatch.
+          </p>
+          <p class="project-pub" data-i18n="projects.p3.pub">&rarr; Published as VSIMO, IEEE VLSI Symposium 2026</p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-period">2024&ndash;2025</div>
+          <h3 data-i18n="projects.p4.title">Computational DLDO-Assisted Buck DC&ndash;DC Converter</h3>
+          <p class="project-meta">28 nm CMOS</p>
+          <p data-i18n="projects.p4.body">
+            Designed a DLDO-assisted buck converter with one-step computational droop compensation and
+            DLDO-controlled current handover, achieving 68-mV droop, 112-ns settling time, and 95.5% peak
+            efficiency for 1A/0.8ns load transients.
+          </p>
+          <p class="project-pub" data-i18n="projects.p4.pub">&rarr; Published in IEEE SSCL 2025</p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-period">2023&ndash;2024</div>
+          <h3 data-i18n="projects.p5.title">Computational DLDO with Load-Dependent Feedback and Fast DVS</h3>
+          <p class="project-meta">28 nm CMOS</p>
+          <p data-i18n="projects.p5.body">
+            Designed a rising-edge computational DLDO with load-dependent feedback and DVS computation,
+            achieving a 0.15-ps FoM, 25-mV/ns DVS rate, and low ripple across a 1-to-1050&nbsp;mA load range.
+          </p>
+          <p class="project-pub" data-i18n="projects.p5.pub">&rarr; Published at IEEE VLSI Symposium 2026; invited manuscript, IEEE JSSC 2027</p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-period">2022&ndash;2023</div>
+          <h3 data-i18n="projects.p6.title">Dynamic Load Regulation Limit Model for Digital LDOs</h3>
+          <p data-i18n="projects.p6.body">
+            Established an analytical model of dynamic load regulation for commonly used DLDO architectures,
+            analyzing the impact of design parameters and providing optimal design points for power switch sizing.
+          </p>
+          <p class="project-pub" data-i18n="projects.p6.pub">&rarr; Published in IEEE TVLSI 2024</p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-period">2021&ndash;2022</div>
+          <h3><span data-i18n="projects.p7.title">Ultrasound Range Finder Analog Front End</span> <span class="project-tag" data-i18n="projects.p7.tag">Course Project</span></h3>
+          <p class="project-meta">65 nm CMOS &middot; EE6350</p>
+          <p data-i18n="projects.p7.body">
+            Designed a 9-setting programmable-gain amplifier using replica-based common-mode feedback, and
+            developed the strong-arm comparator, track-and-hold, and capacitor-based DAC for a 125&nbsp;kHz
+            8-bit SAR ADC.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p data-i18n="footer.text">&copy; 2026 Yichen Xu. Built with plain HTML/CSS/JS, hosted on GitHub Pages.</p>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+</body>
+</html>

@@ -107,6 +107,15 @@ a:hover { text-decoration: underline; }
   font-size: 0.92rem;
 }
 .nav a:hover { color: var(--text); text-decoration: none; }
+.nav a.active { color: var(--text); }
+.nav a.active { position: relative; }
+.nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -14px;
+  height: 2px;
+  background: var(--accent-gradient);
+}
 
 .lang-toggle {
   display: flex;
@@ -269,6 +278,30 @@ a:hover { text-decoration: underline; }
   padding: 64px 0;
   border-top: 1px solid var(--border);
 }
+.section-first { border-top: none; padding-top: 56px; }
+
+/* ---------- home hub grid ---------- */
+
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+@media (max-width: 900px) { .hub-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .hub-grid { grid-template-columns: 1fr; } }
+
+.hub-card {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  background: var(--bg-card);
+  color: var(--text);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.hub-card:hover { border-color: var(--accent-a); text-decoration: none; transform: translateY(-2px); }
+.hub-card h3 { margin-bottom: 0.35em; color: var(--text); }
+.hub-card p { margin: 0; font-size: 0.9rem; }
 
 /* ---------- about ---------- */
 
