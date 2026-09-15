@@ -5,16 +5,20 @@
    ============================================================ */
 
 :root {
-  --bg: #0a0c10;
-  --bg-raised: #12151c;
-  --bg-card: #14171f;
-  --border: #23262f;
-  --text: #eceef2;
-  --text-muted: #9aa0ad;
-  --text-faint: #5b6170;
+  --bg: #f8f8f6;
+  --bg-raised: #ffffff;
+  --bg-card: #ffffff;
+  --border: #e2e2de;
+  --text: #14161b;
+  --text-muted: #52565f;
+  --text-faint: #90939c;
 
-  --accent-a: #22d3ee;   /* cyan   — "tech" */
-  --accent-b: #a78bfa;   /* violet — "art"  */
+  --bg-rgb: 248, 248, 246;
+
+  --accent-a: #0891b2;   /* cyan   — "tech" */
+  --accent-b: #7c3aed;   /* violet — "art"  */
+  --accent-a-soft: #06b6d4;
+  --accent-b-soft: #8b5cf6;
   --accent-gradient: linear-gradient(120deg, var(--accent-a), var(--accent-b));
 
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -72,7 +76,7 @@ a:hover { text-decoration: underline; }
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(10, 12, 16, 0.78);
+  background: rgba(var(--bg-rgb), 0.82);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
@@ -361,12 +365,12 @@ a:hover { text-decoration: underline; }
 }
 .chip-art::before {
   background-image:
-    repeating-linear-gradient(90deg, rgba(34,211,238,0.16) 0 2px, transparent 2px 14px),
-    repeating-linear-gradient(0deg, rgba(167,139,250,0.14) 0 2px, transparent 2px 18px);
+    repeating-linear-gradient(90deg, rgba(8,145,178,0.22) 0 2px, transparent 2px 14px),
+    repeating-linear-gradient(0deg, rgba(124,58,237,0.18) 0 2px, transparent 2px 18px);
 }
 .chip-art::after {
-  background: radial-gradient(circle at 30% 30%, rgba(34,211,238,0.25), transparent 55%),
-              radial-gradient(circle at 75% 70%, rgba(167,139,250,0.25), transparent 55%);
+  background: radial-gradient(circle at 30% 30%, rgba(8,145,178,0.20), transparent 55%),
+              radial-gradient(circle at 75% 70%, rgba(124,58,237,0.20), transparent 55%);
 }
 .tile:nth-of-type(3n+2) .chip-art::before { filter: hue-rotate(35deg); }
 .tile:nth-of-type(3n+3) .chip-art::before { filter: hue-rotate(-35deg); }
@@ -377,9 +381,9 @@ a:hover { text-decoration: underline; }
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 25% 30%, rgba(167,139,250,0.30), transparent 60%),
-              radial-gradient(circle at 75% 75%, rgba(34,211,238,0.25), transparent 60%),
-              linear-gradient(160deg, #171a22, #0d0f14);
+  background: radial-gradient(circle at 25% 30%, rgba(124,58,237,0.22), transparent 60%),
+              radial-gradient(circle at 75% 75%, rgba(8,145,178,0.20), transparent 60%),
+              linear-gradient(160deg, #f1f0ee, #e7e6e2);
 }
 .tile:nth-of-type(2n) .photo-art::before { filter: hue-rotate(60deg); }
 .tile:nth-of-type(3n) .photo-art::before { filter: hue-rotate(-50deg); }
@@ -395,7 +399,7 @@ a:hover { text-decoration: underline; }
   border: 1px dashed var(--text-faint);
   border-radius: 999px;
   padding: 3px 9px;
-  background: rgba(10,12,16,0.6);
+  background: rgba(var(--bg-rgb), 0.75);
   z-index: 2;
 }
 
@@ -403,7 +407,7 @@ a:hover { text-decoration: underline; }
   position: relative;
   z-index: 2;
   padding: 14px 16px;
-  background: linear-gradient(0deg, rgba(10,12,16,0.92), rgba(10,12,16,0));
+  background: linear-gradient(0deg, rgba(var(--bg-rgb),0.94), rgba(var(--bg-rgb),0));
 }
 .tile-caption h4 { margin: 0 0 2px; font-size: 0.98rem; }
 .tile-caption .tile-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-faint); }
