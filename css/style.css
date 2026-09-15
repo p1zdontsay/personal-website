@@ -579,6 +579,67 @@ a:hover { text-decoration: underline; }
   .journey-stop { grid-template-columns: 24px 1fr; gap: 14px; }
 }
 
+/* ---------- journey interactive map ---------- */
+
+.journey-map-wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  padding: 10px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 2px rgba(20,22,27,0.03);
+}
+
+#journeyMap {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius) - 6px);
+  overflow: visible;
+}
+
+.map-ocean { fill: var(--bg-raised); }
+
+.map-land-group .map-land {
+  fill: var(--border);
+  stroke: var(--bg-card);
+  stroke-width: 0.6;
+}
+
+.map-route {
+  fill: none;
+  stroke: var(--accent-b);
+  stroke-width: 1.4;
+  stroke-dasharray: 4 4;
+  opacity: 0.55;
+}
+
+.map-marker { cursor: pointer; }
+
+.map-marker-halo {
+  fill: var(--accent-a);
+  opacity: 0.18;
+  transition: opacity 0.15s ease, r 0.15s ease;
+}
+.map-marker:nth-of-type(2n) .map-marker-halo { fill: var(--accent-b); }
+
+.map-marker-dot {
+  fill: var(--accent-a);
+  stroke: var(--bg-card);
+  stroke-width: 1.2;
+  transition: r 0.15s ease;
+}
+.map-marker:nth-of-type(2n) .map-marker-dot { fill: var(--accent-b); }
+
+.map-marker:hover .map-marker-halo,
+.map-marker.is-active .map-marker-halo { r: 13; opacity: 0.32; }
+.map-marker:hover .map-marker-dot,
+.map-marker.is-active .map-marker-dot { r: 6; }
+
+@media (max-width: 560px) {
+  .journey-map-wrap { padding: 6px; }
+}
+
 /* ---------- footer ---------- */
 
 .site-footer {
