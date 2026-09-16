@@ -92,13 +92,14 @@ index_body = """
       <div>
         <div class="eyebrow" data-i18n="hero.eyebrow">Ph.D. Candidate &middot; Electrical Engineering &middot; Columbia University</div>
         <h1 data-i18n="hero.name">Yichen Xu</h1>
-        <p class="tagline" data-i18n="hero.tagline">Power management IC designer and occasional video maker.</p>
+        <p class="tagline" data-i18n="hero.tagline">Mixed-signal IC designer and occasional video maker.</p>
         <p class="hero-text" data-i18n="hero.text">
-          I design power management circuits for modern SoC platforms and emerging AI hardware
-          systems &mdash; computational digital LDOs, SIMO DC&ndash;DC converters, switched-capacitor
-          converters, and voltage-stacked power delivery for high-bandwidth memory systems.
-          Advised by Prof. Mingoo Seok at Columbia University. Beyond the lab, this site also
-          collects the chips I've taped out and a few frames from my camera.
+          My work spans the mixed-signal design stack: analog front-ends, PMIC and
+          power-delivery-network circuits, the digital control loops around them, and the
+          physical design work that carries a chip to tapeout. I'm also drawn to the boundary
+          between circuits and computation &mdash; architecture and simulators for emerging
+          hardware. Advised by Prof. Mingoo Seok at Columbia University. Beyond the lab, this
+          site also collects the chips I've taped out and a few frames from my camera.
         </p>
         <div class="hero-links">
           <a class="pill-link" href="mailto:yx2613@columbia.edu" data-i18n="hero.linkEmail">Email</a>
