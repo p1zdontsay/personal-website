@@ -8,13 +8,12 @@ import os
 
 OUT = os.path.dirname(os.path.abspath(__file__))
 
-PAGES = ["index", "about", "journey", "chips", "projects", "publications", "photography", "experience", "contact"]
+PAGES = ["index", "about", "chips", "projects", "publications", "photography", "experience", "contact"]
 
 def nav(current):
     items = [
         ("index.html", "nav.home", "Home"),
         ("about.html", "nav.about", "About"),
-        ("journey.html", "nav.journey", "Journey"),
         ("chips.html", "nav.chips", "Chip Gallery"),
         ("projects.html", "nav.projects", "Projects"),
         ("publications.html", "nav.publications", "Publications"),
@@ -104,7 +103,6 @@ index_body = """
         <div class="hero-links">
           <a class="pill-link" href="mailto:yx2613@columbia.edu" data-i18n="hero.linkEmail">Email</a>
           <a class="pill-link" href="https://www.linkedin.com/in/yichen-xu-5718911b2/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="pill-link" href="https://github.com/p1zdontsay" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
     </div>
@@ -120,10 +118,6 @@ index_body = """
         <a class="hub-card" href="about.html">
           <h3 data-i18n="nav.about">About</h3>
           <p data-i18n="home.about.desc">Education, research interests, and honors.</p>
-        </a>
-        <a class="hub-card" href="journey.html">
-          <h3 data-i18n="nav.journey">Journey</h3>
-          <p data-i18n="home.journey.desc">Zigong &rarr; Chengdu &rarr; Suzhou &rarr; Shanghai &rarr; New York &rarr; San Jose.</p>
         </a>
         <a class="hub-card" href="chips.html">
           <h3 data-i18n="nav.chips">Chip Gallery</h3>
@@ -208,49 +202,40 @@ about_body = """
   </section>
 """
 
-# ---------------- JOURNEY ----------------
-def stop(idx, lat, lon, city_key, city_en, region_key, region_en, period_key, period_en, body_key, body_en):
+# ---------------- JOURNEY (compact, embedded in Experience) ----------------
+def stop(idx, lat, lon, city_key, city_en, region_key, region_en, period_key, period_en):
     ns = "N" if lat >= 0 else "S"
     ew = "E" if lon >= 0 else "W"
     coord = f"{abs(lat):.2f}&deg;{ns}, {abs(lon):.2f}&deg;{ew}"
-    return f"""        <li class="journey-stop" id="stop-{idx}" data-lat="{lat}" data-lon="{lon}" data-order="{idx}">
+    return f"""        <li class="journey-stop journey-stop-compact" id="stop-{idx}" data-lat="{lat}" data-lon="{lon}" data-order="{idx}">
           <div class="journey-marker"><span class="journey-dot"></span></div>
           <div class="journey-content">
             <div class="journey-coord">{coord}</div>
             <h3><span data-i18n="{city_key}">{city_en}</span></h3>
             <p class="project-meta"><span data-i18n="{region_key}">{region_en}</span> &middot; <span data-i18n="{period_key}">{period_en}</span></p>
-            <p data-i18n="{body_key}">{body_en}</p>
           </div>
         </li>"""
 
-journey_body = """
-  <section class="section section-first">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow" data-i18n="journey.eyebrow">01b &mdash; Journey</div>
-        <h2 data-i18n="journey.title">Zigong &rarr; Chengdu &rarr; Suzhou &rarr; Shanghai &rarr; New York &rarr; San Jose</h2>
-        <p class="lede" data-i18n="journey.lede">
-          A quick map of how a kid from a small city in Sichuan ended up designing power
-          management chips on two continents. Click a city on the map to jump to its story.
-        </p>
-      </div>
+journey_mini_body = """
+      <h3 class="subhead" data-i18n="journey.sectionTitle">Journey</h3>
+      <p class="lede" data-i18n="journey.lede">
+        Zigong &rarr; Chengdu &rarr; Suzhou &rarr; Shanghai &rarr; New York &rarr; San Jose.
+      </p>
 
-      <div class="journey-map-wrap">
+      <div class="journey-map-wrap journey-map-wrap-small">
         <svg id="journeyMap" viewBox="0 0 960 480" role="img" aria-label="World map showing Yichen's journey"></svg>
       </div>
 
-      <ul class="journey-line">
+      <ul class="journey-line journey-line-compact">
 """ + "\n".join([
-    stop(1, 29.35, 104.78, "journey.s1.city", "Zigong", "journey.s1.region", "Sichuan, China", "journey.s1.period", "Where it started", "journey.s1.body", "Born and raised in Zigong &mdash; a small industrial city in Sichuan known for salt mining, dinosaur fossils, and lantern festivals. First taste of taking things apart to see how they work."),
-    stop(2, 30.66, 104.07, "journey.s2.city", "Chengdu", "journey.s2.region", "Sichuan, China", "journey.s2.period", "2016 &ndash; 2020", "journey.s2.body", "Moved to the provincial capital for a B.S. in Electrical Engineering at UESTC &mdash; roughly 180&nbsp;km from home, but a first real step away. This is where circuits stopped being a subject and became the thing I wanted to do."),
-    stop(3, 31.30, 120.62, "journey.s3.city", "Suzhou", "journey.s3.region", "Jiangsu, China", "journey.s3.period", "2019", "journey.s3.body", "A spell in Suzhou in 2019 &mdash; [tell me what you were doing here and I'll fill this in properly]."),
-    stop(4, 31.23, 121.47, "journey.s4.city", "Shanghai", "journey.s4.region", "China", "journey.s4.period", "2020 &ndash; 2021", "journey.s4.body", "Joined Chip Dance Technology (a startup) as an Analog and System IC Engineer, leading a True Wireless Stereo battery-charging chip architecture that taped out in GF 180nm &mdash; first time seeing a chip I designed go from schematic to silicon."),
-    stop(5, 40.71, -74.01, "journey.s5.city", "New York", "journey.s5.region", "United States", "journey.s5.period", "2021 &ndash; present", "journey.s5.body", "~11,700&nbsp;km from Shanghai for an M.S. &amp; Ph.D. at Columbia University. New country, new language of instruments, same question: how do you keep power clean and efficient when everything around it is switching?"),
-    stop(6, 37.34, -121.89, "journey.s6.city", "San Jose", "journey.s6.region", "California, United States", "journey.s6.period", "Summer 2026", "journey.s6.body", "~4,100&nbsp;km west to Samsung's DRAM Design Lab for a circuit design internship &mdash; from lecture halls in Manhattan to the middle of Silicon Valley's memory industry."),
+    stop(1, 29.35, 104.78, "journey.s1.city", "Zigong", "journey.s1.region", "Sichuan, China", "journey.s1.period", "Where it started"),
+    stop(2, 30.66, 104.07, "journey.s2.city", "Chengdu", "journey.s2.region", "Sichuan, China", "journey.s2.period", "2016 &ndash; 2020"),
+    stop(3, 31.30, 120.62, "journey.s3.city", "Suzhou", "journey.s3.region", "Jiangsu, China", "journey.s3.period", "2019"),
+    stop(4, 31.23, 121.47, "journey.s4.city", "Shanghai", "journey.s4.region", "China", "journey.s4.period", "2020 &ndash; 2021"),
+    stop(5, 40.71, -74.01, "journey.s5.city", "New York", "journey.s5.region", "United States", "journey.s5.period", "2021 &ndash; present"),
+    stop(6, 37.34, -121.89, "journey.s6.city", "San Jose", "journey.s6.region", "California, United States", "journey.s6.period", "Summer 2026"),
 ]) + """
       </ul>
-    </div>
-  </section>
 """
 
 # ---------------- CHIP GALLERY ----------------
@@ -543,6 +528,7 @@ experience_body = """
         <li data-i18n="experience.t1">Teaching Assistant, Modern Power Management IC Design (ELEN 6920) &mdash; Fall 2022 / 2023 / 2024</li>
         <li data-i18n="experience.t2">Teaching Assistant, VLSI Design Lab (ELEN 6350) &mdash; Spring 2025</li>
       </ul>
+""" + journey_mini_body + """
     </div>
   </section>
 """
@@ -557,8 +543,7 @@ contact_body = """
       </div>
       <p>
         Email: <a href="mailto:yx2613@columbia.edu">yx2613@columbia.edu</a><br>
-        LinkedIn: <a href="https://www.linkedin.com/in/yichen-xu-5718911b2/" target="_blank" rel="noopener">yichen-xu-5718911b2</a><br>
-        GitHub: <a href="https://github.com/p1zdontsay" target="_blank" rel="noopener">p1zdontsay</a>
+        LinkedIn: <a href="https://www.linkedin.com/in/yichen-xu-5718911b2/" target="_blank" rel="noopener">yichen-xu-5718911b2</a>
       </p>
     </div>
   </section>
@@ -567,17 +552,16 @@ contact_body = """
 PAGE_DEFS = {
     "index": ("Home", "Yichen Xu — Ph.D. Candidate in Electrical Engineering, Columbia University.", index_body),
     "about": ("About", "About Yichen Xu — education, research interests, honors.", about_body),
-    "journey": ("Journey", "From Zigong to Chengdu to Suzhou to Shanghai to New York and San Jose — Yichen Xu's path.", journey_body),
     "chips": ("Chip Gallery", "Die shots and test boards from Yichen Xu's tape-outs.", chips_body),
     "projects": ("Projects", "Research projects by Yichen Xu.", projects_body),
     "publications": ("Publications", "Papers and patents by Yichen Xu.", publications_body),
     "photography": ("Photography", "Photography by Yichen Xu.", photography_body),
-    "experience": ("Experience", "Industry experience and teaching — Yichen Xu.", experience_body),
+    "experience": ("Experience", "Industry experience, teaching, and Yichen Xu's journey from Zigong to San Jose.", experience_body),
     "contact": ("Contact", "Contact Yichen Xu.", contact_body),
 }
 
 EXTRA_SCRIPTS = {
-    "journey": '<script src="assets/vendor/topojson-client.min.js"></script>\n<script src="js/journey-map.js"></script>\n',
+    "experience": '<script src="assets/vendor/topojson-client.min.js"></script>\n<script src="js/journey-map.js"></script>\n',
 }
 
 for name, (title, desc, body) in PAGE_DEFS.items():

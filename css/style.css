@@ -650,6 +650,22 @@ a:hover { text-decoration: underline; }
   .journey-map-wrap { padding: 6px; }
 }
 
+/* compact journey embed inside Experience — map shrunk ~3x, no per-stop description */
+.journey-map-wrap-small {
+  max-width: 340px;
+  margin-left: 0;
+  margin-right: auto;
+}
+@media (max-width: 560px) {
+  .journey-map-wrap-small { max-width: 260px; }
+}
+
+.journey-line-compact .journey-stop { padding-bottom: 20px; }
+.journey-stop-compact .journey-content { padding: 10px 16px; }
+.journey-stop-compact .journey-coord { margin-bottom: 0.2em; }
+.journey-stop-compact .journey-content h3 { font-size: 1rem; margin-bottom: 0.1em; }
+.journey-stop-compact .project-meta { margin-bottom: 0; }
+
 /* ---------- visitor map widget ---------- */
 
 .visitor-map-wrap {

@@ -49,9 +49,8 @@ const I18N = {
     "about.honors.title": "Honors",
     "about.honors.body": "<li>Master of Science Award of Excellence, Columbia University (top 5%)</li><li>Outstanding Student Scholarship, UESTC</li><li>Best Poster Award, IBM AI Symposium 2024</li>",
 
-    "journey.eyebrow": "01b &mdash; Journey",
-    "journey.title": "Zigong &rarr; Chengdu &rarr; Suzhou &rarr; Shanghai &rarr; New York &rarr; San Jose",
-    "journey.lede": "A quick map of how a kid from a small city in Sichuan ended up designing power management chips on two continents. Click a city on the map to jump to its story.",
+    "journey.sectionTitle": "Journey",
+    "journey.lede": "Zigong &rarr; Chengdu &rarr; Suzhou &rarr; Shanghai &rarr; New York &rarr; San Jose.",
     "journey.s1.city": "Zigong",
     "journey.s1.region": "Sichuan, China",
     "journey.s1.period": "Where it started",
@@ -184,9 +183,8 @@ const I18N = {
     "about.honors.title": "荣誉奖项",
     "about.honors.body": "<li>哥伦比亚大学理学硕士优秀奖（前 5%）</li><li>电子科技大学优秀学生奖学金</li><li>2024 IBM AI Symposium 最佳海报奖</li>",
 
-    "journey.eyebrow": "01b &mdash; 成长之路",
-    "journey.title": "自贡 &rarr; 成都 &rarr; 苏州 &rarr; 上海 &rarr; 纽约 &rarr; 圣何塞",
-    "journey.lede": "一份简单的路线图，记录一个来自四川小城的孩子，如何走到在两块大陆上设计电源管理芯片。点击地图上的城市即可跳转到对应的故事。",
+    "journey.sectionTitle": "成长之路",
+    "journey.lede": "自贡 &rarr; 成都 &rarr; 苏州 &rarr; 上海 &rarr; 纽约 &rarr; 圣何塞。",
     "journey.s1.city": "自贡",
     "journey.s1.region": "中国 四川",
     "journey.s1.period": "起点",
