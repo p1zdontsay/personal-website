@@ -47,7 +47,7 @@ const I18N = {
     "about.education.columbia": "<strong>Columbia University</strong> &mdash; M.S. &amp; Ph.D. in Electrical Engineering (Advisor: Mingoo Seok)<span class=\"meta\">2021&ndash;2027</span>",
     "about.education.uestc": "<strong>UESTC</strong> &mdash; B.S. in Electrical Engineering<span class=\"meta\">2016&ndash;2020</span>",
     "about.interests.title": "Research Interests",
-    "about.interests.body": "<li>Computational digital LDOs (DLDOs), DC&ndash;DC SIMO converters, and switched-capacitor (SC) power converters</li><li>Droop detection, DVFS, and power delivery network design</li>",
+    "about.interests.body": "<li>Power regulators (computational digital LDOs, DC&ndash;DC SIMO converters, switched-capacitor converters) for GPUs and other high-performance accelerators</li><li>Droop detection, DVFS, and power delivery network design</li><li>Power- and workload-aware DRAM/HBM systems, including DVFS for HBM and DRAM workload schedulers</li>",
     "about.honors.title": "Honors",
     "about.honors.body": "<li>Master of Science Award of Excellence, Columbia University (top 5%)</li><li>Outstanding Student Scholarship, UESTC</li><li>Best Poster Award, IBM AI Symposium 2024</li>",
 
@@ -190,7 +190,7 @@ const I18N = {
     "about.education.columbia": "<strong>哥伦比亚大学</strong> &mdash; 电子工程硕士 &amp; 博士（导师：Mingoo Seok）<span class=\"meta\">2021&ndash;2027</span>",
     "about.education.uestc": "<strong>电子科技大学（UESTC）</strong> &mdash; 电子工程学士<span class=\"meta\">2016&ndash;2020</span>",
     "about.interests.title": "研究方向",
-    "about.interests.body": "<li>计算式数字 LDO（DLDO）、DC&ndash;DC SIMO 转换器、开关电容（SC）电源转换器</li><li>压降检测、DVFS，以及电源传输网络设计</li>",
+    "about.interests.body": "<li>面向 GPU 及其他高性能加速器的电源调节器（power regulators），包括计算式数字 LDO、DC&ndash;DC SIMO 转换器、开关电容转换器</li><li>压降检测、DVFS，以及电源传输网络设计</li><li>功耗与负载感知的 DRAM/HBM 系统，包括 HBM 的 DVFS 与 DRAM 负载调度器</li>",
     "about.honors.title": "荣誉奖项",
     "about.honors.body": "<li>哥伦比亚大学理学硕士优秀奖（前 5%）</li><li>电子科技大学优秀学生奖学金</li><li>2024 IBM AI Symposium 最佳海报奖</li>",
 

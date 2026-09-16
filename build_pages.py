@@ -194,8 +194,9 @@ about_body = """
         <div class="about-block">
           <h3 data-i18n="about.interests.title">Research Interests</h3>
           <ul class="plain-list" data-i18n="about.interests.body">
-            <li>Computational digital LDOs (DLDOs), DC&ndash;DC SIMO converters, and switched-capacitor (SC) power converters</li>
+            <li>Power regulators (computational digital LDOs, DC&ndash;DC SIMO converters, switched-capacitor converters) for GPUs and other high-performance accelerators</li>
             <li>Droop detection, DVFS, and power delivery network design</li>
+            <li>Power- and workload-aware DRAM/HBM systems, including DVFS for HBM and DRAM workload schedulers</li>
           </ul>
         </div>
 
