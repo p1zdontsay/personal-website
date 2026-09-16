@@ -491,6 +491,8 @@ photography_body = """
       <div class="place-grid">
 """ + place("Hawaii", "hawaii-11.jpg", "photo.place.hawaii", "Hawaii",
             [f"hawaii-{n}.jpg" for n in range(1, 17) if n != 11]) + """
+""" + place("Altay", "altay-5.jpg", "photo.place.altay", "Altay",
+            [f"altay-{n}.jpg" for n in range(1, 10) if n != 5]) + """
       </div>
 
       <h3 class="subhead" data-i18n="photo.video.title">Video</h3>
