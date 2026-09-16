@@ -94,15 +94,19 @@ index_body = """
       <div>
         <div class="eyebrow" data-i18n="hero.eyebrow">Ph.D. Candidate &middot; Electrical Engineering &middot; Columbia University</div>
         <h1 data-i18n="hero.name">Yichen Xu</h1>
-        <p class="tagline" data-i18n="hero.tagline">Mixed-signal IC designer and occasional video maker.</p>
-        <p class="hero-text" data-i18n="hero.text">
-          I aim to improve the energy-token efficiency. My work spans the mixed-signal design
-          stack: power management for modern SoC/Accelerators, analog/digital computation,
-          clock generation, digital control, and the physical design that carries a chip to
-          tapeout. I'm also drawn to the boundary between circuits and computation &mdash;
-          architecture and simulators for emerging hardware. Advised by Prof. Mingoo Seok at
-          Columbia University. Beyond the lab, this site also collects a few frames from my
-          camera and drone.
+        <p class="tagline" data-i18n="hero.tagline">Mixed-Signal IC Designer &amp; Occasional Filmmaker</p>
+        <p class="hero-text" data-i18n="hero.text1">
+          I design integrated circuits for energy-efficient computing, reducing energy per
+          token through high-speed power management and voltage-stacking architectures.
+        </p>
+        <p class="hero-text" data-i18n="hero.text2">
+          My work spans voltage regulators and PDN designs for modern SoCs and accelerators,
+          clock generation, digital control, and physical design. I am also interested in
+          hardware architectures and simulators at the boundary of circuits and computation.
+        </p>
+        <p class="hero-text" data-i18n="hero.text3">
+          Advised by Prof. Mingoo Seok at Columbia University. Outside the lab, I shoot photos
+          and short films with my camera and drone; this site collects a few of them.
         </p>
         <div class="hero-links">
           <a class="pill-link" href="mailto:yx2613@columbia.edu" data-i18n="hero.linkEmail">Email</a>
