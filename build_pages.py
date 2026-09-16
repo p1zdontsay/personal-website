@@ -129,7 +129,7 @@ index_body = """
         </a>
         <a class="hub-card" href="journey.html">
           <h3 data-i18n="nav.journey">Journey</h3>
-          <p data-i18n="home.journey.desc">Zigong &rarr; Chengdu &rarr; New York &rarr; San Jose.</p>
+          <p data-i18n="home.journey.desc">Zigong &rarr; Chengdu &rarr; Suzhou &rarr; Shanghai &rarr; New York &rarr; San Jose.</p>
         </a>
         <a class="hub-card" href="chips.html">
           <h3 data-i18n="nav.chips">Chip Gallery</h3>
@@ -151,6 +151,19 @@ index_body = """
           <h3 data-i18n="nav.experience">Experience</h3>
           <p data-i18n="home.experience.desc">Internships, industry work, and teaching.</p>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="visitors.eyebrow">Live</div>
+        <h2 data-i18n="visitors.title">Visitors</h2>
+        <p class="lede" data-i18n="visitors.lede">A small live map of where people are reading this site from right now.</p>
+      </div>
+      <div class="visitor-map-wrap">
+        <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=1BsmQQTtG9AVT_iJg1JJlvb_ykU5HgRPunwFZ4erUIM&cl=ffffff&w=a"></script>
       </div>
     </div>
   </section>

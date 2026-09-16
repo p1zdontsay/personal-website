@@ -34,6 +34,10 @@ const I18N = {
     "home.photography.desc": "A few frames outside the cleanroom.",
     "home.experience.desc": "Internships, industry work, and teaching.",
 
+    "visitors.eyebrow": "Live",
+    "visitors.title": "Visitors",
+    "visitors.lede": "A small live map of where people are reading this site from right now.",
+
     "about.eyebrow": "01 &mdash; About",
     "about.title": "About",
     "about.education.title": "Education",
@@ -165,6 +169,10 @@ const I18N = {
     "home.publications.desc": "论文与专利。",
     "home.photography.desc": "实验室之外拍的一些照片。",
     "home.experience.desc": "实习、工业界经历与助教经历。",
+
+    "visitors.eyebrow": "实时",
+    "visitors.title": "访客地图",
+    "visitors.lede": "一份实时的小地图，展示此刻正在浏览这个网站的人来自哪里。",
 
     "about.eyebrow": "01 &mdash; 关于",
     "about.title": "关于我",
