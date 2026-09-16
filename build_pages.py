@@ -438,6 +438,9 @@ def ptile(key, en):
     return f"""        <article class="tile"><div class="tile-art photo-art"></div><span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
           <div class="tile-caption"><h4 data-i18n="{key}">{en}</h4></div></article>"""
 
+def rtile(img):
+    return f"""        <article class="tile"><img class="tile-art tile-img" src="assets/photography/Hawaii/{img}" alt="Hawaii" loading="lazy"></article>"""
+
 def vtile(bvid, title_key, title_en):
     return f"""        <div class="video-card">
           <h4 data-i18n="{title_key}">{title_en}</h4>
@@ -468,6 +471,12 @@ photography_body = """
     ptile("photo.item5", "Long Exposure"),
     ptile("photo.item6", "Film"),
 ]) + """
+      </div>
+
+      <h3 class="subhead" data-i18n="photo.hawaii.title">Hawaii</h3>
+      <p class="lede" data-i18n="photo.hawaii.lede">Some frames from a trip to Hawaii.</p>
+      <div class="gallery-grid">
+""" + "\n".join([rtile(f"hawaii-{n}.jpg") for n in range(1, 17)]) + """
       </div>
 
       <h3 class="subhead" data-i18n="photo.video.title">Video</h3>
