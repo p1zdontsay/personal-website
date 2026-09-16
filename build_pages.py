@@ -504,8 +504,8 @@ photography_body = """
             [f"hawaii-{n}.jpg" for n in range(1, 17) if n != 7]) + """
 """ + place("Altay", "altay-5.jpg", "photo.place.altay", "Altay",
             [f"altay-{n}.jpg" for n in range(1, 10) if n != 5]) + """
-""" + place("Iceland", "iceland-1.jpg", "photo.place.iceland", "Iceland",
-            [f"iceland-{n}.jpg" for n in range(1, 10) if n != 1]) + """
+""" + place("Iceland", "iceland-10.jpg", "photo.place.iceland", "Iceland",
+            [f"iceland-{n}.jpg" for n in range(1, 12) if n != 10]) + """
 """ + place("Dubai", "dubai-1.jpg", "photo.place.dubai", "Dubai",
             [f"dubai-{n}.jpg" for n in range(2, 8)]) + """
       </div>
