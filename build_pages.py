@@ -506,6 +506,8 @@ photography_body = """
             [f"altay-{n}.jpg" for n in range(1, 10) if n != 5]) + """
 """ + place("Iceland", "iceland-1.jpg", "photo.place.iceland", "Iceland",
             [f"iceland-{n}.jpg" for n in range(1, 10) if n != 1]) + """
+""" + place("Dubai", "dubai-1.jpg", "photo.place.dubai", "Dubai",
+            [f"dubai-{n}.jpg" for n in range(2, 8)]) + """
       </div>
 
       <h3 class="subhead" data-i18n="photo.video.title">Video</h3>
