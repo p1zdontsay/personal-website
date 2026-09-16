@@ -87,13 +87,7 @@ index_body = """
     <div class="wrap hero-grid">
       <div class="hero-photo">
         <div class="ring"></div>
-        <div class="photo-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-            <circle cx="12" cy="8" r="4"></circle>
-            <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"></path>
-          </svg>
-          <span class="ph-label" data-i18n="hero.photoPlaceholder">Replace with<br>your photo<br>(assets/headshot.jpg)</span>
-        </div>
+        <img class="hero-photo-img" src="assets/headshot.jpg" alt="Yichen Xu">
       </div>
 
       <div>
