@@ -406,11 +406,15 @@ a:hover { text-decoration: underline; }
 .place-thumbs {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   gap: 10px;
   padding: 0 14px 14px;
   max-height: 0;
   opacity: 0;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
   transition: max-height 0.25s ease, opacity 0.2s ease, padding 0.25s ease;
 }
 .place-card:hover .place-thumbs,
@@ -420,8 +424,8 @@ a:hover { text-decoration: underline; }
 }
 
 .place-thumb {
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 0 0 auto;
+  width: 90px;
   aspect-ratio: 4 / 3;
   padding: 0;
   border: 1px solid var(--border);
