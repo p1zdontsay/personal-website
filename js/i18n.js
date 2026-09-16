@@ -22,9 +22,8 @@ const I18N = {
     "hero.name": "Yichen Xu",
     "hero.eyebrow": "Ph.D. Candidate &middot; Electrical Engineering &middot; Columbia University",
     "hero.tagline": "Mixed-Signal IC Designer &amp; Occasional Filmmaker",
-    "hero.text1": "I design integrated circuits for energy-efficient computing, reducing energy per token through high-speed power management and voltage-stacking architectures.",
-    "hero.text2": "My work spans voltage regulators and PDN designs for modern SoCs and accelerators, clock generation, digital control, and physical design. At the boundary of circuits and computation, I am also interested in architectures and simulators for emerging HBM/DRAM.",
-    "hero.text3": "Advised by Prof. Mingoo Seok at Columbia University. Outside the lab, I shoot photos and short films with my camera and drone; this site collects a few of them.",
+    "hero.text1": "I design integrated circuits for energy-efficient computing &mdash; voltage regulators and PDN for modern SoCs and accelerators, clock generation, digital control, and physical design. At the boundary of circuits and computation, I&rsquo;m also interested in architectures and simulators for emerging HBM/DRAM.",
+    "hero.text2": "Advised by Prof. Mingoo Seok at Columbia University. Outside the lab, I shoot photos and short films with my camera and drone.",
     "hero.linkEmail": "Email",
 
     "home.eyebrow": "Explore",
@@ -165,9 +164,8 @@ const I18N = {
     "hero.name": "徐一宸",
     "hero.eyebrow": "哥伦比亚大学 &middot; 电子工程 &middot; 博士候选人",
     "hero.tagline": "混合信号 IC 设计者，也偶尔拍点视频",
-    "hero.text1": "我从事面向高能效计算的集成电路设计，重点研究如何通过高速电源管理与电压堆叠架构，降低每个 token 的能耗。",
-    "hero.text2": "我的工作涵盖现代 SoC 与加速器的供电、模拟与数字计算、时钟生成、数字控制，以及 physical design。在电路与计算的交界处，我也关注面向新兴 HBM/DRAM 的架构与仿真器。",
-    "hero.text3": "目前，我在哥伦比亚大学师从 Mingoo Seok 教授。实验室之外，我也用相机和无人机拍摄照片与短片，这个网站收录了其中的一些作品。",
+    "hero.text1": "我从事面向高能效计算的集成电路设计——聚焦现代 SoC 与加速器的电源调节、PDN、时钟生成、数字控制与 physical design。在电路与计算的交界处，我也关注面向新兴 HBM/DRAM 的架构与仿真器。",
+    "hero.text2": "目前，我在哥伦比亚大学师从 Mingoo Seok 教授。实验室之外，我也用相机和无人机拍摄照片与短片。",
     "hero.linkEmail": "邮箱",
 
     "home.eyebrow": "浏览",

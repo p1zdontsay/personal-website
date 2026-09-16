@@ -272,6 +272,16 @@ a:hover { text-decoration: underline; }
 .hero-text { max-width: 62ch; }
 @media (max-width: 680px) { .hero-text { max-width: 100%; } }
 
+@media (max-width: 680px) {
+  body { font-size: 15px; }
+  .hero { padding: 56px 0 44px; }
+  .hero .eyebrow { font-size: 0.66rem; }
+  .hero h1 { font-size: 1.9rem; }
+  .hero .tagline { font-size: 1rem; margin-bottom: 0.7em; }
+  .hero-text { font-size: 0.92rem; line-height: 1.6; }
+  html[lang="zh"] .hero-text { line-height: 1.75; }
+}
+
 .hero-links {
   display: flex;
   gap: 10px;
