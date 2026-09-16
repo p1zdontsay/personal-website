@@ -125,7 +125,7 @@ index_body = """
         </a>
         <a class="hub-card" href="chips.html">
           <h3 data-i18n="nav.chips">Chip Gallery</h3>
-          <p data-i18n="home.chips.desc">Die shots and test boards from every tape-out.</p>
+          <p data-i18n="home.chips.desc">Die shots and package.</p>
         </a>
         <a class="hub-card" href="projects.html">
           <h3 data-i18n="nav.projects">Projects</h3>
