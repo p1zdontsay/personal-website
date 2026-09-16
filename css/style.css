@@ -362,6 +362,53 @@ a:hover { text-decoration: underline; }
 @media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .gallery-grid { grid-template-columns: 1fr; } }
 
+.place-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.place-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  overflow: hidden;
+}
+
+.place-card summary {
+  cursor: pointer;
+  list-style: none;
+}
+.place-card summary::-webkit-details-marker { display: none; }
+
+.place-cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.place-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.place-card summary:hover .place-cover img { transform: scale(1.04); }
+
+.place-name {
+  display: block;
+  padding: 12px 14px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.place-gallery {
+  padding: 0 14px 16px;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 480px) { .place-gallery { grid-template-columns: 1fr; } }
+
 .video-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

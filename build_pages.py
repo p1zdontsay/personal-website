@@ -434,12 +434,20 @@ publications_body = """
 """
 
 # ---------------- PHOTOGRAPHY ----------------
-def ptile(key, en):
-    return f"""        <article class="tile"><div class="tile-art photo-art"></div><span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
-          <div class="tile-caption"><h4 data-i18n="{key}">{en}</h4></div></article>"""
+def rtile(folder, img, alt="Photo"):
+    return f"""          <article class="tile"><img class="tile-art tile-img" src="assets/photography/{folder}/{img}" alt="{alt}" loading="lazy"></article>"""
 
-def rtile(img):
-    return f"""        <article class="tile"><img class="tile-art tile-img" src="assets/photography/Hawaii/{img}" alt="Hawaii" loading="lazy"></article>"""
+def place(folder, cover, name_key, name_en, photos):
+    imgs = "\n".join([rtile(folder, p, name_en) for p in photos])
+    return f"""        <details class="place-card">
+          <summary>
+            <span class="place-cover"><img src="assets/photography/{folder}/{cover}" alt="{name_en}" loading="lazy"></span>
+            <span class="place-name" data-i18n="{name_key}">{name_en}</span>
+          </summary>
+          <div class="gallery-grid place-gallery">
+{imgs}
+          </div>
+        </details>"""
 
 def vtile(bvid, title_key, title_en):
     return f"""        <div class="video-card">
@@ -456,27 +464,14 @@ photography_body = """
       <div class="section-head">
         <div class="eyebrow" data-i18n="photo.eyebrow">05 &mdash; Outside the lab</div>
         <h2 data-i18n="photo.title">Photography</h2>
-        <p class="lede" data-i18n="photo.lede">
-          A few frames outside the cleanroom. Placeholder art below &mdash; drop real photos into
-          <code>assets/photography/</code> and swap the tiles.
-        </p>
+        <p class="lede" data-i18n="photo.lede">A few frames outside the cleanroom.</p>
       </div>
 
-      <div class="gallery-grid">
-""" + "\n".join([
-    ptile("photo.item1", "Travel"),
-    ptile("photo.item2", "Street"),
-    ptile("photo.item3", "Nature"),
-    ptile("photo.item4", "Architecture"),
-    ptile("photo.item5", "Long Exposure"),
-    ptile("photo.item6", "Film"),
-]) + """
-      </div>
-
-      <h3 class="subhead" data-i18n="photo.hawaii.title">Hawaii</h3>
-      <p class="lede" data-i18n="photo.hawaii.lede">Some frames from a trip to Hawaii.</p>
-      <div class="gallery-grid">
-""" + "\n".join([rtile(f"hawaii-{n}.jpg") for n in range(1, 17)]) + """
+      <h3 class="subhead" data-i18n="photo.photo.title">Photo</h3>
+      <p class="lede" data-i18n="photo.photo.lede">Click a place to open a few frames from there. More places coming.</p>
+      <div class="place-grid">
+""" + place("Hawaii", "hawaii-11.jpg", "photo.place.hawaii", "Hawaii",
+            ["hawaii-11.jpg", "hawaii-12.jpg", "hawaii-13.jpg", "hawaii-15.jpg"]) + """
       </div>
 
       <h3 class="subhead" data-i18n="photo.video.title">Video</h3>
