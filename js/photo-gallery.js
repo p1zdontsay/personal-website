@@ -48,5 +48,48 @@
         card.classList.toggle("is-open", !isOpen);
       });
     });
+
+    // Thumbnail row: hovering near the left/right edge auto-scrolls that direction,
+    // so the rest of the photos scroll into view without a manual scrollbar drag.
+    var EDGE_ZONE = 56; // px from the edge that triggers auto-scroll
+    var MAX_SPEED = 9; // px per animation frame at the very edge
+
+    document.querySelectorAll(".place-thumbs").forEach(function (row) {
+      var rafId = null;
+      var speed = 0;
+
+      function step() {
+        if (speed !== 0) {
+          row.scrollLeft += speed;
+          rafId = requestAnimationFrame(step);
+        } else {
+          rafId = null;
+        }
+      }
+
+      function updateSpeed(e) {
+        var rect = row.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var distRight = rect.width - x;
+        var distLeft = x;
+
+        if (row.scrollWidth <= row.clientWidth) {
+          speed = 0;
+        } else if (distRight < EDGE_ZONE) {
+          speed = MAX_SPEED * (1 - distRight / EDGE_ZONE);
+        } else if (distLeft < EDGE_ZONE) {
+          speed = -MAX_SPEED * (1 - distLeft / EDGE_ZONE);
+        } else {
+          speed = 0;
+        }
+
+        if (speed !== 0 && rafId === null) rafId = requestAnimationFrame(step);
+      }
+
+      row.addEventListener("mousemove", updateSpeed);
+      row.addEventListener("mouseleave", function () {
+        speed = 0;
+      });
+    });
   });
 })();

@@ -425,7 +425,7 @@ a:hover { text-decoration: underline; }
 
 .place-thumb {
   flex: 0 0 auto;
-  width: 90px;
+  width: 130px;
   aspect-ratio: 4 / 3;
   padding: 0;
   border: 1px solid var(--border);

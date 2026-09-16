@@ -5,8 +5,10 @@ header/nav/footer, css/style.css and js/i18n.js.
 Run: python3 build_pages.py
 """
 import os
+import time
 
 OUT = os.path.dirname(os.path.abspath(__file__))
+BUILD_VERSION = str(int(time.time()))  # cache-busting query param for css/js so pushes take effect immediately
 
 PAGES = ["index", "about", "chips", "projects", "publications", "photography", "experience", "contact"]
 
@@ -38,7 +40,7 @@ def head(title_key_text, desc):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v={BUILD_VERSION}">
 </head>
 <body>
 """
@@ -62,21 +64,21 @@ def header(current):
 </header>
 """
 
-FOOTER = """<footer class="site-footer">
+FOOTER = f"""<footer class="site-footer">
   <div class="wrap">
     <p data-i18n="footer.text">&copy; 2026 Yichen Xu. Built with plain HTML/CSS/JS, hosted on GitHub Pages.</p>
   </div>
 </footer>
 
-<script src="js/i18n.js"></script>
+<script src="js/i18n.js?v={BUILD_VERSION}"></script>
 </body>
 </html>
 """
 
 def page(current, title, desc, body, extra_scripts=""):
     return head(title, desc) + header(current) + "<main>\n" + body + "\n</main>\n\n" + FOOTER.replace(
-        '<script src="js/i18n.js"></script>',
-        extra_scripts + '<script src="js/i18n.js"></script>'
+        f'<script src="js/i18n.js?v={BUILD_VERSION}"></script>',
+        extra_scripts + f'<script src="js/i18n.js?v={BUILD_VERSION}"></script>'
     )
 
 
@@ -592,8 +594,8 @@ PAGE_DEFS = {
 }
 
 EXTRA_SCRIPTS = {
-    "experience": '<script src="assets/vendor/topojson-client.min.js"></script>\n<script src="js/journey-map.js"></script>\n',
-    "photography": '<script src="js/photo-gallery.js"></script>\n',
+    "experience": f'<script src="assets/vendor/topojson-client.min.js"></script>\n<script src="js/journey-map.js?v={BUILD_VERSION}"></script>\n',
+    "photography": f'<script src="js/photo-gallery.js?v={BUILD_VERSION}"></script>\n',
 }
 
 for name, (title, desc, body) in PAGE_DEFS.items():
