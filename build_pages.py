@@ -74,8 +74,11 @@ FOOTER = """<footer class="site-footer">
 </html>
 """
 
-def page(current, title, desc, body):
-    return head(title, desc) + header(current) + "<main>\n" + body + "\n</main>\n\n" + FOOTER
+def page(current, title, desc, body, extra_scripts=""):
+    return head(title, desc) + header(current) + "<main>\n" + body + "\n</main>\n\n" + FOOTER.replace(
+        '<script src="js/i18n.js"></script>',
+        extra_scripts + '<script src="js/i18n.js"></script>'
+    )
 
 
 # ---------------- INDEX (home) ----------------
@@ -84,19 +87,13 @@ index_body = """
     <div class="wrap hero-grid">
       <div class="hero-photo">
         <div class="ring"></div>
-        <div class="photo-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-            <circle cx="12" cy="8" r="4"></circle>
-            <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"></path>
-          </svg>
-          <span class="ph-label" data-i18n="hero.photoPlaceholder">Replace with<br>your photo<br>(assets/headshot.jpg)</span>
-        </div>
+        <img class="hero-photo-img" src="assets/headshot.jpg" alt="Yichen Xu">
       </div>
 
       <div>
         <div class="eyebrow" data-i18n="hero.eyebrow">Ph.D. Candidate &middot; Electrical Engineering &middot; Columbia University</div>
-        <h1>Yichen Xu</h1>
-        <p class="tagline" data-i18n="hero.tagline">Power management IC designer, chip photographer, and occasional artist.</p>
+        <h1 data-i18n="hero.name">Yichen Xu</h1>
+        <p class="tagline" data-i18n="hero.tagline">Power management IC designer and occasional video maker.</p>
         <p class="hero-text" data-i18n="hero.text">
           I design power management circuits for modern SoC platforms and emerging AI hardware
           systems &mdash; computational digital LDOs, SIMO DC&ndash;DC converters, switched-capacitor
@@ -126,7 +123,7 @@ index_body = """
         </a>
         <a class="hub-card" href="journey.html">
           <h3 data-i18n="nav.journey">Journey</h3>
-          <p data-i18n="home.journey.desc">Zigong &rarr; Chengdu &rarr; New York &rarr; San Jose.</p>
+          <p data-i18n="home.journey.desc">Zigong &rarr; Chengdu &rarr; Suzhou &rarr; Shanghai &rarr; New York &rarr; San Jose.</p>
         </a>
         <a class="hub-card" href="chips.html">
           <h3 data-i18n="nav.chips">Chip Gallery</h3>
@@ -148,6 +145,19 @@ index_body = """
           <h3 data-i18n="nav.experience">Experience</h3>
           <p data-i18n="home.experience.desc">Internships, industry work, and teaching.</p>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="visitors.eyebrow">Live</div>
+        <h2 data-i18n="visitors.title">Visitors</h2>
+        <p class="lede" data-i18n="visitors.lede">A small live map of where people are reading this site from right now.</p>
+      </div>
+      <div class="visitor-map-wrap">
+        <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=1BsmQQTtG9AVT_iJg1JJlvb_ykU5HgRPunwFZ4erUIM&cl=ffffff&w=a"></script>
       </div>
     </div>
   </section>
@@ -199,8 +209,11 @@ about_body = """
 """
 
 # ---------------- JOURNEY ----------------
-def stop(idx, city_key, city_en, region_key, region_en, period_key, period_en, body_key, body_en, coord):
-    return f"""        <li class="journey-stop">
+def stop(idx, lat, lon, city_key, city_en, region_key, region_en, period_key, period_en, body_key, body_en):
+    ns = "N" if lat >= 0 else "S"
+    ew = "E" if lon >= 0 else "W"
+    coord = f"{abs(lat):.2f}&deg;{ns}, {abs(lon):.2f}&deg;{ew}"
+    return f"""        <li class="journey-stop" id="stop-{idx}" data-lat="{lat}" data-lon="{lon}" data-order="{idx}">
           <div class="journey-marker"><span class="journey-dot"></span></div>
           <div class="journey-content">
             <div class="journey-coord">{coord}</div>
@@ -215,19 +228,25 @@ journey_body = """
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow" data-i18n="journey.eyebrow">01b &mdash; Journey</div>
-        <h2 data-i18n="journey.title">Zigong &rarr; Chengdu &rarr; New York &rarr; San Jose</h2>
+        <h2 data-i18n="journey.title">Zigong &rarr; Chengdu &rarr; Suzhou &rarr; Shanghai &rarr; New York &rarr; San Jose</h2>
         <p class="lede" data-i18n="journey.lede">
           A quick map of how a kid from a small city in Sichuan ended up designing power
-          management chips on two continents.
+          management chips on two continents. Click a city on the map to jump to its story.
         </p>
+      </div>
+
+      <div class="journey-map-wrap">
+        <svg id="journeyMap" viewBox="0 0 960 480" role="img" aria-label="World map showing Yichen's journey"></svg>
       </div>
 
       <ul class="journey-line">
 """ + "\n".join([
-    stop(1, "journey.s1.city", "Zigong", "journey.s1.region", "Sichuan, China", "journey.s1.period", "Where it started", "journey.s1.body", "Born and raised in Zigong &mdash; a small industrial city in Sichuan known for salt mining, dinosaur fossils, and lantern festivals. First taste of taking things apart to see how they work.", "29.35&deg;N, 104.78&deg;E"),
-    stop(2, "journey.s2.city", "Chengdu", "journey.s2.region", "Sichuan, China", "journey.s2.period", "2016 &ndash; 2020", "journey.s2.body", "Moved to the provincial capital for a B.S. in Electrical Engineering at UESTC &mdash; roughly 180&nbsp;km from home, but a first real step away. This is where circuits stopped being a subject and became the thing I wanted to do.", "30.66&deg;N, 104.07&deg;E"),
-    stop(3, "journey.s3.city", "New York", "journey.s3.region", "United States", "journey.s3.period", "2021 &ndash; present", "journey.s3.body", "~11,700&nbsp;km from Chengdu for an M.S. &amp; Ph.D. at Columbia University. New country, new language of instruments, same question: how do you keep power clean and efficient when everything around it is switching?", "40.71&deg;N, 74.01&deg;W"),
-    stop(4, "journey.s4.city", "San Jose", "journey.s4.region", "California, United States", "journey.s4.period", "Summer 2026", "journey.s4.body", "~4,100&nbsp;km west to Samsung's DRAM Design Lab for a circuit design internship &mdash; from lecture halls in Manhattan to the middle of Silicon Valley's memory industry.", "37.34&deg;N, 121.89&deg;W"),
+    stop(1, 29.35, 104.78, "journey.s1.city", "Zigong", "journey.s1.region", "Sichuan, China", "journey.s1.period", "Where it started", "journey.s1.body", "Born and raised in Zigong &mdash; a small industrial city in Sichuan known for salt mining, dinosaur fossils, and lantern festivals. First taste of taking things apart to see how they work."),
+    stop(2, 30.66, 104.07, "journey.s2.city", "Chengdu", "journey.s2.region", "Sichuan, China", "journey.s2.period", "2016 &ndash; 2020", "journey.s2.body", "Moved to the provincial capital for a B.S. in Electrical Engineering at UESTC &mdash; roughly 180&nbsp;km from home, but a first real step away. This is where circuits stopped being a subject and became the thing I wanted to do."),
+    stop(3, 31.30, 120.62, "journey.s3.city", "Suzhou", "journey.s3.region", "Jiangsu, China", "journey.s3.period", "2019", "journey.s3.body", "A spell in Suzhou in 2019 &mdash; [tell me what you were doing here and I'll fill this in properly]."),
+    stop(4, 31.23, 121.47, "journey.s4.city", "Shanghai", "journey.s4.region", "China", "journey.s4.period", "2020 &ndash; 2021", "journey.s4.body", "Joined Chip Dance Technology (a startup) as an Analog and System IC Engineer, leading a True Wireless Stereo battery-charging chip architecture that taped out in GF 180nm &mdash; first time seeing a chip I designed go from schematic to silicon."),
+    stop(5, 40.71, -74.01, "journey.s5.city", "New York", "journey.s5.region", "United States", "journey.s5.period", "2021 &ndash; present", "journey.s5.body", "~11,700&nbsp;km from Shanghai for an M.S. &amp; Ph.D. at Columbia University. New country, new language of instruments, same question: how do you keep power clean and efficient when everything around it is switching?"),
+    stop(6, 37.34, -121.89, "journey.s6.city", "San Jose", "journey.s6.region", "California, United States", "journey.s6.period", "Summer 2026", "journey.s6.body", "~4,100&nbsp;km west to Samsung's DRAM Design Lab for a circuit design internship &mdash; from lecture halls in Manhattan to the middle of Silicon Valley's memory industry."),
 ]) + """
       </ul>
     </div>
@@ -235,13 +254,12 @@ journey_body = """
 """
 
 # ---------------- CHIP GALLERY ----------------
-def tile(chip_i, title_key, title_en, meta):
+def dtile(img, label_key, label_en, idx_label):
     return f"""        <article class="tile">
-          <div class="tile-art chip-art"></div>
-          <span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <img class="tile-art tile-img" src="assets/chips/{img}" alt="{label_en} {idx_label}" loading="lazy">
           <div class="tile-caption">
-            <h4 data-i18n="{title_key}">{title_en}</h4>
-            <div class="tile-meta">{meta}</div>
+            <h4 data-i18n="{label_key}">{label_en}</h4>
+            <div class="tile-meta">{idx_label}</div>
           </div>
         </article>"""
 
@@ -252,19 +270,26 @@ chips_body = """
         <div class="eyebrow" data-i18n="chips.eyebrow">02 &mdash; Silicon</div>
         <h2 data-i18n="chips.title">Chip Gallery</h2>
         <p class="lede" data-i18n="chips.lede">
-          Die shots and test boards from tape-outs across three process nodes. Placeholder art
-          below &mdash; swap each <code>.tile-art</code> for a real photo in <code>assets/chips/</code>.
+          Packaged parts and bare die from tape-outs and lab work over the years.
         </p>
       </div>
 
+      <h3 class="subhead" data-i18n="chips.packaged.title">Packaged</h3>
       <div class="gallery-grid">
 """ + "\n".join([
-    tile(1, "chips.item1.title", "Computational DLDO", "28nm CMOS &middot; 2023&ndash;2024"),
-    tile(2, "chips.item2.title", "DLDO-Assisted Buck Converter", "28nm CMOS &middot; 2024&ndash;2025"),
-    tile(3, "chips.item3.title", "Bidirectional SIMO Compensator", "65nm CMOS &middot; 2025&ndash;2026"),
-    tile(4, "chips.item4.title", "CSCR Power Converter", "65nm CMOS &middot; 2026&ndash;present"),
-    tile(5, "chips.item5.title", "TWS Battery Charging IC", "GF 180nm &middot; 2020&ndash;2021"),
-    tile(6, "chips.item6.title", "Ultrasound Range Finder AFE", "65nm CMOS &middot; 2021&ndash;2022"),
+    dtile("die-1.jpg", "chips.packaged.item", "Packaged chip", "01"),
+    dtile("die-2.jpg", "chips.packaged.item", "Packaged chip", "02"),
+    dtile("die-3.jpg", "chips.packaged.item", "Packaged chip", "03"),
+]) + """
+      </div>
+
+      <h3 class="subhead" data-i18n="chips.bare.title">Bare Die</h3>
+      <div class="gallery-grid">
+""" + "\n".join([
+    dtile("die-4.jpg", "chips.bare.item", "Bare die", "01"),
+    dtile("die-5.jpg", "chips.bare.item", "Bare die", "02"),
+    dtile("die-6.jpg", "chips.bare.item", "Bare die", "03"),
+    dtile("die-7.jpg", "chips.bare.item", "Bare die", "04"),
 ]) + """
       </div>
     </div>
@@ -542,7 +567,7 @@ contact_body = """
 PAGE_DEFS = {
     "index": ("Home", "Yichen Xu — Ph.D. Candidate in Electrical Engineering, Columbia University.", index_body),
     "about": ("About", "About Yichen Xu — education, research interests, honors.", about_body),
-    "journey": ("Journey", "From Zigong to Chengdu to New York and San Jose — Yichen Xu's path.", journey_body),
+    "journey": ("Journey", "From Zigong to Chengdu to Suzhou to Shanghai to New York and San Jose — Yichen Xu's path.", journey_body),
     "chips": ("Chip Gallery", "Die shots and test boards from Yichen Xu's tape-outs.", chips_body),
     "projects": ("Projects", "Research projects by Yichen Xu.", projects_body),
     "publications": ("Publications", "Papers and patents by Yichen Xu.", publications_body),
@@ -551,8 +576,12 @@ PAGE_DEFS = {
     "contact": ("Contact", "Contact Yichen Xu.", contact_body),
 }
 
+EXTRA_SCRIPTS = {
+    "journey": '<script src="assets/vendor/topojson-client.min.js"></script>\n<script src="js/journey-map.js"></script>\n',
+}
+
 for name, (title, desc, body) in PAGE_DEFS.items():
-    html = page(f"{name}.html", title, desc, body)
+    html = page(f"{name}.html", title, desc, body, EXTRA_SCRIPTS.get(name, ""))
     with open(os.path.join(OUT, f"{name}.html"), "w") as f:
         f.write(html)
 
