@@ -162,7 +162,8 @@ a:hover { text-decoration: underline; }
   .nav-links { display: none; width: 100%; order: 3; padding-top: 10px; gap: 14px; }
   .nav-links.open { display: flex; flex-direction: column; }
   .header-inner { flex-wrap: wrap; }
-  .nav-toggle-btn { display: inline-block; }
+  .nav-toggle-btn { display: inline-block; order: -1; }
+  .brand { flex: 1; text-align: center; }
 }
 
 /* ---------- hero ---------- */
