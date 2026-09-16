@@ -268,6 +268,7 @@ a:hover { text-decoration: underline; }
   font-size: 1.15rem;
   margin-bottom: 0.9em;
 }
+.tagline-short { display: none; }
 
 .hero-text { max-width: 62ch; }
 @media (max-width: 680px) { .hero-text { max-width: 100%; } }
@@ -278,6 +279,14 @@ a:hover { text-decoration: underline; }
   .hero .eyebrow { font-size: 0.66rem; }
   .hero h1 { font-size: 1.9rem; }
   .hero .tagline { font-size: 1rem; margin-bottom: 0.7em; }
+  .tagline-full { display: none; }
+  .hero .tagline-short {
+    display: block;
+    font-size: clamp(0.68rem, calc((100vw - 48px) / 26), 1rem);
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+  }
+  html[lang="zh"] .hero .tagline-short { font-size: 1rem; white-space: normal; }
   .hero-text { font-size: 0.92rem; line-height: 1.6; }
   html[lang="zh"] .hero-text { line-height: 1.75; }
 }
