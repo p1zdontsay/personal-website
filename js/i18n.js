@@ -32,7 +32,7 @@ const I18N = {
     "home.chips.desc": "Die shots and test boards from every tape-out.",
     "home.projects.desc": "Research projects, from course work to current tape-outs.",
     "home.publications.desc": "Papers and patents.",
-    "home.photography.desc": "A few frames outside the cleanroom.",
+    "home.photography.desc": "A few frames outside of the lab.",
     "home.experience.desc": "Internships, industry work, and teaching.",
 
     "visitors.eyebrow": "Live",
@@ -113,7 +113,7 @@ const I18N = {
 
     "photo.eyebrow": "05 &mdash; Outside the lab",
     "photo.title": "Photography",
-    "photo.lede": "A few frames outside the cleanroom.",
+    "photo.lede": "A few frames outside of the lab.",
     "photo.photo.title": "Photo",
     "photo.photo.lede": "Click a place to open a few frames from there. More places coming.",
     "photo.place.hawaii": "Hawaii",

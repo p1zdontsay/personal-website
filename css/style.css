@@ -364,8 +364,8 @@ a:hover { text-decoration: underline; }
 
 .place-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 140px));
+  gap: 16px;
 }
 
 .place-card {
@@ -398,16 +398,16 @@ a:hover { text-decoration: underline; }
 
 .place-name {
   display: block;
-  padding: 12px 14px;
+  padding: 8px 10px;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.82rem;
 }
 
 .place-gallery {
-  padding: 0 14px 16px;
+  padding: 0 10px 10px;
   grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
 }
-@media (max-width: 480px) { .place-gallery { grid-template-columns: 1fr; } }
 
 .video-grid {
   display: grid;

@@ -134,7 +134,7 @@ index_body = """
         </a>
         <a class="hub-card" href="photography.html">
           <h3 data-i18n="nav.photography">Photography</h3>
-          <p data-i18n="home.photography.desc">A few frames outside the cleanroom.</p>
+          <p data-i18n="home.photography.desc">A few frames outside of the lab.</p>
         </a>
         <a class="hub-card" href="experience.html">
           <h3 data-i18n="nav.experience">Experience</h3>
@@ -465,7 +465,7 @@ photography_body = """
       <div class="section-head">
         <div class="eyebrow" data-i18n="photo.eyebrow">05 &mdash; Outside the lab</div>
         <h2 data-i18n="photo.title">Photography</h2>
-        <p class="lede" data-i18n="photo.lede">A few frames outside the cleanroom.</p>
+        <p class="lede" data-i18n="photo.lede">A few frames outside of the lab.</p>
       </div>
 
       <h3 class="subhead" data-i18n="photo.photo.title">Photo</h3>
