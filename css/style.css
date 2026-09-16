@@ -349,7 +349,7 @@ a:hover { text-decoration: underline; }
 }
 
 .plain-list { list-style: none; margin: 0; padding: 0; }
-.plain-list li { margin-bottom: 0.9em; color: var(--text); }
+.plain-list li { margin-bottom: 0.9em; color: var(--text); text-align: justify; text-align-last: left; }
 .plain-list .meta { display: block; color: var(--text-faint); font-size: 0.85rem; margin-top: 2px; }
 
 /* ---------- generic grid gallery (chip + photography) ---------- */
