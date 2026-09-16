@@ -440,6 +440,16 @@ publications_body = """
           Regulator,&rdquo;
           <em>IEEE Transactions on VLSI Systems (TVLSI)</em>, 2024.
         </li>
+        <li>
+          F. Du, F. Hou, W. Song, L. Chen, Y. Nie, Y. Qing, Yichen Xu, J. Liu, Z. Liu, J. J. Liou,
+          &ldquo;An Improved Silicon-Controlled Rectifier (SCR) for Low-Voltage ESD Application,&rdquo;
+          <em>IEEE Transactions on Electron Devices</em>, vol. 67, no. 2, pp. 576&ndash;581, 2020.
+        </li>
+        <li>
+          F. Du, X. Dong, C. Yang, Yichen Xu, Z. Liu, J. Liu, J. J. Liou,
+          &ldquo;A Robust Dual Directional SCR without Current Saturation Effect for ESD Applications,&rdquo;
+          <em>2019 IEEE 26th International Symposium on Physical and Failure Analysis of Integrated Circuits (IPFA)</em>, 2019.
+        </li>
       </ol>
 
       <h3 class="subhead" data-i18n="publications.patents">Patents</h3>
