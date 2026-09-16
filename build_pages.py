@@ -101,8 +101,9 @@ index_body = """
         </p>
         <p class="hero-text" data-i18n="hero.text2">
           My work spans voltage regulators and PDN designs for modern SoCs and accelerators,
-          clock generation, digital control, and physical design. I am also interested in
-          hardware architectures and simulators at the boundary of circuits and computation.
+          clock generation, digital control, and physical design. At the boundary of circuits
+          and computation, I am also interested in architectures and simulators for emerging
+          HBM/DRAM.
         </p>
         <p class="hero-text" data-i18n="hero.text3">
           Advised by Prof. Mingoo Seok at Columbia University. Outside the lab, I shoot photos
