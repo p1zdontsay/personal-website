@@ -261,14 +261,6 @@ a:hover { text-decoration: underline; }
   color: transparent;
   display: inline-block;
 }
-.hero h1::after {
-  content: "_";
-  -webkit-text-fill-color: var(--accent-b);
-  animation: blink 1.1s steps(1) infinite;
-}
-@keyframes blink { 50% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .hero h1::after { animation: none; } }
-
 .hero .tagline {
   color: var(--text);
   font-size: 1.15rem;

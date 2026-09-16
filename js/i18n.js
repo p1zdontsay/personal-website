@@ -19,6 +19,7 @@ const I18N = {
     "nav.contact": "Contact",
 
     "hero.photoPlaceholder": "Replace with<br>your photo<br>(assets/headshot.jpg)",
+    "hero.name": "Yichen Xu",
     "hero.eyebrow": "Ph.D. Candidate &middot; Electrical Engineering &middot; Columbia University",
     "hero.tagline": "Power management IC designer, chip photographer, and occasional artist.",
     "hero.text": "I design power management circuits for modern SoC platforms and emerging AI hardware systems &mdash; computational digital LDOs, SIMO DC&ndash;DC converters, switched-capacitor converters, and voltage-stacked power delivery for high-bandwidth memory systems. Advised by Prof. Mingoo Seok at Columbia University. Beyond the lab, this page also collects the chips I've taped out and a few frames from my camera.",
@@ -153,6 +154,7 @@ const I18N = {
     "nav.contact": "联系方式",
 
     "hero.photoPlaceholder": "替换为你的照片<br>(assets/headshot.jpg)",
+    "hero.name": "徐一宸",
     "hero.eyebrow": "哥伦比亚大学 &middot; 电子工程 &middot; 博士候选人",
     "hero.tagline": "电源管理芯片设计师，业余芯片摄影师与摄影爱好者。",
     "hero.text": "我从事面向现代 SoC 平台与新兴 AI 硬件系统的电源管理电路设计 &mdash; 包括计算式数字 LDO（DLDO）、SIMO 多路输出 DC&ndash;DC 转换器、开关电容转换器，以及面向高带宽内存系统的电压堆叠式电源传输。导师是哥伦比亚大学的 Mingoo Seok 教授。实验室之外，这个页面也收录了我流过片的芯片，以及一些随手拍的照片。",
