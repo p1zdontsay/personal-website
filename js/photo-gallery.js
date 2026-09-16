@@ -4,34 +4,67 @@
     var lightbox = document.getElementById("photoLightbox");
     var lightboxImg = document.getElementById("lightboxImg");
     var lightboxClose = document.getElementById("lightboxClose");
+    var lightboxPrev = document.getElementById("lightboxPrev");
+    var lightboxNext = document.getElementById("lightboxNext");
 
-    function openLightbox(src, alt) {
+    var currentGallery = [];
+    var currentIndex = -1;
+
+    function updateNavVisibility() {
+      var multi = currentGallery.length > 1;
+      if (lightboxPrev) lightboxPrev.hidden = !multi;
+      if (lightboxNext) lightboxNext.hidden = !multi;
+    }
+
+    function showIndex(i) {
+      if (!currentGallery.length) return;
+      currentIndex = (i + currentGallery.length) % currentGallery.length;
+      var item = currentGallery[currentIndex];
+      lightboxImg.src = item.src;
+      lightboxImg.alt = item.alt || "";
+    }
+
+    function openLightbox(gallery, index) {
       if (!lightbox || !lightboxImg) return;
-      lightboxImg.src = src;
-      lightboxImg.alt = alt || "";
+      currentGallery = gallery;
+      showIndex(index);
+      updateNavVisibility();
       lightbox.classList.add("is-open");
     }
     function closeLightbox() {
       if (!lightbox || !lightboxImg) return;
       lightbox.classList.remove("is-open");
       lightboxImg.src = "";
+      currentGallery = [];
+      currentIndex = -1;
     }
 
     if (lightbox) {
       lightbox.addEventListener("click", function (e) {
         if (e.target === lightbox || e.target === lightboxClose) closeLightbox();
       });
+      if (lightboxPrev) lightboxPrev.addEventListener("click", function () { showIndex(currentIndex - 1); });
+      if (lightboxNext) lightboxNext.addEventListener("click", function () { showIndex(currentIndex + 1); });
       document.addEventListener("keydown", function (e) {
+        if (!lightbox.classList.contains("is-open")) return;
         if (e.key === "Escape") closeLightbox();
+        else if (e.key === "ArrowLeft") showIndex(currentIndex - 1);
+        else if (e.key === "ArrowRight") showIndex(currentIndex + 1);
       });
     }
 
-    // Thumbnails: click to view a larger version.
-    document.querySelectorAll(".place-thumb").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var full = btn.getAttribute("data-full");
+    // Thumbnails: click to view a larger version, with prev/next through the rest of
+    // that place's photos.
+    document.querySelectorAll(".place-thumbs").forEach(function (row) {
+      var thumbs = Array.prototype.slice.call(row.querySelectorAll(".place-thumb"));
+      var gallery = thumbs.map(function (btn) {
         var img = btn.querySelector("img");
-        if (full) openLightbox(full, img ? img.alt : "");
+        return { src: btn.getAttribute("data-full"), alt: img ? img.alt : "" };
+      });
+      thumbs.forEach(function (btn, i) {
+        btn.addEventListener("click", function () {
+          openLightbox(gallery, i);
+        });
       });
     });
 

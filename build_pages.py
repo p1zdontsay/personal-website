@@ -493,7 +493,9 @@ photography_body = """
 
   <div class="lightbox" id="photoLightbox">
     <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">&#10094;</button>
     <img id="lightboxImg" src="" alt="">
+    <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">&#10095;</button>
   </div>
 """
 
