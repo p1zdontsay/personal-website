@@ -121,7 +121,10 @@ const I18N = {
     "photo.item5": "Long Exposure",
     "photo.item6": "Film",
     "photo.video.title": "Video",
-    "photo.video.lede": "A short video I made.",
+    "photo.video.lede": "A few short videos I made.",
+    "photo.video.v1": "Altay",
+    "photo.video.v2": "Iceland",
+    "photo.video.v3": "Malaysia",
 
     "experience.eyebrow": "06 &mdash; Industry",
     "experience.title": "Experience",
@@ -257,7 +260,10 @@ const I18N = {
     "photo.item5": "长曝光",
     "photo.item6": "胶片",
     "photo.video.title": "视频",
-    "photo.video.lede": "一段我拍的短视频。",
+    "photo.video.lede": "一些我拍的短视频。",
+    "photo.video.v1": "阿勒泰",
+    "photo.video.v2": "冰岛",
+    "photo.video.v3": "马来西亚",
 
     "experience.eyebrow": "06 &mdash; 工业界经历",
     "experience.title": "经历",

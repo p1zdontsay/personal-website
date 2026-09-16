@@ -438,6 +438,15 @@ def ptile(key, en):
     return f"""        <article class="tile"><div class="tile-art photo-art"></div><span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
           <div class="tile-caption"><h4 data-i18n="{key}">{en}</h4></div></article>"""
 
+def vtile(bvid, title_key, title_en):
+    return f"""        <div class="video-card">
+          <h4 data-i18n="{title_key}">{title_en}</h4>
+          <div class="video-embed">
+            <iframe src="//player.bilibili.com/player.html?bvid={bvid}&page=1&high_quality=1&danmaku=0"
+              scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true" loading="lazy"></iframe>
+          </div>
+        </div>"""
+
 photography_body = """
   <section class="section section-first">
     <div class="wrap">
@@ -462,10 +471,13 @@ photography_body = """
       </div>
 
       <h3 class="subhead" data-i18n="photo.video.title">Video</h3>
-      <p class="lede" data-i18n="photo.video.lede">A short video I made.</p>
-      <div class="video-embed">
-        <iframe src="//player.bilibili.com/player.html?bvid=BV1RmPTzMEkF&page=1&high_quality=1&danmaku=0"
-          scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true" loading="lazy"></iframe>
+      <p class="lede" data-i18n="photo.video.lede">A few short videos I made.</p>
+      <div class="video-grid">
+""" + "\n".join([
+    vtile("BV1RmPTzMEkF", "photo.video.v1", "Altay"),
+    vtile("BV1RMyuYeESv", "photo.video.v2", "Iceland"),
+    vtile("BV15A411b7js", "photo.video.v3", "Malaysia"),
+]) + """
       </div>
     </div>
   </section>
