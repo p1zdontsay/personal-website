@@ -68,6 +68,21 @@
       });
     });
 
+    // Chip Gallery tiles: click to view a larger version, with prev/next through the
+    // rest of that same grid (Packaged, Bare Die, etc.).
+    document.querySelectorAll(".gallery-grid").forEach(function (grid) {
+      var thumbs = Array.prototype.slice.call(grid.querySelectorAll(".tile-thumb"));
+      var gallery = thumbs.map(function (btn) {
+        var img = btn.querySelector("img");
+        return { src: btn.getAttribute("data-full"), alt: img ? img.alt : "" };
+      });
+      thumbs.forEach(function (btn, i) {
+        btn.addEventListener("click", function () {
+          openLightbox(gallery, i);
+        });
+      });
+    });
+
     // Cover: click/tap toggles the thumbnail row open (hover already expands it via CSS
     // on pointer devices; this covers touch and keyboard use).
     document.querySelectorAll(".place-card").forEach(function (card) {

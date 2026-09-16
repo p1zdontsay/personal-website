@@ -241,10 +241,24 @@ journey_mini_body = """
       </ul>
 """
 
+# Shared lightbox markup (click-to-enlarge, with prev/next nav) — used by any page whose
+# script wires up buttons with a data-full attribute into #photoLightbox.
+LIGHTBOX_HTML = """
+  <div class="lightbox" id="photoLightbox">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">&#10094;</button>
+    <img id="lightboxImg" src="" alt="">
+    <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">&#10095;</button>
+  </div>
+"""
+
 # ---------------- CHIP GALLERY ----------------
 def dtile(img, label_key, label_en, idx_label):
+    path = f"assets/chips/{img}"
     return f"""        <article class="tile">
-          <img class="tile-art tile-img" src="assets/chips/{img}" alt="{label_en} {idx_label}" loading="lazy">
+          <button type="button" class="tile-art tile-thumb" data-full="{path}" aria-label="{label_en} {idx_label}">
+            <img class="tile-img" src="{path}" alt="{label_en} {idx_label}" loading="lazy">
+          </button>
           <div class="tile-caption">
             <h4 data-i18n="{label_key}">{label_en}</h4>
             <div class="tile-meta">{idx_label}</div>
@@ -282,7 +296,7 @@ chips_body = """
       </div>
     </div>
   </section>
-"""
+""" + LIGHTBOX_HTML
 
 # ---------------- PROJECTS ----------------
 projects_body = """
@@ -490,14 +504,7 @@ photography_body = """
       </div>
     </div>
   </section>
-
-  <div class="lightbox" id="photoLightbox">
-    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
-    <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">&#10094;</button>
-    <img id="lightboxImg" src="" alt="">
-    <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">&#10095;</button>
-  </div>
-"""
+""" + LIGHTBOX_HTML
 
 # ---------------- EXPERIENCE ----------------
 experience_body = """
@@ -598,6 +605,7 @@ PAGE_DEFS = {
 EXTRA_SCRIPTS = {
     "experience": f'<script src="assets/vendor/topojson-client.min.js"></script>\n<script src="js/journey-map.js?v={BUILD_VERSION}"></script>\n',
     "photography": f'<script src="js/photo-gallery.js?v={BUILD_VERSION}"></script>\n',
+    "chips": f'<script src="js/photo-gallery.js?v={BUILD_VERSION}"></script>\n',
 }
 
 for name, (title, desc, body) in PAGE_DEFS.items():
