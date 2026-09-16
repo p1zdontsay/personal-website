@@ -460,6 +460,13 @@ photography_body = """
     ptile("photo.item6", "Film"),
 ]) + """
       </div>
+
+      <h3 class="subhead" data-i18n="photo.video.title">Video</h3>
+      <p class="lede" data-i18n="photo.video.lede">A short video I made.</p>
+      <div class="video-embed">
+        <iframe src="//player.bilibili.com/player.html?bvid=BV1RmPTzMEkF&page=1&high_quality=1&danmaku=0"
+          scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true" loading="lazy"></iframe>
+      </div>
     </div>
   </section>
 """

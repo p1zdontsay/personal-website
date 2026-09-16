@@ -120,6 +120,8 @@ const I18N = {
     "photo.item4": "Architecture",
     "photo.item5": "Long Exposure",
     "photo.item6": "Film",
+    "photo.video.title": "Video",
+    "photo.video.lede": "A short video I made.",
 
     "experience.eyebrow": "06 &mdash; Industry",
     "experience.title": "Experience",
@@ -254,6 +256,8 @@ const I18N = {
     "photo.item4": "建筑",
     "photo.item5": "长曝光",
     "photo.item6": "胶片",
+    "photo.video.title": "视频",
+    "photo.video.lede": "一段我拍的短视频。",
 
     "experience.eyebrow": "06 &mdash; 工业界经历",
     "experience.title": "经历",
