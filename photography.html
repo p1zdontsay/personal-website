@@ -45,20 +45,17 @@
       </div>
 
       <h3 class="subhead" data-i18n="photo.photo.title">Photo</h3>
-      <p class="lede" data-i18n="photo.photo.lede">Click a place to open a few frames from there. More places coming.</p>
+      <p class="lede" data-i18n="photo.photo.lede">Hover or tap a place to see a few frames from there &mdash; click one to view it larger. More places coming.</p>
       <div class="place-grid">
-        <details class="place-card">
-          <summary>
-            <span class="place-cover"><img src="assets/photography/Hawaii/hawaii-11.jpg" alt="Hawaii" loading="lazy"></span>
-            <span class="place-name" data-i18n="photo.place.hawaii">Hawaii</span>
-          </summary>
-          <div class="gallery-grid place-gallery">
-          <article class="tile"><img class="tile-art tile-img" src="assets/photography/Hawaii/hawaii-11.jpg" alt="Hawaii" loading="lazy"></article>
-          <article class="tile"><img class="tile-art tile-img" src="assets/photography/Hawaii/hawaii-12.jpg" alt="Hawaii" loading="lazy"></article>
-          <article class="tile"><img class="tile-art tile-img" src="assets/photography/Hawaii/hawaii-13.jpg" alt="Hawaii" loading="lazy"></article>
-          <article class="tile"><img class="tile-art tile-img" src="assets/photography/Hawaii/hawaii-15.jpg" alt="Hawaii" loading="lazy"></article>
+        <div class="place-card">
+          <button type="button" class="place-cover" aria-label="Hawaii"><img src="assets/photography/Hawaii/hawaii-11.jpg" alt="Hawaii" loading="lazy"></button>
+          <span class="place-name" data-i18n="photo.place.hawaii">Hawaii</span>
+          <div class="place-thumbs">
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-12.jpg"><img src="assets/photography/Hawaii/hawaii-12.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-13.jpg"><img src="assets/photography/Hawaii/hawaii-13.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-15.jpg"><img src="assets/photography/Hawaii/hawaii-15.jpg" alt="Hawaii" loading="lazy"></button>
           </div>
-        </details>
+        </div>
       </div>
 
       <h3 class="subhead" data-i18n="photo.video.title">Video</h3>
@@ -89,6 +86,11 @@
     </div>
   </section>
 
+  <div class="lightbox" id="photoLightbox">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
 </main>
 
 <footer class="site-footer">
@@ -97,6 +99,7 @@
   </div>
 </footer>
 
+<script src="js/photo-gallery.js"></script>
 <script src="js/i18n.js"></script>
 </body>
 </html>

@@ -438,17 +438,19 @@ publications_body = """
 def rtile(folder, img, alt="Photo"):
     return f"""          <article class="tile"><img class="tile-art tile-img" src="assets/photography/{folder}/{img}" alt="{alt}" loading="lazy"></article>"""
 
+def thumb(folder, img, alt):
+    path = f"assets/photography/{folder}/{img}"
+    return f"""            <button type="button" class="place-thumb" data-full="{path}"><img src="{path}" alt="{alt}" loading="lazy"></button>"""
+
 def place(folder, cover, name_key, name_en, photos):
-    imgs = "\n".join([rtile(folder, p, name_en) for p in photos])
-    return f"""        <details class="place-card">
-          <summary>
-            <span class="place-cover"><img src="assets/photography/{folder}/{cover}" alt="{name_en}" loading="lazy"></span>
-            <span class="place-name" data-i18n="{name_key}">{name_en}</span>
-          </summary>
-          <div class="gallery-grid place-gallery">
-{imgs}
+    thumbs = "\n".join([thumb(folder, p, name_en) for p in photos])
+    return f"""        <div class="place-card">
+          <button type="button" class="place-cover" aria-label="{name_en}"><img src="assets/photography/{folder}/{cover}" alt="{name_en}" loading="lazy"></button>
+          <span class="place-name" data-i18n="{name_key}">{name_en}</span>
+          <div class="place-thumbs">
+{thumbs}
           </div>
-        </details>"""
+        </div>"""
 
 def vtile(bvid, title_key, title_en):
     return f"""        <div class="video-card">
@@ -469,10 +471,10 @@ photography_body = """
       </div>
 
       <h3 class="subhead" data-i18n="photo.photo.title">Photo</h3>
-      <p class="lede" data-i18n="photo.photo.lede">Click a place to open a few frames from there. More places coming.</p>
+      <p class="lede" data-i18n="photo.photo.lede">Hover or tap a place to see a few frames from there &mdash; click one to view it larger. More places coming.</p>
       <div class="place-grid">
 """ + place("Hawaii", "hawaii-11.jpg", "photo.place.hawaii", "Hawaii",
-            ["hawaii-11.jpg", "hawaii-12.jpg", "hawaii-13.jpg", "hawaii-15.jpg"]) + """
+            ["hawaii-12.jpg", "hawaii-13.jpg", "hawaii-15.jpg"]) + """
       </div>
 
       <h3 class="subhead" data-i18n="photo.video.title">Video</h3>
@@ -486,6 +488,11 @@ photography_body = """
       </div>
     </div>
   </section>
+
+  <div class="lightbox" id="photoLightbox">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
 """
 
 # ---------------- EXPERIENCE ----------------
@@ -586,6 +593,7 @@ PAGE_DEFS = {
 
 EXTRA_SCRIPTS = {
     "experience": '<script src="assets/vendor/topojson-client.min.js"></script>\n<script src="js/journey-map.js"></script>\n',
+    "photography": '<script src="js/photo-gallery.js"></script>\n',
 }
 
 for name, (title, desc, body) in PAGE_DEFS.items():
