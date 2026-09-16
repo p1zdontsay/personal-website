@@ -504,8 +504,8 @@ photography_body = """
             [f"hawaii-{n}.jpg" for n in range(1, 17) if n != 11]) + """
 """ + place("Altay", "altay-5.jpg", "photo.place.altay", "Altay",
             [f"altay-{n}.jpg" for n in range(1, 10) if n != 5]) + """
-""" + place("Iceland", "iceland-2.jpg", "photo.place.iceland", "Iceland",
-            [f"iceland-{n}.jpg" for n in range(1, 10) if n != 2]) + """
+""" + place("Iceland", "iceland-1.jpg", "photo.place.iceland", "Iceland",
+            [f"iceland-{n}.jpg" for n in range(1, 10) if n != 1]) + """
       </div>
 
       <h3 class="subhead" data-i18n="photo.video.title">Video</h3>
