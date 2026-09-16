@@ -364,9 +364,10 @@ a:hover { text-decoration: underline; }
 
 .place-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 140px));
-  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
 }
+@media (max-width: 780px) { .place-grid { grid-template-columns: 1fr; } }
 
 .place-card {
   border: 1px solid var(--border);
@@ -384,7 +385,7 @@ a:hover { text-decoration: underline; }
 .place-cover {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
 }
 .place-cover img {
@@ -398,15 +399,15 @@ a:hover { text-decoration: underline; }
 
 .place-name {
   display: block;
-  padding: 8px 10px;
+  padding: 12px 14px;
   font-weight: 600;
-  font-size: 0.82rem;
+  font-size: 0.95rem;
 }
 
 .place-gallery {
-  padding: 0 10px 10px;
+  padding: 0 14px 16px;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  gap: 12px;
 }
 
 .video-grid {
