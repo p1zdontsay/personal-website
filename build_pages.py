@@ -587,7 +587,7 @@ experience_body = """
       <ul class="plain-list">
         <li data-i18n="experience.t1">Teaching Assistant, Modern Power Management IC Design (ELEN 6920) &mdash; Fall 2022 / 2023 / 2024</li>
         <li data-i18n="experience.t2">Teaching Assistant, VLSI Design Lab (ELEN 6350) &mdash; Spring 2025</li>
-        <li data-i18n="experience.t3">Substitute Lecturer, Advanced Digital Electronic Circuits (EE6321) &mdash; covered a lecture on interconnect in VLSI while the instructor was away, Spring 2026</li>
+        <li data-i18n="experience.t3">Substitute Lecturer, Advanced Digital Electronic Circuits (EE6321) &mdash; interconnect in VLSI, Spring 2026</li>
       </ul>
 """ + journey_mini_body + """
     </div>
