@@ -22,7 +22,7 @@ const I18N = {
     "hero.name": "Yichen Xu",
     "hero.eyebrow": "Ph.D. Candidate &middot; Electrical Engineering &middot; Columbia University",
     "hero.tagline": "Mixed-signal IC designer and occasional video maker.",
-    "hero.text": "My work spans the mixed-signal design stack: analog front-ends, PMIC and power-delivery-network circuits, the digital control loops around them, and the physical design work that carries a chip to tapeout. I'm also drawn to the boundary between circuits and computation &mdash; architecture and simulators for emerging hardware. Advised by Prof. Mingoo Seok at Columbia University. Beyond the lab, this page also collects the chips I've taped out and a few frames from my camera.",
+    "hero.text": "My work spans the mixed-signal design stack: modeling, analog front-ends, power management and power-delivery-network, clock generation, digital control, and the physical design that carries a chip to tapeout. I'm also drawn to the boundary between circuits and computation &mdash; architecture and simulators for emerging hardware. Advised by Prof. Mingoo Seok at Columbia University. Beyond the lab, this site also collects a few frames from my camera and drone.",
     "hero.linkEmail": "Email",
 
     "home.eyebrow": "Explore",
@@ -162,7 +162,7 @@ const I18N = {
     "hero.name": "徐一宸",
     "hero.eyebrow": "哥伦比亚大学 &middot; 电子工程 &middot; 博士候选人",
     "hero.tagline": "混合信号芯片设计师，业余视频制作者。",
-    "hero.text": "我的工作横跨混合信号设计的各个环节：模拟前端、PMIC 与电源分配网络（PDN）电路、围绕它们的数字控制逻辑，以及把芯片送上流片的物理设计。我也对电路与计算的交界很感兴趣 &mdash; 面向新兴硬件的体系结构与仿真器。导师是哥伦比亚大学的 Mingoo Seok 教授。实验室之外，这个页面也收录了我流过片的芯片，以及一些随手拍的照片。",
+    "hero.text": "我的工作横跨混合信号设计的各个环节：建模、模拟前端、电源管理与电源分配网络、时钟生成、数字控制，以及把芯片送上流片的物理设计。我也对电路与计算的交界很感兴趣 &mdash; 面向新兴硬件的体系结构与仿真器。导师是哥伦比亚大学的 Mingoo Seok 教授。实验室之外，这个网站也收录了一些用相机和无人机拍的照片。",
     "hero.linkEmail": "邮箱",
 
     "home.eyebrow": "浏览",
