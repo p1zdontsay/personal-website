@@ -140,6 +140,7 @@ const I18N = {
     "experience.teaching": "Teaching",
     "experience.t1": "Teaching Assistant, Modern Power Management IC Design (ELEN 6920) &mdash; Fall 2022 / 2023 / 2024",
     "experience.t2": "Teaching Assistant, VLSI Design Lab (ELEN 6350) &mdash; Spring 2025",
+    "experience.t3": "Substitute Lecturer, Advanced Digital Electronic Circuits (EE6321) &mdash; covered a lecture on interconnect in VLSI while the instructor was away, Spring 2026",
 
     "contact.eyebrow": "07 &mdash; Say hello",
     "contact.title": "Contact",
@@ -280,6 +281,7 @@ const I18N = {
     "experience.teaching": "教学经历",
     "experience.t1": "现代电源管理集成电路设计（ELEN 6920）助教 &mdash; 2022 / 2023 / 2024 秋季学期",
     "experience.t2": "VLSI 设计实验课（ELEN 6350）助教 &mdash; 2025 春季学期",
+    "experience.t3": "高级数字电子电路（EE6321）代课讲师 &mdash; 在授课老师不在时代讲了一节 VLSI 中的互连（interconnect）专题，2026 春季学期",
 
     "contact.eyebrow": "07 &mdash; 联系我",
     "contact.title": "联系方式",
