@@ -97,7 +97,7 @@ index_body = """
         <p class="tagline" data-i18n="hero.tagline">Mixed-signal IC designer and occasional video maker.</p>
         <p class="hero-text" data-i18n="hero.text">
           I aim to improve the energy-token efficiency. My work spans the mixed-signal design
-          stack: power management and power-delivery-network, analog/digital computation,
+          stack: power management for modern SoC/Accelerators, analog/digital computation,
           clock generation, digital control, and the physical design that carries a chip to
           tapeout. I'm also drawn to the boundary between circuits and computation &mdash;
           architecture and simulators for emerging hardware. Advised by Prof. Mingoo Seok at
