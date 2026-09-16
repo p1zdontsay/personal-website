@@ -254,13 +254,12 @@ journey_body = """
 """
 
 # ---------------- CHIP GALLERY ----------------
-def tile(chip_i, title_key, title_en, meta):
+def dtile(img, label_key, label_en, idx_label):
     return f"""        <article class="tile">
-          <div class="tile-art chip-art"></div>
-          <span class="tile-placeholder-tag" data-i18n="chips.tag">PLACEHOLDER</span>
+          <img class="tile-art tile-img" src="assets/chips/{img}" alt="{label_en} {idx_label}" loading="lazy">
           <div class="tile-caption">
-            <h4 data-i18n="{title_key}">{title_en}</h4>
-            <div class="tile-meta">{meta}</div>
+            <h4 data-i18n="{label_key}">{label_en}</h4>
+            <div class="tile-meta">{idx_label}</div>
           </div>
         </article>"""
 
@@ -271,19 +270,26 @@ chips_body = """
         <div class="eyebrow" data-i18n="chips.eyebrow">02 &mdash; Silicon</div>
         <h2 data-i18n="chips.title">Chip Gallery</h2>
         <p class="lede" data-i18n="chips.lede">
-          Die shots and test boards from tape-outs across three process nodes. Placeholder art
-          below &mdash; swap each <code>.tile-art</code> for a real photo in <code>assets/chips/</code>.
+          Packaged parts and bare die from tape-outs and lab work over the years.
         </p>
       </div>
 
+      <h3 class="subhead" data-i18n="chips.packaged.title">Packaged</h3>
       <div class="gallery-grid">
 """ + "\n".join([
-    tile(1, "chips.item1.title", "Computational DLDO", "28nm CMOS &middot; 2023&ndash;2024"),
-    tile(2, "chips.item2.title", "DLDO-Assisted Buck Converter", "28nm CMOS &middot; 2024&ndash;2025"),
-    tile(3, "chips.item3.title", "Bidirectional SIMO Compensator", "65nm CMOS &middot; 2025&ndash;2026"),
-    tile(4, "chips.item4.title", "CSCR Power Converter", "65nm CMOS &middot; 2026&ndash;present"),
-    tile(5, "chips.item5.title", "TWS Battery Charging IC", "GF 180nm &middot; 2020&ndash;2021"),
-    tile(6, "chips.item6.title", "Ultrasound Range Finder AFE", "65nm CMOS &middot; 2021&ndash;2022"),
+    dtile("die-1.jpg", "chips.packaged.item", "Packaged chip", "01"),
+    dtile("die-2.jpg", "chips.packaged.item", "Packaged chip", "02"),
+    dtile("die-3.jpg", "chips.packaged.item", "Packaged chip", "03"),
+]) + """
+      </div>
+
+      <h3 class="subhead" data-i18n="chips.bare.title">Bare Die</h3>
+      <div class="gallery-grid">
+""" + "\n".join([
+    dtile("die-4.jpg", "chips.bare.item", "Bare die", "01"),
+    dtile("die-5.jpg", "chips.bare.item", "Bare die", "02"),
+    dtile("die-6.jpg", "chips.bare.item", "Bare die", "03"),
+    dtile("die-7.jpg", "chips.bare.item", "Bare die", "04"),
 ]) + """
       </div>
     </div>
