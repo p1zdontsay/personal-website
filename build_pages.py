@@ -106,6 +106,7 @@ index_body = """
         <div class="hero-links">
           <a class="pill-link" href="mailto:yx2613@columbia.edu" data-i18n="hero.linkEmail">Email</a>
           <a class="pill-link" href="https://www.linkedin.com/in/yichen-xu-5718911b2/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="pill-link" href="https://space.bilibili.com/32956785" target="_blank" rel="noopener">Bilibili</a>
         </div>
       </div>
     </div>
@@ -504,6 +505,7 @@ photography_body = """
     vtile("BV1RmPTzMEkF", "photo.video.v1", "Altay"),
     vtile("BV1RMyuYeESv", "photo.video.v2", "Iceland"),
     vtile("BV15A411b7js", "photo.video.v3", "Malaysia"),
+    vtile("BV13mfSB6Efp", "photo.video.v4", "Vail"),
 ]) + """
       </div>
     </div>
@@ -589,7 +591,8 @@ contact_body = """
       </div>
       <p>
         Email: <a href="mailto:yx2613@columbia.edu">yx2613@columbia.edu</a><br>
-        LinkedIn: <a href="https://www.linkedin.com/in/yichen-xu-5718911b2/" target="_blank" rel="noopener">yichen-xu-5718911b2</a>
+        LinkedIn: <a href="https://www.linkedin.com/in/yichen-xu-5718911b2/" target="_blank" rel="noopener">yichen-xu-5718911b2</a><br>
+        Bilibili: <a href="https://space.bilibili.com/32956785" target="_blank" rel="noopener">plzdontsay</a>
       </p>
     </div>
   </section>

@@ -124,6 +124,7 @@ const I18N = {
     "photo.video.v1": "Altay",
     "photo.video.v2": "Iceland",
     "photo.video.v3": "Malaysia",
+    "photo.video.v4": "Vail",
 
     "experience.eyebrow": "06 &mdash; Industry",
     "experience.title": "Experience",
@@ -262,6 +263,7 @@ const I18N = {
     "photo.video.v1": "阿勒泰",
     "photo.video.v2": "冰岛",
     "photo.video.v3": "马来西亚",
+    "photo.video.v4": "维尔",
 
     "experience.eyebrow": "06 &mdash; 工业界经历",
     "experience.title": "经历",
