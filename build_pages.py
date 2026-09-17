@@ -94,20 +94,17 @@ index_body = """
       <div>
         <div class="eyebrow" data-i18n="hero.eyebrow">Ph.D. Candidate &middot; Electrical Engineering &middot; Columbia University</div>
         <h1 data-i18n="hero.name">Yichen Xu</h1>
-        <p class="tagline" data-i18n="hero.tagline">Mixed-Signal IC Designer &amp; Occasional Filmmaker</p>
+        <p class="tagline tagline-full" data-i18n="hero.tagline">Mixed-Signal IC Designer &amp; Occasional Filmmaker</p>
+        <p class="tagline tagline-short" data-i18n="hero.taglineShort">Boring IC designer &amp; Occasional film maker</p>
         <p class="hero-text" data-i18n="hero.text1">
-          I design integrated circuits for energy-efficient computing, reducing energy per
-          token through high-speed power management and voltage-stacking architectures.
+          I design integrated circuits for energy-efficient computing &mdash; voltage regulators
+          and PDN for modern SoCs and accelerators, clock generation, digital control, and
+          physical design. At the boundary of circuits and computation, I&rsquo;m also interested
+          in architectures and simulators for emerging HBM/DRAM.
         </p>
         <p class="hero-text" data-i18n="hero.text2">
-          My work spans voltage regulators and PDN designs for modern SoCs and accelerators,
-          clock generation, digital control, and physical design. At the boundary of circuits
-          and computation, I am also interested in architectures and simulators for emerging
-          HBM/DRAM.
-        </p>
-        <p class="hero-text" data-i18n="hero.text3">
           Advised by Prof. Mingoo Seok at Columbia University. Outside the lab, I shoot photos
-          and short films with my camera and drone; this site collects a few of them.
+          and short films with my camera and drone.
         </p>
         <div class="hero-links">
           <a class="pill-link" href="mailto:yx2613@columbia.edu" data-i18n="hero.linkEmail">Email</a>
@@ -479,7 +476,7 @@ def thumb(folder, img, alt):
 def place(folder, cover, name_key, name_en, photos):
     thumbs = "\n".join([thumb(folder, p, name_en) for p in photos])
     return f"""        <div class="place-card">
-          <button type="button" class="place-cover" aria-label="{name_en}"><img src="assets/photography/{folder}/{cover}" alt="{name_en}" loading="lazy"></button>
+          <button type="button" class="place-cover" aria-label="{name_en}" data-full="assets/photography/{folder}/{cover}"><img src="assets/photography/{folder}/{cover}" alt="{name_en}" loading="lazy"></button>
           <span class="place-name" data-i18n="{name_key}">{name_en}</span>
           <div class="place-thumbs">
 {thumbs}

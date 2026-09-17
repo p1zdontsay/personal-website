@@ -53,19 +53,36 @@
       });
     }
 
-    // Thumbnails: click to view a larger version, with prev/next through the rest of
-    // that place's photos.
-    document.querySelectorAll(".place-thumbs").forEach(function (row) {
-      var thumbs = Array.prototype.slice.call(row.querySelectorAll(".place-thumb"));
-      var gallery = thumbs.map(function (btn) {
+    // Place cards: cover photo + thumbnails all open the same lightbox gallery for
+    // that place, with prev/next moving through all of its photos (cover included,
+    // as the first item).
+    document.querySelectorAll(".place-card").forEach(function (card) {
+      var cover = card.querySelector(".place-cover");
+      var thumbs = Array.prototype.slice.call(card.querySelectorAll(".place-thumb"));
+
+      var coverItem = null;
+      if (cover) {
+        var coverImg = cover.querySelector("img");
+        coverItem = { src: cover.getAttribute("data-full"), alt: coverImg ? coverImg.alt : "" };
+      }
+      var thumbItems = thumbs.map(function (btn) {
         var img = btn.querySelector("img");
         return { src: btn.getAttribute("data-full"), alt: img ? img.alt : "" };
       });
+      var gallery = coverItem ? [coverItem].concat(thumbItems) : thumbItems;
+      var thumbOffset = coverItem ? 1 : 0;
+
       thumbs.forEach(function (btn, i) {
         btn.addEventListener("click", function () {
-          openLightbox(gallery, i);
+          openLightbox(gallery, i + thumbOffset);
         });
       });
+
+      if (cover) {
+        cover.addEventListener("click", function () {
+          openLightbox(gallery, 0);
+        });
+      }
     });
 
     // Chip Gallery tiles: click to view a larger version, with prev/next through the
@@ -80,20 +97,6 @@
         btn.addEventListener("click", function () {
           openLightbox(gallery, i);
         });
-      });
-    });
-
-    // Cover: click/tap toggles the thumbnail row open (hover already expands it via CSS
-    // on pointer devices; this covers touch and keyboard use).
-    document.querySelectorAll(".place-card").forEach(function (card) {
-      var cover = card.querySelector(".place-cover");
-      if (!cover) return;
-      cover.addEventListener("click", function () {
-        var isOpen = card.classList.contains("is-open");
-        document.querySelectorAll(".place-card.is-open").forEach(function (c) {
-          if (c !== card) c.classList.remove("is-open");
-        });
-        card.classList.toggle("is-open", !isOpen);
       });
     });
 
