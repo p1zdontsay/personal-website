@@ -395,6 +395,70 @@ projects_body = """
 """
 
 # ---------------- PUBLICATIONS ----------------
+def pub_authors(names):
+    """names: list of author display strings; wraps 'Yichen Xu' in <strong>."""
+    marked = [f"<strong>{n}</strong>" if n == "Yichen Xu" else n for n in names]
+    if len(marked) == 1:
+        return marked[0]
+    if len(marked) == 2:
+        return marked[0] + " and " + marked[1]
+    return ", ".join(marked[:-1]) + ", and " + marked[-1]
+
+def pub_entry(idx, title, authors, venue, year):
+    return f"""        <li class="pub-item">
+          <span class="pub-num">{idx:02d}</span>
+          <div class="pub-body">
+            <h3 class="pub-title">{title}</h3>
+            <p class="pub-authors">{pub_authors(authors)}</p>
+            <p class="pub-venue"><em>{venue}</em> &middot; {year}</p>
+          </div>
+        </li>"""
+
+def patent_entry(idx, title, authors, issued_date):
+    return f"""        <li class="pub-item">
+          <span class="pub-num">{idx:02d}</span>
+          <div class="pub-body">
+            <h3 class="pub-title">{title}</h3>
+            <p class="pub-authors">{pub_authors(authors)}</p>
+            <p class="pub-venue">Issued {issued_date}</p>
+          </div>
+        </li>"""
+
+PUBLICATIONS = [
+    ("A Rising-Edge Computational Digital LDO With Load-Dependent Feedback and Fast Dynamic Voltage Scaling",
+     ["Yichen Xu", "Rentao Wan", "Mao Li", "Zhaoqing Wang", "Suhwan Kim", "Ram K. Krishnamurthy", "Xin Zhang", "Mingoo Seok"],
+     "invited manuscript under review, IEEE Journal of Solid-State Circuits (JSSC)", "2027"),
+    ("VSIMO: A DC-DC SIMO-based Current Mismatch Compensator Supporting Per-Output Bidirectional Power Flow for Stacked Voltage Domains Achieving &gt;82% System Efficiency under up to 360-mA Load Mismatch",
+     ["Yichen Xu", "Shahreer Ahmed Al Hossain", "Baoqi Zhu", "Suhwan Kim", "Ram K. Krishnamurthy", "Xin Zhang", "Mingoo Seok"],
+     "IEEE Symposium on VLSI Circuits (VLSI)", "2026"),
+    ("A 1mA-to-1050mA DLDO with Rising-Edge Feedforward Control and Load-Dependent Feedback Achieving 0.15-ps Load Transient FoM, 14-mV Output Ripple, and 25-mV/ns DVS Rate in a 28nm CMOS",
+     ["Yichen Xu", "Rentao Wan", "Mao Li", "Zhaoqing Wang", "Suhwan Kim", "Ram K. Krishnamurthy", "Xin Zhang", "Mingoo Seok"],
+     "IEEE Symposium on VLSI Circuits (VLSI)", "2026"),
+    ("Digital Low-Dropout Regulator-Assisted Buck DC-DC Converter Achieving 68-mV Droop Voltage and 95.5% Efficiency",
+     ["Yichen Xu", "Zhaoqing Wang", "Rentao Wan", "Suhwan Kim", "Minxiang Gong", "Ram Kumar Krishnamurthy", "Xin Zhang", "Mingoo Seok"],
+     "IEEE Solid-State Circuits Letter (SSCL)", "2025"),
+    ("AJPEG: A 26.4-pJ/pixel, 252-fps, 128x128 Image Sensor with an In-Sensor Analog DCT Processor for Data Compression",
+     ["Rentao Wan", "Yichen Xu", "Dong-Woo Jee", "Mingoo Seok"],
+     "IEEE Custom Integrated Circuits Conference (CICC)", "2025"),
+    ("A 93.9% Peak Efficiency 3V-to-40V-Input GaN-based DC-DC Converter with Unified Reliability and Efficiency Adaptive Control",
+     ["Zhaoqing Wang", "Yichen Xu", "Suhwan Kim", "Nachiket Desai", "Minxiang Gong", "Ram K. Krishnamurthy", "Xin Zhang", "Mingoo Seok"],
+     "IEEE Custom Integrated Circuits Conference (CICC)", "2025"),
+    ("Model-Based Study on the Limit of the Dynamic Load Regulation Performance of a Digital Low Dropout Regulator",
+     ["Yichen Xu", "Zhaoqing Wang", "Jonghyun Oh", "Mingoo Seok"],
+     "IEEE Transactions on VLSI Systems (TVLSI)", "2024"),
+    ("An Improved Silicon-Controlled Rectifier (SCR) for Low-Voltage ESD Application",
+     ["F. Du", "F. Hou", "W. Song", "L. Chen", "Y. Nie", "Y. Qing", "Yichen Xu", "J. Liu", "Z. Liu", "J. J. Liou"],
+     "IEEE Transactions on Electron Devices, vol. 67, no. 2, pp. 576&ndash;581", "2020"),
+    ("A Robust Dual Directional SCR without Current Saturation Effect for ESD Applications",
+     ["F. Du", "X. Dong", "C. Yang", "Yichen Xu", "Z. Liu", "J. Liu", "J. J. Liou"],
+     "IEEE 26th International Symposium on Physical and Failure Analysis of Integrated Circuits (IPFA)", "2019"),
+]
+
+PATENTS = [
+    ("A High Voltage LDO-Based Linear Charging System", ["Yichen Xu", "Xizhen Yin"], "Apr 28, 2023"),
+    ("A Substrate Switching Circuit for LDO Backflow Current Protection", ["Yichen Xu", "Xizhen Yin"], "Nov 18, 2022"),
+]
+
 publications_body = """
   <section class="section section-first">
     <div class="wrap">
@@ -404,62 +468,12 @@ publications_body = """
       </div>
 
       <ol class="pub-list">
-        <li>
-          Yichen Xu, Rentao Wan, Mao Li, Zhaoqing Wang, Suhwan Kim, Ram K. Krishnamurthy, Xin Zhang, and Mingoo Seok,
-          &ldquo;A Rising-Edge Computational Digital LDO With Load-Dependent Feedback and Fast Dynamic Voltage Scaling,&rdquo;
-          <em>invited manuscript under review, IEEE Journal of Solid-State Circuits (JSSC)</em>, 2027.
-        </li>
-        <li>
-          Yichen Xu, Shahreer Ahmed Al Hossain, Baoqi Zhu, Suhwan Kim, Ram K. Krishnamurthy, Xin Zhang, Mingoo Seok,
-          &ldquo;VSIMO: A DC-DC SIMO-based Current Mismatch Compensator Supporting Per-Output Bidirectional Power Flow
-          for Stacked Voltage Domains Achieving &gt;82% System Efficiency under up to 360-mA Load Mismatch,&rdquo;
-          <em>IEEE Symposium on VLSI Circuits (VLSI)</em>, 2026.
-        </li>
-        <li>
-          Yichen Xu, Rentao Wan, Mao Li, Zhaoqing Wang, Suhwan Kim, Ram K. Krishnamurthy, Xin Zhang, Mingoo Seok,
-          &ldquo;A 1mA-to-1050mA DLDO with Rising-Edge Feedforward Control and Load-Dependent Feedback Achieving 0.15-ps
-          Load Transient FoM, 14-mV Output Ripple, and 25-mV/ns DVS Rate in a 28nm CMOS,&rdquo;
-          <em>IEEE Symposium on VLSI Circuits (VLSI)</em>, 2026.
-        </li>
-        <li>
-          Yichen Xu, Zhaoqing Wang, Rentao Wan, Suhwan Kim, Minxiang Gong, Ram Kumar Krishnamurthy, Xin Zhang, Mingoo Seok,
-          &ldquo;Digital Low-Dropout Regulator-Assisted Buck DC-DC Converter Achieving 68-mV Droop Voltage and 95.5% Efficiency,&rdquo;
-          <em>IEEE Solid-State Circuits Letter (SSCL)</em>, 2025.
-        </li>
-        <li>
-          Rentao Wan, Yichen Xu, Dong-Woo Jee, Mingoo Seok,
-          &ldquo;AJPEG: A 26.4-pJ/pixel, 252-fps, 128x128 Image Sensor with an In-Sensor Analog DCT Processor for
-          Data Compression,&rdquo;
-          <em>IEEE Custom Integrated Circuits Conference (CICC)</em>, 2025.
-        </li>
-        <li>
-          Zhaoqing Wang, Yichen Xu, Suhwan Kim, Nachiket Desai, Minxiang Gong, Ram K. Krishnamurthy, Xin Zhang, Mingoo Seok,
-          &ldquo;A 93.9% Peak Efficiency 3V-to-40V-Input GaN-based DC-DC Converter with Unified Reliability and Efficiency
-          Adaptive Control,&rdquo;
-          <em>IEEE Custom Integrated Circuits Conference (CICC)</em>, 2025.
-        </li>
-        <li>
-          Yichen Xu, Zhaoqing Wang, Jonghyun Oh, Mingoo Seok,
-          &ldquo;Model-Based Study on the Limit of the Dynamic Load Regulation Performance of a Digital Low Dropout
-          Regulator,&rdquo;
-          <em>IEEE Transactions on VLSI Systems (TVLSI)</em>, 2024.
-        </li>
-        <li>
-          F. Du, F. Hou, W. Song, L. Chen, Y. Nie, Y. Qing, Yichen Xu, J. Liu, Z. Liu, J. J. Liou,
-          &ldquo;An Improved Silicon-Controlled Rectifier (SCR) for Low-Voltage ESD Application,&rdquo;
-          <em>IEEE Transactions on Electron Devices</em>, vol. 67, no. 2, pp. 576&ndash;581, 2020.
-        </li>
-        <li>
-          F. Du, X. Dong, C. Yang, Yichen Xu, Z. Liu, J. Liu, J. J. Liou,
-          &ldquo;A Robust Dual Directional SCR without Current Saturation Effect for ESD Applications,&rdquo;
-          <em>2019 IEEE 26th International Symposium on Physical and Failure Analysis of Integrated Circuits (IPFA)</em>, 2019.
-        </li>
+""" + "\n".join([pub_entry(i + 1, t, a, v, y) for i, (t, a, v, y) in enumerate(PUBLICATIONS)]) + """
       </ol>
 
       <h3 class="subhead" data-i18n="publications.patents">Patents</h3>
       <ol class="pub-list">
-        <li>Yichen Xu, Xizhen Yin, &ldquo;A High Voltage LDO-Based Linear Charging System,&rdquo; issued Apr 28, 2023.</li>
-        <li>Yichen Xu, Xizhen Yin, &ldquo;A Substrate Switching Circuit for LDO Backflow Current Protection,&rdquo; issued Nov 18, 2022.</li>
+""" + "\n".join([patent_entry(i + 1, t, a, d) for i, (t, a, d) in enumerate(PATENTS)]) + """
       </ol>
     </div>
   </section>
@@ -475,7 +489,7 @@ def thumb(folder, img, alt):
 
 def place(folder, cover, name_key, name_en, photos):
     thumbs = "\n".join([thumb(folder, p, name_en) for p in photos])
-    return f"""        <div class="place-card">
+    return f"""        <div class="place-card" id="place-{folder.lower()}">
           <button type="button" class="place-cover" aria-label="{name_en}" data-full="assets/photography/{folder}/{cover}"><img src="assets/photography/{folder}/{cover}" alt="{name_en}" loading="lazy"></button>
           <span class="place-name" data-i18n="{name_key}">{name_en}</span>
           <div class="place-thumbs">
@@ -529,6 +543,17 @@ photography_body = """
 """ + LIGHTBOX_HTML
 
 # ---------------- EXPERIENCE ----------------
+def edu_branch(date_key, date_en, org_key, org_en, meta_key, meta_en, body_key, body_en):
+    return f"""          <div class="edu-branch">
+            <span class="edu-branch-dot"></span>
+            <div class="edu-branch-card">
+              <div class="edu-date" data-i18n="{date_key}">{date_en}</div>
+              <h4 class="edu-org" data-i18n="{org_key}">{org_en}</h4>
+              <p class="edu-meta" data-i18n="{meta_key}">{meta_en}</p>
+              <p class="edu-body" data-i18n="{body_key}">{body_en}</p>
+            </div>
+          </div>"""
+
 experience_body = """
   <section class="section section-first">
     <div class="wrap">
@@ -537,55 +562,73 @@ experience_body = """
         <h2 data-i18n="experience.title">Experience</h2>
       </div>
 
-      <ul class="timeline">
-        <li>
-          <div class="timeline-period">Summer 2026</div>
-          <div class="timeline-body">
-            <h3 data-i18n="experience.e1.title">Circuit Design Intern &mdash; DRAM Design Lab, Samsung</h3>
-            <p class="project-meta">San Jose, CA</p>
-            <p data-i18n="experience.e1.body">
-              Designed a fully integrated voltage regulator for the LPDDR6 Built-of-Test (LP6BOT) chip, and a
-              three-path regulation architecture (feedback, PSR feedforward, transient feedforward) achieving
-              &gt;20&nbsp;dB PSRR at 100&nbsp;MHz. Coordinated the chip power delivery network layout in Samsung 14nm CMOS.
-            </p>
+      <h3 class="subhead" data-i18n="experience.eduwork">Education &amp; Work</h3>
+      <div class="edu-timeline">
+        <div class="edu-item">
+          <span class="edu-dot"></span>
+          <div class="edu-card">
+            <div class="edu-date" data-i18n="experience.edu1.date">2021 &ndash; present</div>
+            <h3 class="edu-org" data-i18n="experience.edu1.org">Columbia University</h3>
+            <div class="edu-sub" data-i18n="experience.edu1.sub">Department of Electrical Engineering</div>
+            <div class="edu-role" data-i18n="experience.edu1.role">M.S. &amp; Ph.D. in Electrical Engineering</div>
+            <div class="edu-advisor"><span data-i18n="experience.advisor">Advisor</span> &middot; <span data-i18n="experience.edu1.advisor">Mingoo Seok</span></div>
+            <span class="edu-badge">CU</span>
           </div>
-        </li>
-        <li>
-          <div class="timeline-period">Summer 2025</div>
-          <div class="timeline-body">
-            <h3 data-i18n="experience.e2.title">Graduate Technical Intern &mdash; Intel</h3>
-            <p class="project-meta">Hillsboro, OR</p>
-            <p data-i18n="experience.e2.body">
-              Developed SPICE/Verilog-A models for adaptive clocking, clock throttling, and switched-capacitor
-              load balancing; created a critical-path replica circuit with background calibration for setup
-              violation detection in Intel 16nm CMOS.
-            </p>
+
+          <div class="edu-branches">
+""" + edu_branch(
+    "experience.e1.date", "Summer 2026",
+    "experience.e1.title", "Circuit Design Intern &mdash; DRAM Design Lab, Samsung",
+    "experience.e1.meta", "San Jose, CA",
+    "experience.e1.body",
+    "Designed a fully integrated voltage regulator for the LPDDR6 Built-of-Test (LP6BOT) chip, and a "
+    "three-path regulation architecture (feedback, PSR feedforward, transient feedforward) achieving "
+    "&gt;20&nbsp;dB PSRR at 100&nbsp;MHz. Coordinated the chip power delivery network layout in Samsung 14nm CMOS."
+) + "\n" + edu_branch(
+    "experience.e2.date", "Summer 2025",
+    "experience.e2.title", "Graduate Technical Intern &mdash; Intel",
+    "experience.e2.meta", "Hillsboro, OR",
+    "experience.e2.body",
+    "Developed SPICE/Verilog-A models for adaptive clocking, clock throttling, and switched-capacitor "
+    "load balancing; created a critical-path replica circuit with background calibration for setup "
+    "violation detection in Intel 16nm CMOS."
+) + "\n" + edu_branch(
+    "experience.e3.date", "Summer 2022",
+    "experience.e3.title", "Mixed-Signal Design Engineer Intern &mdash; Ambarella",
+    "experience.e3.meta", "Santa Clara, CA",
+    "experience.e3.body",
+    "Performed low-power standard-cell schematic and layout design in Samsung 4nm FinFET, and developed "
+    "an automated Python-based .lib generation flow for digital place-and-route."
+) + """
           </div>
-        </li>
-        <li>
-          <div class="timeline-period">Summer 2022</div>
-          <div class="timeline-body">
-            <h3 data-i18n="experience.e3.title">Mixed-Signal Design Engineer Intern &mdash; Ambarella</h3>
-            <p class="project-meta">Santa Clara, CA</p>
-            <p data-i18n="experience.e3.body">
-              Performed low-power standard-cell schematic and layout design in Samsung 4nm FinFET, and developed
-              an automated Python-based .lib generation flow for digital place-and-route.
-            </p>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-period">2020&ndash;2021</div>
-          <div class="timeline-body">
-            <h3 data-i18n="experience.e4.title">Analog and System IC Engineer &mdash; Chip Dance Technology</h3>
-            <p class="project-meta">Shanghai, China</p>
-            <p data-i18n="experience.e4.body">
+        </div>
+
+        <div class="edu-item">
+          <span class="edu-dot"></span>
+          <div class="edu-card">
+            <div class="edu-date" data-i18n="experience.e4.date">2020 &ndash; 2021</div>
+            <h3 class="edu-org" data-i18n="experience.e4.title">Chip Dance Technology</h3>
+            <div class="edu-sub" data-i18n="experience.e4.meta">Shanghai, China</div>
+            <div class="edu-role" data-i18n="experience.e4.role">Analog and System IC Engineer</div>
+            <p class="edu-body" data-i18n="experience.e4.body">
               Led a True Wireless Stereo lithium battery charging chip architecture, taped out in GF 180nm.
               Designed a sub-threshold BGR with digital trimming DAC and a PVT-tolerant hysteresis comparator,
               and an LDO-based linear battery charger for 5V-to-4.2V regulation (first inventor on related patent).
             </p>
+            <span class="edu-badge">CD</span>
           </div>
-        </li>
-      </ul>
+        </div>
+
+        <div class="edu-item">
+          <span class="edu-dot"></span>
+          <div class="edu-card">
+            <div class="edu-date" data-i18n="experience.edu2.date">2016 &ndash; 2020</div>
+            <h3 class="edu-org" data-i18n="experience.edu2.org">UESTC</h3>
+            <div class="edu-role" data-i18n="experience.edu2.role">B.S. in Electrical Engineering</div>
+            <span class="edu-badge">UESTC</span>
+          </div>
+        </div>
+      </div>
 
       <h3 class="subhead" data-i18n="experience.teaching">Teaching</h3>
       <ul class="plain-list">
