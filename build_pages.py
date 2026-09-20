@@ -487,11 +487,15 @@ def thumb(folder, img, alt):
     path = f"assets/photography/{folder}/{img}"
     return f"""            <button type="button" class="place-thumb" data-full="{path}"><img src="{path}" alt="{alt}" loading="lazy"></button>"""
 
-def place(folder, cover, name_key, name_en, photos):
+def place(folder, cover, name_key, name_en, photos, date_key=None, date_en=None):
     thumbs = "\n".join([thumb(folder, p, name_en) for p in photos])
+    date_html = f'<span class="place-date" data-i18n="{date_key}">{date_en}</span>' if date_key else ""
     return f"""        <div class="place-card" id="place-{folder.lower()}">
           <button type="button" class="place-cover" aria-label="{name_en}" data-full="assets/photography/{folder}/{cover}"><img src="assets/photography/{folder}/{cover}" alt="{name_en}" loading="lazy"></button>
-          <span class="place-name" data-i18n="{name_key}">{name_en}</span>
+          <div class="place-head">
+            <span class="place-name" data-i18n="{name_key}">{name_en}</span>
+            {date_html}
+          </div>
           <div class="place-thumbs">
 {thumbs}
           </div>
@@ -519,13 +523,17 @@ photography_body = """
       <p class="lede" data-i18n="photo.photo.lede">Hover or tap a place to see a few frames from there &mdash; click one to view it larger. More places coming.</p>
       <div class="place-grid">
 """ + place("Hawaii", "hawaii-7.jpg", "photo.place.hawaii", "Hawaii",
-            [f"hawaii-{n}.jpg" for n in range(1, 17) if n != 7]) + """
+            [f"hawaii-{n}.jpg" for n in range(1, 17) if n != 7],
+            "photo.place.hawaii.date", "Jun 2026") + """
 """ + place("Altay", "altay-5.jpg", "photo.place.altay", "Altay",
-            [f"altay-{n}.jpg" for n in range(1, 10) if n != 5]) + """
+            [f"altay-{n}.jpg" for n in range(1, 10) if n != 5],
+            "photo.place.altay.date", "Feb 2026") + """
 """ + place("Iceland", "iceland-10.jpg", "photo.place.iceland", "Iceland",
-            [f"iceland-{n}.jpg" for n in range(1, 12) if n != 10]) + """
+            [f"iceland-{n}.jpg" for n in range(1, 12) if n != 10],
+            "photo.place.iceland.date", "Oct 2024") + """
 """ + place("Dubai", "dubai-1.jpg", "photo.place.dubai", "Dubai",
-            [f"dubai-{n}.jpg" for n in range(2, 8)]) + """
+            [f"dubai-{n}.jpg" for n in range(2, 8)],
+            "photo.place.dubai.date", "Oct 2023") + """
       </div>
 
       <h3 class="subhead" data-i18n="photo.video.title">Video</h3>

@@ -416,11 +416,24 @@ a:hover { text-decoration: underline; }
 }
 .place-card:hover .place-cover img { transform: scale(1.04); }
 
-.place-name {
-  display: block;
+.place-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
   padding: 12px 14px;
+}
+
+.place-name {
   font-weight: 600;
   font-size: 0.95rem;
+}
+
+.place-date {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-faint);
+  white-space: nowrap;
 }
 
 .place-thumbs {
