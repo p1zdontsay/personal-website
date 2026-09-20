@@ -258,15 +258,16 @@ LIGHTBOX_HTML = """
 """
 
 # ---------------- CHIP GALLERY ----------------
-def dtile(img, label_key, label_en, idx_label):
+def dtile(img, label_key, label_en, idx_label, process=None):
     path = f"assets/chips/{img}"
+    meta = f"{idx_label} &middot; {process}" if process else idx_label
     return f"""        <article class="tile">
           <button type="button" class="tile-art tile-thumb" data-full="{path}" aria-label="{label_en} {idx_label}">
             <img class="tile-img" src="{path}" alt="{label_en} {idx_label}" loading="lazy">
           </button>
           <div class="tile-caption">
             <h4 data-i18n="{label_key}">{label_en}</h4>
-            <div class="tile-meta">{idx_label}</div>
+            <div class="tile-meta">{meta}</div>
           </div>
         </article>"""
 
@@ -293,10 +294,10 @@ chips_body = """
       <h3 class="subhead" data-i18n="chips.bare.title">Bare Die</h3>
       <div class="gallery-grid">
 """ + "\n".join([
-    dtile("die-4.jpg", "chips.bare.item", "Bare die", "01"),
-    dtile("die-5.jpg", "chips.bare.item", "Bare die", "02"),
-    dtile("die-6.jpg", "chips.bare.item", "Bare die", "03"),
-    dtile("die-7.jpg", "chips.bare.item", "Bare die", "04"),
+    dtile("die-4.jpg", "chips.bare.item", "Bare die", "01", "TSMC 28nm"),
+    dtile("die-5.jpg", "chips.bare.item", "Bare die", "02", "TSMC 28nm"),
+    dtile("die-6.jpg", "chips.bare.item", "Bare die", "03", "TSMC 65nm"),
+    dtile("die-7.jpg", "chips.bare.item", "Bare die", "04", "TSMC 65nm"),
 ]) + """
       </div>
     </div>
