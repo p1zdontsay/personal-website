@@ -294,10 +294,10 @@ chips_body = """
       <h3 class="subhead" data-i18n="chips.bare.title">Bare Die</h3>
       <div class="gallery-grid">
 """ + "\n".join([
-    dtile("die-4.jpg", "chips.bare.item", "Bare die", "01", "TSMC 28nm", show_label=False),
-    dtile("die-5.jpg", "chips.bare.item", "Bare die", "02", "TSMC 28nm", show_label=False),
-    dtile("die-6.jpg", "chips.bare.item", "Bare die", "03", "TSMC 65nm", show_label=False),
-    dtile("die-7.jpg", "chips.bare.item", "Bare die", "04", "TSMC 65nm", show_label=False),
+    dtile("die-4.jpg", "chips.bare.item1", "DLDO", "01", "TSMC 28nm"),
+    dtile("die-5.jpg", "chips.bare.item2", "DABUCK", "02", "TSMC 28nm"),
+    dtile("die-6.jpg", "chips.bare.item3", "VCSCR", "03", "TSMC 65nm"),
+    dtile("die-7.jpg", "chips.bare.item4", "VSIMO", "04", "TSMC 65nm"),
 ]) + """
       </div>
     </div>

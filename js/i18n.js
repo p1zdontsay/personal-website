@@ -85,6 +85,10 @@ const I18N = {
     "chips.packaged.item": "Packaged chip",
     "chips.bare.title": "Bare Die",
     "chips.bare.item": "Bare die",
+    "chips.bare.item1": "DLDO",
+    "chips.bare.item2": "DABUCK",
+    "chips.bare.item3": "VCSCR",
+    "chips.bare.item4": "VSIMO",
     "chips.tag": "PLACEHOLDER",
 
     "projects.eyebrow": "03 &mdash; Research",
@@ -255,6 +259,10 @@ const I18N = {
     "chips.packaged.item": "封装芯片",
     "chips.bare.title": "裸片",
     "chips.bare.item": "裸片",
+    "chips.bare.item1": "DLDO",
+    "chips.bare.item2": "DABUCK",
+    "chips.bare.item3": "VCSCR",
+    "chips.bare.item4": "VSIMO",
     "chips.tag": "占位图",
 
     "projects.eyebrow": "03 &mdash; 研究",
