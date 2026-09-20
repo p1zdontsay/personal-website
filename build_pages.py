@@ -537,6 +537,9 @@ photography_body = """
 """ + place("Hokkaido", "hokkaido-3.jpg", "photo.place.hokkaido", "Hokkaido",
             [f"hokkaido-{n}.jpg" for n in range(1, 11) if n != 3],
             "photo.place.hokkaido.date", "Jan 2019") + """
+""" + place("Cal", "cal-2.jpg", "photo.place.cal", "Cal",
+            [f"cal-{n}.jpg" for n in range(1, 6) if n != 2],
+            "photo.place.cal.date", "Jul 2022") + """
       </div>
 
       <h3 class="subhead" data-i18n="photo.video.title">Video</h3>
