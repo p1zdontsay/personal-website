@@ -83,12 +83,15 @@
       }, { passive: true });
     }
 
-    // Place cards: cover photo + thumbnails all open the same lightbox gallery for
-    // that place, with prev/next moving through all of its photos (cover included,
-    // as the first item).
-    document.querySelectorAll(".place-card").forEach(function (card) {
-      var cover = card.querySelector(".place-cover");
-      var thumbs = Array.prototype.slice.call(card.querySelectorAll(".place-thumb"));
+    // Photo rows (Editorial Index): each is a native <details> element, so
+    // expand/collapse of the thumbnail strip is free, accessible browser behavior —
+    // clicking anywhere in the row's <summary> toggles it open. The cover photo
+    // inside the summary is the one exception: clicking it should open the
+    // lightbox instead of toggling the row, so its handler stops that click from
+    // reaching the native toggle.
+    document.querySelectorAll(".photo-row").forEach(function (row) {
+      var cover = row.querySelector(".photo-cover");
+      var thumbs = Array.prototype.slice.call(row.querySelectorAll(".photo-thumb"));
 
       var coverItem = null;
       if (cover) {
@@ -109,23 +112,19 @@
       });
 
       if (cover) {
-        cover.addEventListener("click", function () {
+        cover.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
           openLightbox(gallery, 0);
         });
+        cover.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            e.stopPropagation();
+            openLightbox(gallery, 0);
+          }
+        });
       }
-    });
-
-    // "View all" toggle: an explicit button that expands/collapses a place's photo
-    // grid, replacing the old hover-to-expand behavior (which flickered open/closed
-    // on desktop as the mouse passed over a card, and could get stuck open after a
-    // tap on mobile, where there's no real hover state).
-    document.querySelectorAll(".place-toggle").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var card = btn.closest(".place-card");
-        if (!card) return;
-        var expanded = card.classList.toggle("is-expanded");
-        btn.setAttribute("aria-expanded", expanded ? "true" : "false");
-      });
     });
 
     // Chip Gallery tiles: click to view a larger version, with prev/next through the
