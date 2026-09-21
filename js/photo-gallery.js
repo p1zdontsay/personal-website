@@ -1,4 +1,5 @@
-// Place-card hover/tap expand + click-to-enlarge lightbox for the Photography page.
+// Place-card expand/collapse (via a button, not hover) + click-to-enlarge lightbox
+// with swipe support for the Photography page.
 (function () {
   document.addEventListener("DOMContentLoaded", function () {
     var lightbox = document.getElementById("photoLightbox");
@@ -6,6 +7,7 @@
     var lightboxClose = document.getElementById("lightboxClose");
     var lightboxPrev = document.getElementById("lightboxPrev");
     var lightboxNext = document.getElementById("lightboxNext");
+    var lightboxHint = document.getElementById("lightboxHint");
 
     var currentGallery = [];
     var currentIndex = -1;
@@ -14,6 +16,7 @@
       var multi = currentGallery.length > 1;
       if (lightboxPrev) lightboxPrev.hidden = !multi;
       if (lightboxNext) lightboxNext.hidden = !multi;
+      if (lightboxHint) lightboxHint.hidden = !multi;
     }
 
     function showIndex(i) {
@@ -51,6 +54,33 @@
         else if (e.key === "ArrowLeft") showIndex(currentIndex - 1);
         else if (e.key === "ArrowRight") showIndex(currentIndex + 1);
       });
+
+      // Swipe left/right to move through the gallery on touch devices. This is the
+      // primary way to browse on mobile — the prev/next buttons are a backup, not
+      // the only way in. A swipe that's mostly vertical is left alone so it doesn't
+      // fight with the page or an accidental scroll.
+      var touchStartX = 0, touchStartY = 0, touchTracking = false;
+      var SWIPE_THRESHOLD = 40; // px
+      var SWIPE_RATIO = 1.2; // how much more horizontal than vertical movement must be
+
+      lightbox.addEventListener("touchstart", function (e) {
+        if (e.touches.length !== 1) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchTracking = true;
+      }, { passive: true });
+
+      lightbox.addEventListener("touchend", function (e) {
+        if (!touchTracking) return;
+        touchTracking = false;
+        var touch = e.changedTouches[0];
+        var dx = touch.clientX - touchStartX;
+        var dy = touch.clientY - touchStartY;
+        if (Math.abs(dx) < SWIPE_THRESHOLD) return;
+        if (Math.abs(dx) < Math.abs(dy) * SWIPE_RATIO) return;
+        if (dx < 0) showIndex(currentIndex + 1);
+        else showIndex(currentIndex - 1);
+      }, { passive: true });
     }
 
     // Place cards: cover photo + thumbnails all open the same lightbox gallery for
@@ -85,6 +115,19 @@
       }
     });
 
+    // "View all" toggle: an explicit button that expands/collapses a place's photo
+    // grid, replacing the old hover-to-expand behavior (which flickered open/closed
+    // on desktop as the mouse passed over a card, and could get stuck open after a
+    // tap on mobile, where there's no real hover state).
+    document.querySelectorAll(".place-toggle").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var card = btn.closest(".place-card");
+        if (!card) return;
+        var expanded = card.classList.toggle("is-expanded");
+        btn.setAttribute("aria-expanded", expanded ? "true" : "false");
+      });
+    });
+
     // Chip Gallery tiles: click to view a larger version, with prev/next through the
     // rest of that same grid (Packaged, Bare Die, etc.).
     document.querySelectorAll(".gallery-grid").forEach(function (grid) {
@@ -97,49 +140,6 @@
         btn.addEventListener("click", function () {
           openLightbox(gallery, i);
         });
-      });
-    });
-
-    // Thumbnail row: hovering near the left/right edge auto-scrolls that direction,
-    // so the rest of the photos scroll into view without a manual scrollbar drag.
-    var EDGE_ZONE = 56; // px from the edge that triggers auto-scroll
-    var MAX_SPEED = 9; // px per animation frame at the very edge
-
-    document.querySelectorAll(".place-thumbs").forEach(function (row) {
-      var rafId = null;
-      var speed = 0;
-
-      function step() {
-        if (speed !== 0) {
-          row.scrollLeft += speed;
-          rafId = requestAnimationFrame(step);
-        } else {
-          rafId = null;
-        }
-      }
-
-      function updateSpeed(e) {
-        var rect = row.getBoundingClientRect();
-        var x = e.clientX - rect.left;
-        var distRight = rect.width - x;
-        var distLeft = x;
-
-        if (row.scrollWidth <= row.clientWidth) {
-          speed = 0;
-        } else if (distRight < EDGE_ZONE) {
-          speed = MAX_SPEED * (1 - distRight / EDGE_ZONE);
-        } else if (distLeft < EDGE_ZONE) {
-          speed = -MAX_SPEED * (1 - distLeft / EDGE_ZONE);
-        } else {
-          speed = 0;
-        }
-
-        if (speed !== 0 && rafId === null) rafId = requestAnimationFrame(step);
-      }
-
-      row.addEventListener("mousemove", updateSpeed);
-      row.addEventListener("mouseleave", function () {
-        speed = 0;
       });
     });
   });

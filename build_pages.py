@@ -254,6 +254,7 @@ LIGHTBOX_HTML = """
     <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">&#10094;</button>
     <img id="lightboxImg" src="" alt="">
     <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">&#10095;</button>
+    <div class="lightbox-hint" id="lightboxHint" data-i18n="lightbox.hint" hidden>Swipe to browse</div>
   </div>
 """
 
@@ -491,12 +492,18 @@ def thumb(folder, img, alt):
 def place(folder, cover, name_key, name_en, photos, date_key=None, date_en=None):
     thumbs = "\n".join([thumb(folder, p, name_en) for p in photos])
     date_html = f'<span class="place-date" data-i18n="{date_key}">{date_en}</span>' if date_key else ""
+    total = len(photos) + 1
     return f"""        <div class="place-card" id="place-{folder.lower()}">
           <button type="button" class="place-cover" aria-label="{name_en}" data-full="assets/photography/{folder}/{cover}"><img src="assets/photography/{folder}/{cover}" alt="{name_en}" loading="lazy"></button>
           <div class="place-head">
             <span class="place-name" data-i18n="{name_key}">{name_en}</span>
             {date_html}
           </div>
+          <button type="button" class="place-toggle" aria-expanded="false">
+            <span class="place-toggle-label" data-i18n="photo.viewall">View all</span>
+            <span class="place-toggle-count">({total})</span>
+            <svg class="place-toggle-icon" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
           <div class="place-thumbs">
 {thumbs}
           </div>
@@ -521,7 +528,7 @@ photography_body = """
       </div>
 
       <h3 class="subhead" data-i18n="photo.photo.title">Photo</h3>
-      <p class="lede" data-i18n="photo.photo.lede">Hover or tap a place to see a few frames from there &mdash; click one to view it larger. More places coming.</p>
+      <p class="lede" data-i18n="photo.photo.lede">Click &ldquo;View all&rdquo; under a place to browse its photos &mdash; click one to view it larger. More places coming.</p>
       <div class="place-grid">
 """ + place("Hawaii", "hawaii-7.jpg", "photo.place.hawaii", "Hawaii",
             [f"hawaii-{n}.jpg" for n in range(1, 17) if n != 7],
