@@ -397,10 +397,10 @@ a:hover { text-decoration: underline; }
   list-style: none;
   cursor: pointer;
   display: grid;
-  grid-template-columns: 36px 220px 1fr;
+  grid-template-columns: 32px 104px 1fr;
   align-items: center;
-  gap: 24px;
-  padding: 22px 4px;
+  gap: 20px;
+  padding: 16px 4px;
   -webkit-tap-highlight-color: transparent;
 }
 .photo-row summary::-webkit-details-marker { display: none; }
@@ -414,10 +414,10 @@ a:hover { text-decoration: underline; }
 
 .photo-cover {
   display: block;
-  width: 220px;
+  width: 104px;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 4px;
   padding: 0;
   border: 0;
   background: none;
@@ -442,7 +442,7 @@ a:hover { text-decoration: underline; }
 
 .photo-name {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 500;
   color: var(--text);
 }
@@ -469,9 +469,9 @@ html[lang="zh"] .photo-name { font-family: var(--font-serif-zh); }
 
 .photo-strip {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 3px;
-  padding: 0 4px 26px 60px;
+  padding: 0 4px 20px 56px;
 }
 
 .photo-thumb {
