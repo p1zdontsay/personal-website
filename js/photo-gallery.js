@@ -1,5 +1,6 @@
-// Place-card expand/collapse (via a button, not hover) + click-to-enlarge lightbox
-// with swipe support for the Photography page.
+// Place-card expand/collapse (via a button, not hover), a wheel-scrollable
+// single-row thumbnail strip, and a click-to-enlarge lightbox with swipe
+// support for the Photography page.
 (function () {
   document.addEventListener("DOMContentLoaded", function () {
     var lightbox = document.getElementById("photoLightbox");
@@ -83,15 +84,12 @@
       }, { passive: true });
     }
 
-    // Photo rows (Editorial Index): each is a native <details> element, so
-    // expand/collapse of the thumbnail strip is free, accessible browser behavior —
-    // clicking anywhere in the row's <summary> toggles it open. The cover photo
-    // inside the summary is the one exception: clicking it should open the
-    // lightbox instead of toggling the row, so its handler stops that click from
-    // reaching the native toggle.
-    document.querySelectorAll(".photo-row").forEach(function (row) {
-      var cover = row.querySelector(".photo-cover");
-      var thumbs = Array.prototype.slice.call(row.querySelectorAll(".photo-thumb"));
+    // Place cards: cover photo + thumbnails all open the same lightbox gallery for
+    // that place, with prev/next moving through all of its photos (cover included,
+    // as the first item).
+    document.querySelectorAll(".place-card").forEach(function (card) {
+      var cover = card.querySelector(".place-cover");
+      var thumbs = Array.prototype.slice.call(card.querySelectorAll(".place-thumb"));
 
       var coverItem = null;
       if (cover) {
@@ -112,19 +110,38 @@
       });
 
       if (cover) {
-        cover.addEventListener("click", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
+        cover.addEventListener("click", function () {
           openLightbox(gallery, 0);
         });
-        cover.addEventListener("keydown", function (e) {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            e.stopPropagation();
-            openLightbox(gallery, 0);
-          }
-        });
       }
+    });
+
+    // "View all" toggle: an explicit button that expands/collapses a place's photo
+    // strip, replacing the old hover-to-expand behavior (which flickered open/closed
+    // on desktop as the mouse passed over a card, and could get stuck open after a
+    // tap on mobile, where there's no real hover state).
+    document.querySelectorAll(".place-toggle").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var card = btn.closest(".place-card");
+        if (!card) return;
+        var expanded = card.classList.toggle("is-expanded");
+        btn.setAttribute("aria-expanded", expanded ? "true" : "false");
+      });
+    });
+
+    // The expanded strip is a single horizontal row of thumbnails. A normal
+    // (vertical) mouse wheel over it should scroll it sideways, rather than
+    // requiring the old fragile "hover the left/right edge" gesture or doing
+    // nothing at all — so redirect vertical wheel motion into horizontal scroll
+    // whenever the strip actually has more to scroll to.
+    document.querySelectorAll(".place-thumbs").forEach(function (strip) {
+      strip.addEventListener("wheel", function (e) {
+        if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+        var canScroll = strip.scrollWidth > strip.clientWidth;
+        if (!canScroll) return;
+        e.preventDefault();
+        strip.scrollLeft += e.deltaY;
+      }, { passive: false });
     });
 
     // Chip Gallery tiles: click to view a larger version, with prev/next through the

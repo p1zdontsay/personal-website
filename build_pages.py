@@ -39,7 +39,7 @@ def head(title_key_text, desc):
 <meta name="description" content="{desc}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v={BUILD_VERSION}">
 </head>
 <body>
@@ -487,27 +487,27 @@ def rtile(folder, img, alt="Photo"):
 
 def thumb(folder, img, alt):
     path = f"assets/photography/{folder}/{img}"
-    return f"""            <button type="button" class="photo-thumb" data-full="{path}"><img src="{path}" alt="{alt}" loading="lazy"></button>"""
+    return f"""            <button type="button" class="place-thumb" data-full="{path}"><img src="{path}" alt="{alt}" loading="lazy"></button>"""
 
-def place(idx, folder, cover, name_key, name_en, photos, date_key=None, date_en=None):
+def place(folder, cover, name_key, name_en, photos, date_key=None, date_en=None):
     thumbs = "\n".join([thumb(folder, p, name_en) for p in photos])
-    date_html = f'<span class="photo-date" data-i18n="{date_key}">{date_en}</span>' if date_key else ""
+    date_html = f'<span class="place-date" data-i18n="{date_key}">{date_en}</span>' if date_key else ""
     total = len(photos) + 1
-    idx_label = f"{idx:02d}"
-    return f"""      <details class="photo-row" id="place-{folder.lower()}">
-        <summary>
-          <span class="photo-idx">{idx_label}</span>
-          <span class="photo-cover" role="button" tabindex="0" aria-label="{name_en}" data-full="assets/photography/{folder}/{cover}"><img src="assets/photography/{folder}/{cover}" alt="{name_en}" loading="lazy"></span>
-          <span class="photo-meta">
-            <span class="photo-name" data-i18n="{name_key}">{name_en}</span>
+    return f"""        <div class="place-card" id="place-{folder.lower()}">
+          <button type="button" class="place-cover" aria-label="{name_en}" data-full="assets/photography/{folder}/{cover}"><img src="assets/photography/{folder}/{cover}" alt="{name_en}" loading="lazy"></button>
+          <div class="place-head">
+            <span class="place-name" data-i18n="{name_key}">{name_en}</span>
             {date_html}
-            <span class="photo-more"><span data-i18n="photo.viewall">View all</span> ({total})</span>
-          </span>
-        </summary>
-        <div class="photo-strip">
+          </div>
+          <button type="button" class="place-toggle" aria-expanded="false">
+            <span class="place-toggle-label" data-i18n="photo.viewall">View all</span>
+            <span class="place-toggle-count">({total})</span>
+            <svg class="place-toggle-icon" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="place-thumbs">
 {thumbs}
-        </div>
-      </details>"""
+          </div>
+        </div>"""
 
 def vtile(bvid, title_key, title_en):
     return f"""        <div class="video-card">
@@ -528,24 +528,24 @@ photography_body = """
       </div>
 
       <h3 class="subhead" data-i18n="photo.photo.title">Photo</h3>
-      <p class="lede" data-i18n="photo.photo.lede">Click a place to browse its photos &mdash; click any photo to view it larger. More places coming.</p>
-      <div class="photo-list">
-""" + place(1, "Hawaii", "hawaii-7.jpg", "photo.place.hawaii", "Hawaii",
+      <p class="lede" data-i18n="photo.photo.lede">Click &ldquo;View all&rdquo; under a place to browse its photos &mdash; scroll with your mouse wheel, click one to view it larger. More places coming.</p>
+      <div class="place-grid">
+""" + place("Hawaii", "hawaii-7.jpg", "photo.place.hawaii", "Hawaii",
             [f"hawaii-{n}.jpg" for n in range(1, 17) if n != 7],
             "photo.place.hawaii.date", "Jun 2026") + """
-""" + place(2, "Altay", "altay-5.jpg", "photo.place.altay", "Altay",
+""" + place("Altay", "altay-5.jpg", "photo.place.altay", "Altay",
             [f"altay-{n}.jpg" for n in range(1, 10) if n != 5],
             "photo.place.altay.date", "Feb 2026") + """
-""" + place(3, "Iceland", "iceland-10.jpg", "photo.place.iceland", "Iceland",
+""" + place("Iceland", "iceland-10.jpg", "photo.place.iceland", "Iceland",
             [f"iceland-{n}.jpg" for n in range(1, 12) if n != 10],
             "photo.place.iceland.date", "Oct 2024") + """
-""" + place(4, "Dubai", "dubai-1.jpg", "photo.place.dubai", "Dubai",
+""" + place("Dubai", "dubai-1.jpg", "photo.place.dubai", "Dubai",
             [f"dubai-{n}.jpg" for n in range(2, 8)],
             "photo.place.dubai.date", "Oct 2023") + """
-""" + place(5, "Hokkaido", "hokkaido-3.jpg", "photo.place.hokkaido", "Hokkaido",
+""" + place("Hokkaido", "hokkaido-3.jpg", "photo.place.hokkaido", "Hokkaido",
             [f"hokkaido-{n}.jpg" for n in range(1, 11) if n != 3],
             "photo.place.hokkaido.date", "Jan 2019") + """
-""" + place(6, "Cal", "cal-2.jpg", "photo.place.cal", "Cal",
+""" + place("Cal", "cal-2.jpg", "photo.place.cal", "Cal",
             [f"cal-{n}.jpg" for n in range(1, 6) if n != 2],
             "photo.place.cal.date", "Jul 2022") + """
       </div>

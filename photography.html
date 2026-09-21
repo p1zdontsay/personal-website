@@ -7,8 +7,8 @@
 <meta name="description" content="Photography by Yichen Xu.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=1790023538">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=1790023893">
 </head>
 <body>
 <header class="site-header">
@@ -45,138 +45,144 @@
       </div>
 
       <h3 class="subhead" data-i18n="photo.photo.title">Photo</h3>
-      <p class="lede" data-i18n="photo.photo.lede">Click a place to browse its photos &mdash; click any photo to view it larger. More places coming.</p>
-      <div class="photo-list">
-      <details class="photo-row" id="place-hawaii">
-        <summary>
-          <span class="photo-idx">01</span>
-          <span class="photo-cover" role="button" tabindex="0" aria-label="Hawaii" data-full="assets/photography/Hawaii/hawaii-7.jpg"><img src="assets/photography/Hawaii/hawaii-7.jpg" alt="Hawaii" loading="lazy"></span>
-          <span class="photo-meta">
-            <span class="photo-name" data-i18n="photo.place.hawaii">Hawaii</span>
-            <span class="photo-date" data-i18n="photo.place.hawaii.date">Jun 2026</span>
-            <span class="photo-more"><span data-i18n="photo.viewall">View all</span> (16)</span>
-          </span>
-        </summary>
-        <div class="photo-strip">
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hawaii/hawaii-1.jpg"><img src="assets/photography/Hawaii/hawaii-1.jpg" alt="Hawaii" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hawaii/hawaii-2.jpg"><img src="assets/photography/Hawaii/hawaii-2.jpg" alt="Hawaii" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hawaii/hawaii-3.jpg"><img src="assets/photography/Hawaii/hawaii-3.jpg" alt="Hawaii" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hawaii/hawaii-4.jpg"><img src="assets/photography/Hawaii/hawaii-4.jpg" alt="Hawaii" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hawaii/hawaii-5.jpg"><img src="assets/photography/Hawaii/hawaii-5.jpg" alt="Hawaii" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hawaii/hawaii-6.jpg"><img src="assets/photography/Hawaii/hawaii-6.jpg" alt="Hawaii" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hawaii/hawaii-8.jpg"><img src="assets/photography/Hawaii/hawaii-8.jpg" alt="Hawaii" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hawaii/hawaii-9.jpg"><img src="assets/photography/Hawaii/hawaii-9.jpg" alt="Hawaii" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hawaii/hawaii-10.jpg"><img src="assets/photography/Hawaii/hawaii-10.jpg" alt="Hawaii" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hawaii/hawaii-11.jpg"><img src="assets/photography/Hawaii/hawaii-11.jpg" alt="Hawaii" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hawaii/hawaii-12.jpg"><img src="assets/photography/Hawaii/hawaii-12.jpg" alt="Hawaii" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hawaii/hawaii-13.jpg"><img src="assets/photography/Hawaii/hawaii-13.jpg" alt="Hawaii" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hawaii/hawaii-14.jpg"><img src="assets/photography/Hawaii/hawaii-14.jpg" alt="Hawaii" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hawaii/hawaii-15.jpg"><img src="assets/photography/Hawaii/hawaii-15.jpg" alt="Hawaii" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hawaii/hawaii-16.jpg"><img src="assets/photography/Hawaii/hawaii-16.jpg" alt="Hawaii" loading="lazy"></button>
+      <p class="lede" data-i18n="photo.photo.lede">Click &ldquo;View all&rdquo; under a place to browse its photos &mdash; scroll with your mouse wheel, click one to view it larger. More places coming.</p>
+      <div class="place-grid">
+        <div class="place-card" id="place-hawaii">
+          <button type="button" class="place-cover" aria-label="Hawaii" data-full="assets/photography/Hawaii/hawaii-7.jpg"><img src="assets/photography/Hawaii/hawaii-7.jpg" alt="Hawaii" loading="lazy"></button>
+          <div class="place-head">
+            <span class="place-name" data-i18n="photo.place.hawaii">Hawaii</span>
+            <span class="place-date" data-i18n="photo.place.hawaii.date">Jun 2026</span>
+          </div>
+          <button type="button" class="place-toggle" aria-expanded="false">
+            <span class="place-toggle-label" data-i18n="photo.viewall">View all</span>
+            <span class="place-toggle-count">(16)</span>
+            <svg class="place-toggle-icon" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="place-thumbs">
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-1.jpg"><img src="assets/photography/Hawaii/hawaii-1.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-2.jpg"><img src="assets/photography/Hawaii/hawaii-2.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-3.jpg"><img src="assets/photography/Hawaii/hawaii-3.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-4.jpg"><img src="assets/photography/Hawaii/hawaii-4.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-5.jpg"><img src="assets/photography/Hawaii/hawaii-5.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-6.jpg"><img src="assets/photography/Hawaii/hawaii-6.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-8.jpg"><img src="assets/photography/Hawaii/hawaii-8.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-9.jpg"><img src="assets/photography/Hawaii/hawaii-9.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-10.jpg"><img src="assets/photography/Hawaii/hawaii-10.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-11.jpg"><img src="assets/photography/Hawaii/hawaii-11.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-12.jpg"><img src="assets/photography/Hawaii/hawaii-12.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-13.jpg"><img src="assets/photography/Hawaii/hawaii-13.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-14.jpg"><img src="assets/photography/Hawaii/hawaii-14.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-15.jpg"><img src="assets/photography/Hawaii/hawaii-15.jpg" alt="Hawaii" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hawaii/hawaii-16.jpg"><img src="assets/photography/Hawaii/hawaii-16.jpg" alt="Hawaii" loading="lazy"></button>
+          </div>
         </div>
-      </details>
-      <details class="photo-row" id="place-altay">
-        <summary>
-          <span class="photo-idx">02</span>
-          <span class="photo-cover" role="button" tabindex="0" aria-label="Altay" data-full="assets/photography/Altay/altay-5.jpg"><img src="assets/photography/Altay/altay-5.jpg" alt="Altay" loading="lazy"></span>
-          <span class="photo-meta">
-            <span class="photo-name" data-i18n="photo.place.altay">Altay</span>
-            <span class="photo-date" data-i18n="photo.place.altay.date">Feb 2026</span>
-            <span class="photo-more"><span data-i18n="photo.viewall">View all</span> (9)</span>
-          </span>
-        </summary>
-        <div class="photo-strip">
-            <button type="button" class="photo-thumb" data-full="assets/photography/Altay/altay-1.jpg"><img src="assets/photography/Altay/altay-1.jpg" alt="Altay" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Altay/altay-2.jpg"><img src="assets/photography/Altay/altay-2.jpg" alt="Altay" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Altay/altay-3.jpg"><img src="assets/photography/Altay/altay-3.jpg" alt="Altay" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Altay/altay-4.jpg"><img src="assets/photography/Altay/altay-4.jpg" alt="Altay" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Altay/altay-6.jpg"><img src="assets/photography/Altay/altay-6.jpg" alt="Altay" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Altay/altay-7.jpg"><img src="assets/photography/Altay/altay-7.jpg" alt="Altay" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Altay/altay-8.jpg"><img src="assets/photography/Altay/altay-8.jpg" alt="Altay" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Altay/altay-9.jpg"><img src="assets/photography/Altay/altay-9.jpg" alt="Altay" loading="lazy"></button>
+        <div class="place-card" id="place-altay">
+          <button type="button" class="place-cover" aria-label="Altay" data-full="assets/photography/Altay/altay-5.jpg"><img src="assets/photography/Altay/altay-5.jpg" alt="Altay" loading="lazy"></button>
+          <div class="place-head">
+            <span class="place-name" data-i18n="photo.place.altay">Altay</span>
+            <span class="place-date" data-i18n="photo.place.altay.date">Feb 2026</span>
+          </div>
+          <button type="button" class="place-toggle" aria-expanded="false">
+            <span class="place-toggle-label" data-i18n="photo.viewall">View all</span>
+            <span class="place-toggle-count">(9)</span>
+            <svg class="place-toggle-icon" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="place-thumbs">
+            <button type="button" class="place-thumb" data-full="assets/photography/Altay/altay-1.jpg"><img src="assets/photography/Altay/altay-1.jpg" alt="Altay" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Altay/altay-2.jpg"><img src="assets/photography/Altay/altay-2.jpg" alt="Altay" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Altay/altay-3.jpg"><img src="assets/photography/Altay/altay-3.jpg" alt="Altay" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Altay/altay-4.jpg"><img src="assets/photography/Altay/altay-4.jpg" alt="Altay" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Altay/altay-6.jpg"><img src="assets/photography/Altay/altay-6.jpg" alt="Altay" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Altay/altay-7.jpg"><img src="assets/photography/Altay/altay-7.jpg" alt="Altay" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Altay/altay-8.jpg"><img src="assets/photography/Altay/altay-8.jpg" alt="Altay" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Altay/altay-9.jpg"><img src="assets/photography/Altay/altay-9.jpg" alt="Altay" loading="lazy"></button>
+          </div>
         </div>
-      </details>
-      <details class="photo-row" id="place-iceland">
-        <summary>
-          <span class="photo-idx">03</span>
-          <span class="photo-cover" role="button" tabindex="0" aria-label="Iceland" data-full="assets/photography/Iceland/iceland-10.jpg"><img src="assets/photography/Iceland/iceland-10.jpg" alt="Iceland" loading="lazy"></span>
-          <span class="photo-meta">
-            <span class="photo-name" data-i18n="photo.place.iceland">Iceland</span>
-            <span class="photo-date" data-i18n="photo.place.iceland.date">Oct 2024</span>
-            <span class="photo-more"><span data-i18n="photo.viewall">View all</span> (11)</span>
-          </span>
-        </summary>
-        <div class="photo-strip">
-            <button type="button" class="photo-thumb" data-full="assets/photography/Iceland/iceland-1.jpg"><img src="assets/photography/Iceland/iceland-1.jpg" alt="Iceland" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Iceland/iceland-2.jpg"><img src="assets/photography/Iceland/iceland-2.jpg" alt="Iceland" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Iceland/iceland-3.jpg"><img src="assets/photography/Iceland/iceland-3.jpg" alt="Iceland" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Iceland/iceland-4.jpg"><img src="assets/photography/Iceland/iceland-4.jpg" alt="Iceland" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Iceland/iceland-5.jpg"><img src="assets/photography/Iceland/iceland-5.jpg" alt="Iceland" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Iceland/iceland-6.jpg"><img src="assets/photography/Iceland/iceland-6.jpg" alt="Iceland" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Iceland/iceland-7.jpg"><img src="assets/photography/Iceland/iceland-7.jpg" alt="Iceland" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Iceland/iceland-8.jpg"><img src="assets/photography/Iceland/iceland-8.jpg" alt="Iceland" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Iceland/iceland-9.jpg"><img src="assets/photography/Iceland/iceland-9.jpg" alt="Iceland" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Iceland/iceland-11.jpg"><img src="assets/photography/Iceland/iceland-11.jpg" alt="Iceland" loading="lazy"></button>
+        <div class="place-card" id="place-iceland">
+          <button type="button" class="place-cover" aria-label="Iceland" data-full="assets/photography/Iceland/iceland-10.jpg"><img src="assets/photography/Iceland/iceland-10.jpg" alt="Iceland" loading="lazy"></button>
+          <div class="place-head">
+            <span class="place-name" data-i18n="photo.place.iceland">Iceland</span>
+            <span class="place-date" data-i18n="photo.place.iceland.date">Oct 2024</span>
+          </div>
+          <button type="button" class="place-toggle" aria-expanded="false">
+            <span class="place-toggle-label" data-i18n="photo.viewall">View all</span>
+            <span class="place-toggle-count">(11)</span>
+            <svg class="place-toggle-icon" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="place-thumbs">
+            <button type="button" class="place-thumb" data-full="assets/photography/Iceland/iceland-1.jpg"><img src="assets/photography/Iceland/iceland-1.jpg" alt="Iceland" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Iceland/iceland-2.jpg"><img src="assets/photography/Iceland/iceland-2.jpg" alt="Iceland" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Iceland/iceland-3.jpg"><img src="assets/photography/Iceland/iceland-3.jpg" alt="Iceland" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Iceland/iceland-4.jpg"><img src="assets/photography/Iceland/iceland-4.jpg" alt="Iceland" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Iceland/iceland-5.jpg"><img src="assets/photography/Iceland/iceland-5.jpg" alt="Iceland" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Iceland/iceland-6.jpg"><img src="assets/photography/Iceland/iceland-6.jpg" alt="Iceland" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Iceland/iceland-7.jpg"><img src="assets/photography/Iceland/iceland-7.jpg" alt="Iceland" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Iceland/iceland-8.jpg"><img src="assets/photography/Iceland/iceland-8.jpg" alt="Iceland" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Iceland/iceland-9.jpg"><img src="assets/photography/Iceland/iceland-9.jpg" alt="Iceland" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Iceland/iceland-11.jpg"><img src="assets/photography/Iceland/iceland-11.jpg" alt="Iceland" loading="lazy"></button>
+          </div>
         </div>
-      </details>
-      <details class="photo-row" id="place-dubai">
-        <summary>
-          <span class="photo-idx">04</span>
-          <span class="photo-cover" role="button" tabindex="0" aria-label="Dubai" data-full="assets/photography/Dubai/dubai-1.jpg"><img src="assets/photography/Dubai/dubai-1.jpg" alt="Dubai" loading="lazy"></span>
-          <span class="photo-meta">
-            <span class="photo-name" data-i18n="photo.place.dubai">Dubai</span>
-            <span class="photo-date" data-i18n="photo.place.dubai.date">Oct 2023</span>
-            <span class="photo-more"><span data-i18n="photo.viewall">View all</span> (7)</span>
-          </span>
-        </summary>
-        <div class="photo-strip">
-            <button type="button" class="photo-thumb" data-full="assets/photography/Dubai/dubai-2.jpg"><img src="assets/photography/Dubai/dubai-2.jpg" alt="Dubai" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Dubai/dubai-3.jpg"><img src="assets/photography/Dubai/dubai-3.jpg" alt="Dubai" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Dubai/dubai-4.jpg"><img src="assets/photography/Dubai/dubai-4.jpg" alt="Dubai" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Dubai/dubai-5.jpg"><img src="assets/photography/Dubai/dubai-5.jpg" alt="Dubai" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Dubai/dubai-6.jpg"><img src="assets/photography/Dubai/dubai-6.jpg" alt="Dubai" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Dubai/dubai-7.jpg"><img src="assets/photography/Dubai/dubai-7.jpg" alt="Dubai" loading="lazy"></button>
+        <div class="place-card" id="place-dubai">
+          <button type="button" class="place-cover" aria-label="Dubai" data-full="assets/photography/Dubai/dubai-1.jpg"><img src="assets/photography/Dubai/dubai-1.jpg" alt="Dubai" loading="lazy"></button>
+          <div class="place-head">
+            <span class="place-name" data-i18n="photo.place.dubai">Dubai</span>
+            <span class="place-date" data-i18n="photo.place.dubai.date">Oct 2023</span>
+          </div>
+          <button type="button" class="place-toggle" aria-expanded="false">
+            <span class="place-toggle-label" data-i18n="photo.viewall">View all</span>
+            <span class="place-toggle-count">(7)</span>
+            <svg class="place-toggle-icon" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="place-thumbs">
+            <button type="button" class="place-thumb" data-full="assets/photography/Dubai/dubai-2.jpg"><img src="assets/photography/Dubai/dubai-2.jpg" alt="Dubai" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Dubai/dubai-3.jpg"><img src="assets/photography/Dubai/dubai-3.jpg" alt="Dubai" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Dubai/dubai-4.jpg"><img src="assets/photography/Dubai/dubai-4.jpg" alt="Dubai" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Dubai/dubai-5.jpg"><img src="assets/photography/Dubai/dubai-5.jpg" alt="Dubai" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Dubai/dubai-6.jpg"><img src="assets/photography/Dubai/dubai-6.jpg" alt="Dubai" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Dubai/dubai-7.jpg"><img src="assets/photography/Dubai/dubai-7.jpg" alt="Dubai" loading="lazy"></button>
+          </div>
         </div>
-      </details>
-      <details class="photo-row" id="place-hokkaido">
-        <summary>
-          <span class="photo-idx">05</span>
-          <span class="photo-cover" role="button" tabindex="0" aria-label="Hokkaido" data-full="assets/photography/Hokkaido/hokkaido-3.jpg"><img src="assets/photography/Hokkaido/hokkaido-3.jpg" alt="Hokkaido" loading="lazy"></span>
-          <span class="photo-meta">
-            <span class="photo-name" data-i18n="photo.place.hokkaido">Hokkaido</span>
-            <span class="photo-date" data-i18n="photo.place.hokkaido.date">Jan 2019</span>
-            <span class="photo-more"><span data-i18n="photo.viewall">View all</span> (10)</span>
-          </span>
-        </summary>
-        <div class="photo-strip">
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hokkaido/hokkaido-1.jpg"><img src="assets/photography/Hokkaido/hokkaido-1.jpg" alt="Hokkaido" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hokkaido/hokkaido-2.jpg"><img src="assets/photography/Hokkaido/hokkaido-2.jpg" alt="Hokkaido" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hokkaido/hokkaido-4.jpg"><img src="assets/photography/Hokkaido/hokkaido-4.jpg" alt="Hokkaido" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hokkaido/hokkaido-5.jpg"><img src="assets/photography/Hokkaido/hokkaido-5.jpg" alt="Hokkaido" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hokkaido/hokkaido-6.jpg"><img src="assets/photography/Hokkaido/hokkaido-6.jpg" alt="Hokkaido" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hokkaido/hokkaido-7.jpg"><img src="assets/photography/Hokkaido/hokkaido-7.jpg" alt="Hokkaido" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hokkaido/hokkaido-8.jpg"><img src="assets/photography/Hokkaido/hokkaido-8.jpg" alt="Hokkaido" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hokkaido/hokkaido-9.jpg"><img src="assets/photography/Hokkaido/hokkaido-9.jpg" alt="Hokkaido" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Hokkaido/hokkaido-10.jpg"><img src="assets/photography/Hokkaido/hokkaido-10.jpg" alt="Hokkaido" loading="lazy"></button>
+        <div class="place-card" id="place-hokkaido">
+          <button type="button" class="place-cover" aria-label="Hokkaido" data-full="assets/photography/Hokkaido/hokkaido-3.jpg"><img src="assets/photography/Hokkaido/hokkaido-3.jpg" alt="Hokkaido" loading="lazy"></button>
+          <div class="place-head">
+            <span class="place-name" data-i18n="photo.place.hokkaido">Hokkaido</span>
+            <span class="place-date" data-i18n="photo.place.hokkaido.date">Jan 2019</span>
+          </div>
+          <button type="button" class="place-toggle" aria-expanded="false">
+            <span class="place-toggle-label" data-i18n="photo.viewall">View all</span>
+            <span class="place-toggle-count">(10)</span>
+            <svg class="place-toggle-icon" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="place-thumbs">
+            <button type="button" class="place-thumb" data-full="assets/photography/Hokkaido/hokkaido-1.jpg"><img src="assets/photography/Hokkaido/hokkaido-1.jpg" alt="Hokkaido" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hokkaido/hokkaido-2.jpg"><img src="assets/photography/Hokkaido/hokkaido-2.jpg" alt="Hokkaido" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hokkaido/hokkaido-4.jpg"><img src="assets/photography/Hokkaido/hokkaido-4.jpg" alt="Hokkaido" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hokkaido/hokkaido-5.jpg"><img src="assets/photography/Hokkaido/hokkaido-5.jpg" alt="Hokkaido" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hokkaido/hokkaido-6.jpg"><img src="assets/photography/Hokkaido/hokkaido-6.jpg" alt="Hokkaido" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hokkaido/hokkaido-7.jpg"><img src="assets/photography/Hokkaido/hokkaido-7.jpg" alt="Hokkaido" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hokkaido/hokkaido-8.jpg"><img src="assets/photography/Hokkaido/hokkaido-8.jpg" alt="Hokkaido" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hokkaido/hokkaido-9.jpg"><img src="assets/photography/Hokkaido/hokkaido-9.jpg" alt="Hokkaido" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Hokkaido/hokkaido-10.jpg"><img src="assets/photography/Hokkaido/hokkaido-10.jpg" alt="Hokkaido" loading="lazy"></button>
+          </div>
         </div>
-      </details>
-      <details class="photo-row" id="place-cal">
-        <summary>
-          <span class="photo-idx">06</span>
-          <span class="photo-cover" role="button" tabindex="0" aria-label="Cal" data-full="assets/photography/Cal/cal-2.jpg"><img src="assets/photography/Cal/cal-2.jpg" alt="Cal" loading="lazy"></span>
-          <span class="photo-meta">
-            <span class="photo-name" data-i18n="photo.place.cal">Cal</span>
-            <span class="photo-date" data-i18n="photo.place.cal.date">Jul 2022</span>
-            <span class="photo-more"><span data-i18n="photo.viewall">View all</span> (5)</span>
-          </span>
-        </summary>
-        <div class="photo-strip">
-            <button type="button" class="photo-thumb" data-full="assets/photography/Cal/cal-1.jpg"><img src="assets/photography/Cal/cal-1.jpg" alt="Cal" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Cal/cal-3.jpg"><img src="assets/photography/Cal/cal-3.jpg" alt="Cal" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Cal/cal-4.jpg"><img src="assets/photography/Cal/cal-4.jpg" alt="Cal" loading="lazy"></button>
-            <button type="button" class="photo-thumb" data-full="assets/photography/Cal/cal-5.jpg"><img src="assets/photography/Cal/cal-5.jpg" alt="Cal" loading="lazy"></button>
+        <div class="place-card" id="place-cal">
+          <button type="button" class="place-cover" aria-label="Cal" data-full="assets/photography/Cal/cal-2.jpg"><img src="assets/photography/Cal/cal-2.jpg" alt="Cal" loading="lazy"></button>
+          <div class="place-head">
+            <span class="place-name" data-i18n="photo.place.cal">Cal</span>
+            <span class="place-date" data-i18n="photo.place.cal.date">Jul 2022</span>
+          </div>
+          <button type="button" class="place-toggle" aria-expanded="false">
+            <span class="place-toggle-label" data-i18n="photo.viewall">View all</span>
+            <span class="place-toggle-count">(5)</span>
+            <svg class="place-toggle-icon" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="place-thumbs">
+            <button type="button" class="place-thumb" data-full="assets/photography/Cal/cal-1.jpg"><img src="assets/photography/Cal/cal-1.jpg" alt="Cal" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Cal/cal-3.jpg"><img src="assets/photography/Cal/cal-3.jpg" alt="Cal" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Cal/cal-4.jpg"><img src="assets/photography/Cal/cal-4.jpg" alt="Cal" loading="lazy"></button>
+            <button type="button" class="place-thumb" data-full="assets/photography/Cal/cal-5.jpg"><img src="assets/photography/Cal/cal-5.jpg" alt="Cal" loading="lazy"></button>
+          </div>
         </div>
-      </details>
       </div>
 
       <h3 class="subhead" data-i18n="photo.video.title">Video</h3>
@@ -230,7 +236,7 @@
   </div>
 </footer>
 
-<script src="js/photo-gallery.js?v=1790023538"></script>
-<script src="js/i18n.js?v=1790023538"></script>
+<script src="js/photo-gallery.js?v=1790023893"></script>
+<script src="js/i18n.js?v=1790023893"></script>
 </body>
 </html>
